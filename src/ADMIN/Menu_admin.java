@@ -11,7 +11,9 @@ import javax.swing.JOptionPane;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -38,13 +40,32 @@ public class Menu_admin extends javax.swing.JFrame {
         initComponents();   
         
         consultas.RellenarComboBox("estacionamiento", "id_estacionamiento",CB_estacionamiento);
-        
+        tiempo(); //Lama el metodo para mostrarlo
         
     }
     
+    // Metodo para obener nombre de usuario 
     public void setNombreUsuario(String nombreUsuario) {
         lb_nombreUsuario.setText("Bienvenido, " + nombreUsuario);
     }
+    
+    // Metodo para obtener la hora y fecha actual
+    public void tiempo(){
+          Timer timer = new Timer(1000, e -> {
+            java.util.Date date = new java.util.Date();
+
+            SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
+            String formattedDate = dateFormatter.format(date);
+            lb_fecha.setText(formattedDate);
+
+            SimpleDateFormat timeFormatter = new SimpleDateFormat("hh:mm:ss a");
+            String formattedTime = timeFormatter.format(date);
+            lb_tiempo.setText(formattedTime);
+
+            
+        });
+        timer.start();
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,8 +85,8 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_minmax = new javax.swing.JLabel();
         btn_min = new javax.swing.JPanel();
         lb_min = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lb_tiempo = new javax.swing.JLabel();
+        lb_fecha = new javax.swing.JLabel();
         lb_nombreUsuario = new javax.swing.JLabel();
         IZQ2 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -254,17 +275,19 @@ public class Menu_admin extends javax.swing.JFrame {
             .addComponent(lb_min, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel12.setFont(new java.awt.Font("Soberana Sans", 0, 14)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("hh:mm:ss am");
+        lb_tiempo.setBackground(new java.awt.Color(187, 187, 187));
+        lb_tiempo.setFont(new java.awt.Font("Soberana Sans", 0, 14)); // NOI18N
+        lb_tiempo.setForeground(new java.awt.Color(204, 204, 204));
+        lb_tiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_tiempo.setText("hh:mm:ss am");
 
-        jLabel13.setFont(new java.awt.Font("Soberana Sans", 0, 14)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("dd/mm/yyyy");
+        lb_fecha.setFont(new java.awt.Font("Soberana Sans", 0, 14)); // NOI18N
+        lb_fecha.setForeground(new java.awt.Color(204, 204, 204));
+        lb_fecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_fecha.setText("dd/mm/yyyy");
 
         lb_nombreUsuario.setFont(new java.awt.Font("Louis George Cafe", 1, 12)); // NOI18N
         lb_nombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lb_nombreUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_nombreUsuario.setText("user");
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
@@ -274,12 +297,12 @@ public class Menu_admin extends javax.swing.JFrame {
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lb_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addComponent(lb_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(lb_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(lb_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(btn_min, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btn_minmax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,11 +315,9 @@ public class Menu_admin extends javax.swing.JFrame {
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
             .addComponent(btn_minmax, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_min, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addComponent(jLabel13)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lb_nombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lb_tiempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lb_fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(header, java.awt.BorderLayout.PAGE_START);
@@ -1485,8 +1506,6 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
@@ -1517,6 +1536,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel lb_cerrarsesion;
     private javax.swing.JLabel lb_estac;
     private javax.swing.JLabel lb_exit;
+    private javax.swing.JLabel lb_fecha;
     private javax.swing.JLabel lb_lugares;
     private javax.swing.JLabel lb_membresia;
     private javax.swing.JLabel lb_min;
@@ -1525,6 +1545,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel lb_registrar;
     private javax.swing.JLabel lb_registros;
     private javax.swing.JLabel lb_salidaVehiculos;
+    private javax.swing.JLabel lb_tiempo;
     private javax.swing.JLabel lb_usuarios;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txt_curp;
