@@ -86,7 +86,7 @@ public class Menu_admin extends javax.swing.JFrame {
         txt_iduser = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
-        txt_credencial = new javax.swing.JTextField();
+        txt_curp = new javax.swing.JTextField();
         txtContraseña = new javax.swing.JPasswordField();
         cmbRol = new javax.swing.JComboBox<>();
         jSeparator2 = new javax.swing.JSeparator();
@@ -524,7 +524,7 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel15.setText("Rango");
 
         jLabel19.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
-        jLabel19.setText("Credencial");
+        jLabel19.setText("CURP");
 
         txt_iduser.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txt_iduser.setForeground(new java.awt.Color(102, 102, 102));
@@ -555,21 +555,21 @@ public class Menu_admin extends javax.swing.JFrame {
             }
         });
 
-        txt_credencial.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        txt_credencial.setForeground(new java.awt.Color(102, 102, 102));
-        txt_credencial.setText("Ingrese los últimos cuatro digítos");
-        txt_credencial.setBorder(null);
-        txt_credencial.addMouseListener(new java.awt.event.MouseAdapter() {
+        txt_curp.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_curp.setForeground(new java.awt.Color(102, 102, 102));
+        txt_curp.setText("Ingrese el CURP");
+        txt_curp.setBorder(null);
+        txt_curp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                txt_credencialMouseExited(evt);
+                txt_curpMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txt_credencialMousePressed(evt);
+                txt_curpMousePressed(evt);
             }
         });
-        txt_credencial.addActionListener(new java.awt.event.ActionListener() {
+        txt_curp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_credencialActionPerformed(evt);
+                txt_curpActionPerformed(evt);
             }
         });
 
@@ -694,7 +694,7 @@ public class Menu_admin extends javax.swing.JFrame {
                         .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel20)
                             .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                            .addComponent(txt_credencial)
+                            .addComponent(txt_curp)
                             .addComponent(jLabel19)
                             .addComponent(jSeparator3)
                             .addComponent(jSeparator5)
@@ -718,7 +718,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_iduser, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_credencial, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_curp, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2)
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -861,7 +861,7 @@ public class Menu_admin extends javax.swing.JFrame {
         String nombre = txt_nombre.getText();         // txtNombre es el JTextField para el nombre
         String telefono = txt_telefono.getText();     // txtTelefono es el JTextField para el telefono
         String rol = cmbRol.getSelectedItem().toString(); // cmbRol es el JComboBox para el rol
-        String credencial = txt_credencial.getText();  // txtCredencial es el JTextField para las credenciales
+        String credencial = txt_curp.getText();  // txtCredencial es el JTextField para las credenciales
         String contraseña = new String(txtContraseña.getPassword()); // txtContraseña es el JPasswordField para la contraseña
 
         // Establecer la conexión
@@ -935,9 +935,9 @@ public class Menu_admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_telefonoActionPerformed
 
-    private void txt_credencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_credencialActionPerformed
+    private void txt_curpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_curpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_credencialActionPerformed
+    }//GEN-LAST:event_txt_curpActionPerformed
 
     private void txt_iduserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_iduserMousePressed
         if (txt_iduser.getText().equals("Ingrese el ID de usuario")) {
@@ -946,33 +946,31 @@ public class Menu_admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_iduserMousePressed
 
-    private void txt_credencialMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_credencialMousePressed
-        if (txt_credencial.getText().equals("Ingrese los últimos cuatro digítos")) {
-            txt_credencial.setText("");
-            txt_credencial.setForeground(Color.black);
+    private void txt_curpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_curpMousePressed
+        if (txt_curp.getText().equals("Ingrese el CURP")) {
+            txt_curp.setText("");
+            txt_curp.setForeground(Color.black);
         }
-        
-        txt_credencial.addKeyListener(new KeyAdapter() { //Solo se esperan números
-        @Override
-        public void keyTyped(KeyEvent e) {
-            // Obtener el carácter ingresado
-            char n = e.getKeyChar();
-            
-            // Verificar si el carácter es un número o si es la tecla de retroceso 
-            if (!Character.isDigit(n) && n != KeyEvent.VK_BACK_SPACE) {
-                e.consume();  // Si no es un número, se bloquea la entrada
-                JOptionPane.showMessageDialog(null, "Ingrese solo números", "Advertencia", JOptionPane.WARNING_MESSAGE);
-            }
-            
-            if (txt_credencial.getText().length() >= 4) {
-                if (Character.isDigit(n)) {
-                    e.consume();  // Si el número de caracteres es 10, no se permite añadir más
-                    JOptionPane.showMessageDialog(null, "Solo se solicitan los últimos cuatro dígitos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+
+        // Añadir un KeyListener para convertir a mayúsculas y validar la longitud del texto
+        txt_curp.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                // Convertir a mayúsculas si la tecla presionada es una letra minúscula
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    // Convertir el carácter a mayúscula
+                    e.setKeyChar(Character.toUpperCase(c));
+                }
+
+                // Si el texto ya tiene 18 caracteres y se intenta ingresar más, se bloquea la entrada
+                if (txt_curp.getText().length() >= 18) {
+                    e.consume();  // Bloquea la entrada de más caracteres
+                    JOptionPane.showMessageDialog(null, "Ingreso más de los caracteres esperados (18 caracteres)", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 }
             }
-        }
-    });
-    }//GEN-LAST:event_txt_credencialMousePressed
+        });   
+    }//GEN-LAST:event_txt_curpMousePressed
 
     private void txt_nombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_nombreMousePressed
         if (txt_nombre.getText().equals("Ingrese el nombre completo")) {
@@ -1016,12 +1014,12 @@ public class Menu_admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_iduserMouseExited
 
-    private void txt_credencialMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_credencialMouseExited
-        if (txt_credencial.getText().isEmpty()) {
-            txt_credencial.setText("Ingrese los últimos cuatro digítos");
-            txt_credencial.setForeground(new Color(102, 102, 102));
+    private void txt_curpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_curpMouseExited
+        if (txt_curp.getText().isEmpty()) {
+            txt_curp.setText("Ingrese el CURP");
+            txt_curp.setForeground(new Color(102, 102, 102));
         }
-    }//GEN-LAST:event_txt_credencialMouseExited
+    }//GEN-LAST:event_txt_curpMouseExited
 
     private void txt_nombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_nombreMouseExited
         if (txt_nombre.getText().isEmpty()) {
@@ -1131,7 +1129,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel lb_registrar;
     private javax.swing.JLabel lbl_Usuarios;
     private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JTextField txt_credencial;
+    private javax.swing.JTextField txt_curp;
     private javax.swing.JTextField txt_iduser;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_telefono;
