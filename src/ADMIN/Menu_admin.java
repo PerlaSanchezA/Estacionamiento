@@ -951,6 +951,27 @@ public class Menu_admin extends javax.swing.JFrame {
             txt_credencial.setText("");
             txt_credencial.setForeground(Color.black);
         }
+        
+        txt_credencial.addKeyListener(new KeyAdapter() { //Solo se esperan números
+        @Override
+        public void keyTyped(KeyEvent e) {
+            // Obtener el carácter ingresado
+            char n = e.getKeyChar();
+            
+            // Verificar si el carácter es un número o si es la tecla de retroceso 
+            if (!Character.isDigit(n) && n != KeyEvent.VK_BACK_SPACE) {
+                e.consume();  // Si no es un número, se bloquea la entrada
+                JOptionPane.showMessageDialog(null, "Ingrese solo números", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            }
+            
+            if (txt_credencial.getText().length() >= 4) {
+                if (Character.isDigit(n)) {
+                    e.consume();  // Si el número de caracteres es 10, no se permite añadir más
+                    JOptionPane.showMessageDialog(null, "Solo se solicitan los últimos cuatro dígitos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        }
+    });
     }//GEN-LAST:event_txt_credencialMousePressed
 
     private void txt_nombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_nombreMousePressed
