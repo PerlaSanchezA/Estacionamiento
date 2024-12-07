@@ -9,6 +9,8 @@ import java.sql.*;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -516,7 +518,7 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel11.setText("Nombre completo");
 
         jLabel14.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
-        jLabel14.setText("Teléfono");
+        jLabel14.setText("Número telefónico");
 
         jLabel15.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel15.setText("Rango");
@@ -524,24 +526,62 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel19.setText("Credencial");
 
-        txt_iduser.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
-        txt_iduser.setText("jTextField1");
+        txt_iduser.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_iduser.setForeground(new java.awt.Color(102, 102, 102));
+        txt_iduser.setText("Ingrese el ID de usuario");
         txt_iduser.setBorder(null);
+        txt_iduser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_iduserMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_iduserMousePressed(evt);
+            }
+        });
 
         jLabel20.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel20.setText("Contraseña");
 
-        txt_nombre.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
-        txt_nombre.setText("jTextField2");
+        txt_nombre.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_nombre.setForeground(new java.awt.Color(102, 102, 102));
+        txt_nombre.setText("Ingrese el nombre completo");
         txt_nombre.setBorder(null);
+        txt_nombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_nombreMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_nombreMousePressed(evt);
+            }
+        });
 
-        txt_credencial.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
-        txt_credencial.setText("jTextField5");
+        txt_credencial.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_credencial.setForeground(new java.awt.Color(102, 102, 102));
+        txt_credencial.setText("Ingrese los últimos cuatro digítos");
         txt_credencial.setBorder(null);
+        txt_credencial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_credencialMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_credencialMousePressed(evt);
+            }
+        });
+        txt_credencial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_credencialActionPerformed(evt);
+            }
+        });
 
-        txtContraseña.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
+        txtContraseña.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txtContraseña.setForeground(new java.awt.Color(102, 102, 102));
         txtContraseña.setText("jPasswordField1");
         txtContraseña.setBorder(null);
+        txtContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtContraseñaMouseExited(evt);
+            }
+        });
 
         cmbRol.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
         cmbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Empleado" }));
@@ -600,9 +640,23 @@ public class Menu_admin extends javax.swing.JFrame {
         jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
 
-        txt_telefono.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
-        txt_telefono.setText("jTextField4");
+        txt_telefono.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_telefono.setForeground(new java.awt.Color(102, 102, 102));
+        txt_telefono.setText("Ingrese el número teléfonico");
         txt_telefono.setBorder(null);
+        txt_telefono.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_telefonoMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_telefonoMousePressed(evt);
+            }
+        });
+        txt_telefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_telefonoActionPerformed(evt);
+            }
+        });
 
         jSeparator6.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
@@ -742,12 +796,12 @@ public class Menu_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_lb_exitMouseClicked
 
     private void lb_exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_exitMouseEntered
-         btn_exit.setBackground(new Color(116, 9,56)); //parecido a rojo bajito
-        lb_exit.setForeground(Color.gray);
+         btn_exit.setBackground(new Color(204, 43, 82)); //parecido a rojo bajito
+        lb_exit.setForeground(Color.white);
     }//GEN-LAST:event_lb_exitMouseEntered
 
     private void lb_exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_exitMouseExited
-        btn_exit.setBackground(new Color(204, 43, 82)); //Rojo  [204,43,82]
+        btn_exit.setBackground(new Color(175,23,64)); //Rojo  [175,23,64]
         lb_exit.setForeground(Color.white);
     }//GEN-LAST:event_lb_exitMouseExited
 
@@ -766,12 +820,12 @@ public class Menu_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_lb_minmaxMouseClicked
 
     private void lb_minmaxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_minmaxMouseEntered
-        btn_minmax.setBackground(new Color(116, 9,56)); //parecido a rojo bajito
-        lb_minmax.setForeground(Color.gray);
+        btn_minmax.setBackground(new Color(204, 43, 82)); //parecido a rojo bajito
+        lb_minmax.setForeground(Color.white);
     }//GEN-LAST:event_lb_minmaxMouseEntered
 
     private void lb_minmaxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_minmaxMouseExited
-         btn_minmax.setBackground(new Color(204, 43, 82)); //Rojo  [204,43,82]
+         btn_minmax.setBackground(new Color(175,23,64)); //Rojo  [175,23,64]
          lb_minmax.setForeground(Color.white);
     }//GEN-LAST:event_lb_minmaxMouseExited
 
@@ -792,12 +846,12 @@ public class Menu_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_lb_minMouseClicked
 
     private void lb_minMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_minMouseEntered
-        btn_min.setBackground(new Color(116, 9,56)); //parecido a rojo bajito
-        lb_min.setForeground(Color.gray);
+        btn_min.setBackground(new Color(204, 43, 82)); //parecido a rojo bajito
+        lb_min.setForeground(Color.white);
     }//GEN-LAST:event_lb_minMouseEntered
 
     private void lb_minMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_minMouseExited
-         btn_min.setBackground(new Color(204, 43, 82)); //Rojo  [204,43,82]
+         btn_min.setBackground(new Color(175,23,64)); //Rojo  [175,23,64]
          lb_min.setForeground(Color.white);
     }//GEN-LAST:event_lb_minMouseExited
 
@@ -876,6 +930,98 @@ public class Menu_admin extends javax.swing.JFrame {
     private void cmbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRolActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbRolActionPerformed
+
+    private void txt_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_telefonoActionPerformed
+
+    private void txt_credencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_credencialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_credencialActionPerformed
+
+    private void txt_iduserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_iduserMousePressed
+        if (txt_iduser.getText().equals("Ingrese el ID de usuario")) {
+            txt_iduser.setText("");
+            txt_iduser.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txt_iduserMousePressed
+
+    private void txt_credencialMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_credencialMousePressed
+        if (txt_credencial.getText().equals("Ingrese los últimos cuatro digítos")) {
+            txt_credencial.setText("");
+            txt_credencial.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txt_credencialMousePressed
+
+    private void txt_nombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_nombreMousePressed
+        if (txt_nombre.getText().equals("Ingrese el nombre completo")) {
+            txt_nombre.setText("");
+            txt_nombre.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txt_nombreMousePressed
+
+    private void txt_telefonoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_telefonoMousePressed
+        if (txt_telefono.getText().equals("Ingrese el número teléfonico")) {
+            txt_telefono.setText("");
+            txt_telefono.setForeground(Color.black);
+        } 
+        
+        txt_telefono.addKeyListener(new KeyAdapter() { //Solo se esperan números
+        @Override
+        public void keyTyped(KeyEvent e) {
+            // Obtener el carácter ingresado
+            char c = e.getKeyChar();
+            
+            // Verificar si el carácter es un número o si es la tecla de retroceso 
+            if (!Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE) {
+                e.consume();  // Si no es un número, se bloquea la entrada
+                JOptionPane.showMessageDialog(null, "Ingrese solo números", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            }
+            
+            if (txt_telefono.getText().length() >= 10) {
+                if (Character.isDigit(c)) {
+                    e.consume();  // Si el número de caracteres es 10, no se permite añadir más
+                    JOptionPane.showMessageDialog(null, "El número telefónico no puede tener más de 10 dígitos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        }
+    });
+    }//GEN-LAST:event_txt_telefonoMousePressed
+
+    private void txt_iduserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_iduserMouseExited
+        if (txt_iduser.getText().isEmpty()) {
+            txt_iduser.setText("Ingrese el ID de usuario");
+            txt_iduser.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txt_iduserMouseExited
+
+    private void txt_credencialMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_credencialMouseExited
+        if (txt_credencial.getText().isEmpty()) {
+            txt_credencial.setText("Ingrese los últimos cuatro digítos");
+            txt_credencial.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txt_credencialMouseExited
+
+    private void txt_nombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_nombreMouseExited
+        if (txt_nombre.getText().isEmpty()) {
+            txt_nombre.setText("Ingrese el nombre completo");
+            txt_nombre.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txt_nombreMouseExited
+
+    private void txt_telefonoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_telefonoMouseExited
+        if (txt_telefono.getText().isEmpty()) {
+            txt_telefono.setText("Ingrese el número teléfonico");
+            txt_telefono.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txt_telefonoMouseExited
+
+    private void txtContraseñaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMouseExited
+        if (String.valueOf(txtContraseña.getPassword()).isEmpty()) {
+            txtContraseña.setText("**************");
+            txtContraseña.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txtContraseñaMouseExited
 
     /**
      * @param args the command line arguments
