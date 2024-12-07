@@ -180,11 +180,11 @@ public class login_admin extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGap(0, 301, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -282,14 +282,10 @@ public class login_admin extends javax.swing.JFrame {
                             .addComponent(jSeparator2)))
                     .addComponent(jp_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jp_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
@@ -308,9 +304,10 @@ public class login_admin extends javax.swing.JFrame {
                 .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);
@@ -393,6 +390,7 @@ public class login_admin extends javax.swing.JFrame {
         btn_entrar.setBackground(new Color(116, 9, 56)); //parecido a rojo bajito rgb(116, 9, 56)
         lb_entrar.setForeground(Color.white);
     }//GEN-LAST:event_lb_entrarMouseExited
+
 // AQUI IRA LA LOGICA DE SQL
     private void lb_entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_entrarMouseClicked
        // Capturar los datos del formulario de login
@@ -404,7 +402,7 @@ public class login_admin extends javax.swing.JFrame {
         if (con != null) {
             try {
                 // Consulta SQL para verificar el usuario y la contraseña
-                String sql = "SELECT * FROM usuario WHERE id_usuario = ? AND contraseña = ? AND rol = 'administrador'";
+                String sql = "SELECT * FROM usuario WHERE id_usuario = ? AND Contraseña = ? AND Rango = 'administrador'";
 
                 // Preparar la sentencia SQL
                 PreparedStatement ps = con.prepareStatement(sql);
@@ -416,11 +414,16 @@ public class login_admin extends javax.swing.JFrame {
 
                 // Verificar si se encontró el usuario con el rol de 'administrador'
                 if (rs.next()) {
+                    
+                    // Obtener el nombre del usuario
+                    String nombreUsuario = rs.getString("Nombre");
+                    
                     // El usuario existe y es un administrador
                     JOptionPane.showMessageDialog(null, "Bienvenido, Administrador.");
 
                     // Redirigir al menú de administrador
                     Menu_admin menuAdmin = new Menu_admin();  // Asegúrate de que 'Menu_admin' sea tu clase principal de administrador
+                    menuAdmin.setNombreUsuario(nombreUsuario); //Pasa el nombre de usuario
                     menuAdmin.setVisible(true);
 
                     // Cerrar el formulario de login

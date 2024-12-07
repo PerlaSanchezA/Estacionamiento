@@ -26,6 +26,8 @@ public class Menu_admin extends javax.swing.JFrame {
      */
     
     int xMouse, yMouse;
+    
+    conexion consultas=new conexion();
    
     public Menu_admin() {
          try {
@@ -33,7 +35,15 @@ public class Menu_admin extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException e) {
         }
          
-        initComponents();    
+        initComponents();   
+        
+        consultas.RellenarComboBox("estacionamiento", "id_estacionamiento",CB_estacionamiento);
+        
+        
+    }
+    
+    public void setNombreUsuario(String nombreUsuario) {
+        lb_nombreUsuario.setText("Bienvenido, " + nombreUsuario);
     }
 
     /**
@@ -56,39 +66,42 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_min = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        lb_nombreUsuario = new javax.swing.JLabel();
         IZQ2 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
+        btn_usuarios = new Clases.PanelRound();
+        lb_usuarios = new javax.swing.JLabel();
         btn_Membresia = new Clases.PanelRound();
-        jLabel21 = new javax.swing.JLabel();
-        btn_DatosMembresia = new Clases.PanelRound();
-        jLabel22 = new javax.swing.JLabel();
+        lb_membresia = new javax.swing.JLabel();
+        btn_registros = new Clases.PanelRound();
+        lb_registros = new javax.swing.JLabel();
         btn_HorayFracc = new Clases.PanelRound();
-        jLabel24 = new javax.swing.JLabel();
+        lb_HorayFraccion = new javax.swing.JLabel();
         btn_Lugares = new Clases.PanelRound();
-        jLabel29 = new javax.swing.JLabel();
+        lb_lugares = new javax.swing.JLabel();
         btn_SalVehiculos = new Clases.PanelRound();
-        jLabel30 = new javax.swing.JLabel();
-        btn_Usuarios = new Clases.PanelRound();
-        lbl_Usuarios = new javax.swing.JLabel();
-        btn_SalVehiculos1 = new Clases.PanelRound();
-        jLabel31 = new javax.swing.JLabel();
+        lb_salidaVehiculos = new javax.swing.JLabel();
+        btn_cerrarsesion = new Clases.PanelRound();
+        lb_cerrarsesion = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         centro = new javax.swing.JPanel();
+        jp_principal = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jp_usuarios = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        lb_estac = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         txt_iduser = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
         txt_curp = new javax.swing.JTextField();
         txtContraseña = new javax.swing.JPasswordField();
-        cmbRol = new javax.swing.JComboBox<>();
+        CB_estacionamiento = new javax.swing.JComboBox<>();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -98,8 +111,14 @@ public class Menu_admin extends javax.swing.JFrame {
         txt_telefono = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        jp_m = new javax.swing.JPanel();
-        jp_dm = new javax.swing.JPanel();
+        cmbRol1 = new javax.swing.JComboBox<>();
+        jSeparator8 = new javax.swing.JSeparator();
+        jLabel16 = new javax.swing.JLabel();
+        jp_membresia = new javax.swing.JPanel();
+        jp_registros = new javax.swing.JPanel();
+        jp_HorayFraccion = new javax.swing.JPanel();
+        jp_lugares = new javax.swing.JPanel();
+        jp_salidaVehiculos = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -197,7 +216,7 @@ public class Menu_admin extends javax.swing.JFrame {
         );
         btn_minmaxLayout.setVerticalGroup(
             btn_minmaxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_minmax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lb_minmax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         btn_min.setBackground(new java.awt.Color(175, 23, 64));
@@ -243,13 +262,20 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("dd/mm/yyyy");
 
+        lb_nombreUsuario.setFont(new java.awt.Font("Louis George Cafe", 1, 12)); // NOI18N
+        lb_nombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nombreUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_nombreUsuario.setText("user");
+
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 392, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lb_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,8 +292,11 @@ public class Menu_admin extends javax.swing.JFrame {
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
             .addComponent(btn_minmax, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_min, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addComponent(jLabel13)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lb_nombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(header, java.awt.BorderLayout.PAGE_START);
@@ -278,230 +307,308 @@ public class Menu_admin extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(222, 124, 125));
         jSeparator1.setForeground(new java.awt.Color(222, 124, 125));
 
-        jLabel1.setFont(new java.awt.Font("Louis George Cafe", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Admin");
+        btn_usuarios.setBackground(new java.awt.Color(0, 34, 77));
+        btn_usuarios.setRoundBottomLeft(37);
+        btn_usuarios.setRoundTopLeft(37);
+        btn_usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_usuariosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_usuariosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_usuariosMouseExited(evt);
+            }
+        });
 
+        lb_usuarios.setBackground(new java.awt.Color(255, 255, 255));
+        lb_usuarios.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
+        lb_usuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_usuarios.setText("USUARIOS");
+        lb_usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_usuariosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_usuariosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_usuariosMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btn_usuariosLayout = new javax.swing.GroupLayout(btn_usuarios);
+        btn_usuarios.setLayout(btn_usuariosLayout);
+        btn_usuariosLayout.setHorizontalGroup(
+            btn_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_usuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        btn_usuariosLayout.setVerticalGroup(
+            btn_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_usuarios, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+        );
+
+        btn_Membresia.setBackground(new java.awt.Color(0, 34, 77));
         btn_Membresia.setRoundBottomLeft(37);
         btn_Membresia.setRoundTopLeft(37);
 
-        jLabel21.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("Membresia");
+        lb_membresia.setBackground(new java.awt.Color(187, 187, 187));
+        lb_membresia.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
+        lb_membresia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_membresia.setText("Membresia");
+        lb_membresia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_membresiaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_membresiaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_membresiaMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_MembresiaLayout = new javax.swing.GroupLayout(btn_Membresia);
         btn_Membresia.setLayout(btn_MembresiaLayout);
         btn_MembresiaLayout.setHorizontalGroup(
             btn_MembresiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lb_membresia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_MembresiaLayout.setVerticalGroup(
             btn_MembresiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_MembresiaLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLabel21)
-                .addGap(15, 15, 15))
+            .addComponent(lb_membresia, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
-        btn_DatosMembresia.setRoundBottomLeft(37);
-        btn_DatosMembresia.setRoundTopLeft(37);
+        btn_registros.setBackground(new java.awt.Color(0, 34, 77));
+        btn_registros.setRoundBottomLeft(37);
+        btn_registros.setRoundTopLeft(37);
 
-        jLabel22.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("Datos membresia");
+        lb_registros.setBackground(new java.awt.Color(187, 187, 187));
+        lb_registros.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
+        lb_registros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_registros.setText("Registros");
+        lb_registros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_registrosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_registrosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_registrosMouseExited(evt);
+            }
+        });
 
-        javax.swing.GroupLayout btn_DatosMembresiaLayout = new javax.swing.GroupLayout(btn_DatosMembresia);
-        btn_DatosMembresia.setLayout(btn_DatosMembresiaLayout);
-        btn_DatosMembresiaLayout.setHorizontalGroup(
-            btn_DatosMembresiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+        javax.swing.GroupLayout btn_registrosLayout = new javax.swing.GroupLayout(btn_registros);
+        btn_registros.setLayout(btn_registrosLayout);
+        btn_registrosLayout.setHorizontalGroup(
+            btn_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_registros, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
         );
-        btn_DatosMembresiaLayout.setVerticalGroup(
-            btn_DatosMembresiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_DatosMembresiaLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLabel22)
-                .addGap(15, 15, 15))
+        btn_registrosLayout.setVerticalGroup(
+            btn_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_registros, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
+        btn_HorayFracc.setBackground(new java.awt.Color(0, 34, 77));
         btn_HorayFracc.setRoundBottomLeft(37);
         btn_HorayFracc.setRoundTopLeft(37);
 
-        jLabel24.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("Hora y fracción");
+        lb_HorayFraccion.setBackground(new java.awt.Color(187, 187, 187));
+        lb_HorayFraccion.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
+        lb_HorayFraccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_HorayFraccion.setText("Hora y fracción");
+        lb_HorayFraccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_HorayFraccionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_HorayFraccionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_HorayFraccionMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_HorayFraccLayout = new javax.swing.GroupLayout(btn_HorayFracc);
         btn_HorayFracc.setLayout(btn_HorayFraccLayout);
         btn_HorayFraccLayout.setHorizontalGroup(
             btn_HorayFraccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lb_HorayFraccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_HorayFraccLayout.setVerticalGroup(
             btn_HorayFraccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_HorayFraccLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLabel24)
-                .addGap(15, 15, 15))
+            .addComponent(lb_HorayFraccion, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
+        btn_Lugares.setBackground(new java.awt.Color(0, 34, 77));
         btn_Lugares.setRoundBottomLeft(37);
         btn_Lugares.setRoundTopLeft(37);
 
-        jLabel29.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setText("Lugares");
+        lb_lugares.setBackground(new java.awt.Color(187, 187, 187));
+        lb_lugares.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
+        lb_lugares.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_lugares.setText("Lugares");
+        lb_lugares.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_lugaresMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_lugaresMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_lugaresMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_LugaresLayout = new javax.swing.GroupLayout(btn_Lugares);
         btn_Lugares.setLayout(btn_LugaresLayout);
         btn_LugaresLayout.setHorizontalGroup(
             btn_LugaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lb_lugares, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_LugaresLayout.setVerticalGroup(
             btn_LugaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_LugaresLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLabel29)
-                .addGap(15, 15, 15))
+            .addComponent(lb_lugares, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
+        btn_SalVehiculos.setBackground(new java.awt.Color(0, 34, 77));
         btn_SalVehiculos.setRoundBottomLeft(37);
         btn_SalVehiculos.setRoundTopLeft(37);
 
-        jLabel30.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
-        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel30.setText("Salida vehículos");
+        lb_salidaVehiculos.setBackground(new java.awt.Color(187, 187, 187));
+        lb_salidaVehiculos.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
+        lb_salidaVehiculos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_salidaVehiculos.setText("Salida vehículos");
+        lb_salidaVehiculos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_salidaVehiculosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_salidaVehiculosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_salidaVehiculosMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_SalVehiculosLayout = new javax.swing.GroupLayout(btn_SalVehiculos);
         btn_SalVehiculos.setLayout(btn_SalVehiculosLayout);
         btn_SalVehiculosLayout.setHorizontalGroup(
             btn_SalVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lb_salidaVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_SalVehiculosLayout.setVerticalGroup(
             btn_SalVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_SalVehiculosLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLabel30)
-                .addGap(15, 15, 15))
+            .addComponent(lb_salidaVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
-        btn_Usuarios.setBackground(new java.awt.Color(255, 255, 255));
-        btn_Usuarios.setRoundBottomLeft(37);
-        btn_Usuarios.setRoundTopLeft(37);
-        btn_Usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_UsuariosMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_UsuariosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_UsuariosMouseExited(evt);
-            }
-        });
+        btn_cerrarsesion.setRoundBottomLeft(37);
+        btn_cerrarsesion.setRoundBottomRight(37);
+        btn_cerrarsesion.setRoundTopLeft(37);
+        btn_cerrarsesion.setRoundTopRight(37);
 
-        lbl_Usuarios.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
-        lbl_Usuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_Usuarios.setText("USUARIOS");
+        lb_cerrarsesion.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
+        lb_cerrarsesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_cerrarsesion.setText("Cerrar sesión");
 
-        javax.swing.GroupLayout btn_UsuariosLayout = new javax.swing.GroupLayout(btn_Usuarios);
-        btn_Usuarios.setLayout(btn_UsuariosLayout);
-        btn_UsuariosLayout.setHorizontalGroup(
-            btn_UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_Usuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout btn_cerrarsesionLayout = new javax.swing.GroupLayout(btn_cerrarsesion);
+        btn_cerrarsesion.setLayout(btn_cerrarsesionLayout);
+        btn_cerrarsesionLayout.setHorizontalGroup(
+            btn_cerrarsesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_cerrarsesion, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
         );
-        btn_UsuariosLayout.setVerticalGroup(
-            btn_UsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_UsuariosLayout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addComponent(lbl_Usuarios)
-                .addGap(17, 17, 17))
-        );
-
-        btn_SalVehiculos1.setRoundBottomLeft(37);
-        btn_SalVehiculos1.setRoundTopLeft(37);
-
-        jLabel31.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
-        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setText("Cerrar sesión");
-
-        javax.swing.GroupLayout btn_SalVehiculos1Layout = new javax.swing.GroupLayout(btn_SalVehiculos1);
-        btn_SalVehiculos1.setLayout(btn_SalVehiculos1Layout);
-        btn_SalVehiculos1Layout.setHorizontalGroup(
-            btn_SalVehiculos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        btn_SalVehiculos1Layout.setVerticalGroup(
-            btn_SalVehiculos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_SalVehiculos1Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLabel31)
-                .addGap(15, 15, 15))
+        btn_cerrarsesionLayout.setVerticalGroup(
+            btn_cerrarsesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_cerrarsesion, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logo.png"))); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Louis George Cafe", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Admin");
 
         javax.swing.GroupLayout IZQ2Layout = new javax.swing.GroupLayout(IZQ2);
         IZQ2.setLayout(IZQ2Layout);
         IZQ2Layout.setHorizontalGroup(
             IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IZQ2Layout.createSequentialGroup()
-                .addGap(0, 21, Short.MAX_VALUE)
-                .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_Membresia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_DatosMembresia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_HorayFracc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Lugares, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(IZQ2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_SalVehiculos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Usuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IZQ2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                            .addComponent(jSeparator1))
-                        .addGap(27, 27, 27))))
             .addGroup(IZQ2Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(jLabel2)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IZQ2Layout.createSequentialGroup()
+                .addGap(0, 21, Short.MAX_VALUE)
+                .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btn_usuarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_Membresia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_registros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_HorayFracc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_Lugares, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))))
         );
         IZQ2Layout.setVerticalGroup(
             IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IZQ2Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(btn_usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
                 .addComponent(btn_Membresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_DatosMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_registros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_HorayFracc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_Lugares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(btn_SalVehiculos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
 
         getContentPane().add(IZQ2, java.awt.BorderLayout.LINE_START);
 
         centro.setBackground(new java.awt.Color(248, 244, 236));
-        centro.setLayout(new javax.swing.OverlayLayout(centro));
+        centro.setLayout(new java.awt.CardLayout());
+
+        jp_principal.setBackground(new java.awt.Color(255, 204, 255));
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Bienvenido");
+
+        javax.swing.GroupLayout jp_principalLayout = new javax.swing.GroupLayout(jp_principal);
+        jp_principal.setLayout(jp_principalLayout);
+        jp_principalLayout.setHorizontalGroup(
+            jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_principalLayout.createSequentialGroup()
+                .addGap(229, 229, 229)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(295, Short.MAX_VALUE))
+        );
+        jp_principalLayout.setVerticalGroup(
+            jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_principalLayout.createSequentialGroup()
+                .addGap(342, 342, 342)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(289, Short.MAX_VALUE))
+        );
+
+        centro.add(jp_principal, "card2");
 
         jp_usuarios.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -520,8 +627,8 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel14.setText("Número telefónico");
 
-        jLabel15.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
-        jLabel15.setText("Rango");
+        lb_estac.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
+        lb_estac.setText("Estacionmiento");
 
         jLabel19.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel19.setText("CURP");
@@ -583,12 +690,11 @@ public class Menu_admin extends javax.swing.JFrame {
             }
         });
 
-        cmbRol.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
-        cmbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Empleado" }));
-        cmbRol.setBorder(null);
-        cmbRol.addActionListener(new java.awt.event.ActionListener() {
+        CB_estacionamiento.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
+        CB_estacionamiento.setBorder(null);
+        CB_estacionamiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbRolActionPerformed(evt);
+                CB_estacionamientoActionPerformed(evt);
             }
         });
 
@@ -664,6 +770,21 @@ public class Menu_admin extends javax.swing.JFrame {
         jSeparator7.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
 
+        cmbRol1.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
+        cmbRol1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Empleado" }));
+        cmbRol1.setBorder(null);
+        cmbRol1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbRol1ActionPerformed(evt);
+            }
+        });
+
+        jSeparator8.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel16.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
+        jLabel16.setText("Rango");
+
         javax.swing.GroupLayout jp_usuariosLayout = new javax.swing.GroupLayout(jp_usuarios);
         jp_usuarios.setLayout(jp_usuariosLayout);
         jp_usuariosLayout.setHorizontalGroup(
@@ -689,20 +810,30 @@ public class Menu_admin extends javax.swing.JFrame {
                             .addGroup(jp_usuariosLayout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel9)))
-                        .addGap(74, 74, 74)
-                        .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel20)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                            .addComponent(txt_curp)
-                            .addComponent(jLabel19)
-                            .addComponent(jSeparator3)
-                            .addComponent(jSeparator5)
-                            .addComponent(jLabel15)
-                            .addComponent(jSeparator7)
-                            .addComponent(cmbRol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jLabel9))))
                     .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 31, Short.MAX_VALUE))
+                .addGap(74, 74, 74)
+                .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_usuariosLayout.createSequentialGroup()
+                        .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lb_estac)
+                                .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CB_estacionamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSeparator8)))
+                            .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel20)
+                                .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                                .addComponent(txt_curp)
+                                .addComponent(jLabel19)
+                                .addComponent(jSeparator3)
+                                .addComponent(jSeparator5)
+                                .addComponent(jSeparator7)
+                                .addComponent(cmbRol1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 31, Short.MAX_VALUE))
+                    .addGroup(jp_usuariosLayout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jp_usuariosLayout.setVerticalGroup(
             jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -738,51 +869,103 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txt_telefono)
-                    .addComponent(cmbRol, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
-                .addGap(2, 2, 2)
+                .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbRol1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+                .addGap(1, 1, 1)
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(145, 145, 145))
+                .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_usuariosLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_usuariosLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(lb_estac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CB_estacionamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(126, 126, 126))
         );
 
-        centro.add(jp_usuarios);
+        centro.add(jp_usuarios, "card3");
 
-        jp_m.setBackground(new java.awt.Color(204, 153, 255));
+        jp_membresia.setBackground(new java.awt.Color(204, 153, 255));
 
-        javax.swing.GroupLayout jp_mLayout = new javax.swing.GroupLayout(jp_m);
-        jp_m.setLayout(jp_mLayout);
-        jp_mLayout.setHorizontalGroup(
-            jp_mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jp_membresiaLayout = new javax.swing.GroupLayout(jp_membresia);
+        jp_membresia.setLayout(jp_membresiaLayout);
+        jp_membresiaLayout.setHorizontalGroup(
+            jp_membresiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 813, Short.MAX_VALUE)
         );
-        jp_mLayout.setVerticalGroup(
-            jp_mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jp_membresiaLayout.setVerticalGroup(
+            jp_membresiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 726, Short.MAX_VALUE)
         );
 
-        centro.add(jp_m);
+        centro.add(jp_membresia, "card4");
 
-        jp_dm.setBackground(new java.awt.Color(255, 204, 153));
+        jp_registros.setBackground(new java.awt.Color(255, 204, 153));
 
-        javax.swing.GroupLayout jp_dmLayout = new javax.swing.GroupLayout(jp_dm);
-        jp_dm.setLayout(jp_dmLayout);
-        jp_dmLayout.setHorizontalGroup(
-            jp_dmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jp_registrosLayout = new javax.swing.GroupLayout(jp_registros);
+        jp_registros.setLayout(jp_registrosLayout);
+        jp_registrosLayout.setHorizontalGroup(
+            jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 813, Short.MAX_VALUE)
         );
-        jp_dmLayout.setVerticalGroup(
-            jp_dmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jp_registrosLayout.setVerticalGroup(
+            jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 726, Short.MAX_VALUE)
         );
 
-        centro.add(jp_dm);
+        centro.add(jp_registros, "card5");
+
+        jp_HorayFraccion.setBackground(new java.awt.Color(255, 255, 204));
+
+        javax.swing.GroupLayout jp_HorayFraccionLayout = new javax.swing.GroupLayout(jp_HorayFraccion);
+        jp_HorayFraccion.setLayout(jp_HorayFraccionLayout);
+        jp_HorayFraccionLayout.setHorizontalGroup(
+            jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 813, Short.MAX_VALUE)
+        );
+        jp_HorayFraccionLayout.setVerticalGroup(
+            jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 726, Short.MAX_VALUE)
+        );
+
+        centro.add(jp_HorayFraccion, "card6");
+
+        jp_lugares.setBackground(new java.awt.Color(204, 255, 153));
+
+        javax.swing.GroupLayout jp_lugaresLayout = new javax.swing.GroupLayout(jp_lugares);
+        jp_lugares.setLayout(jp_lugaresLayout);
+        jp_lugaresLayout.setHorizontalGroup(
+            jp_lugaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 813, Short.MAX_VALUE)
+        );
+        jp_lugaresLayout.setVerticalGroup(
+            jp_lugaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 726, Short.MAX_VALUE)
+        );
+
+        centro.add(jp_lugares, "card7");
+
+        javax.swing.GroupLayout jp_salidaVehiculosLayout = new javax.swing.GroupLayout(jp_salidaVehiculos);
+        jp_salidaVehiculos.setLayout(jp_salidaVehiculosLayout);
+        jp_salidaVehiculosLayout.setHorizontalGroup(
+            jp_salidaVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 813, Short.MAX_VALUE)
+        );
+        jp_salidaVehiculosLayout.setVerticalGroup(
+            jp_salidaVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 726, Short.MAX_VALUE)
+        );
+
+        centro.add(jp_salidaVehiculos, "card8");
 
         getContentPane().add(centro, java.awt.BorderLayout.CENTER);
 
@@ -855,21 +1038,24 @@ public class Menu_admin extends javax.swing.JFrame {
          lb_min.setForeground(Color.white);
     }//GEN-LAST:event_lb_minMouseExited
 
+    // ---------------------------------- LOGICA DEL BOTON REGISTRAR USUARIOS ---------------------------------------------
     private void lb_registrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_registrarMouseClicked
          // Capturar los datos de los campos de texto del formulario
         String id_usuario = txt_iduser.getText();  // txtIdUsuario es el JTextField para el id_usuario
         String nombre = txt_nombre.getText();         // txtNombre es el JTextField para el nombre
         String telefono = txt_telefono.getText();     // txtTelefono es el JTextField para el telefono
-        String rol = cmbRol.getSelectedItem().toString(); // cmbRol es el JComboBox para el rol
-        String credencial = txt_curp.getText();  // txtCredencial es el JTextField para las credenciales
+        String rol = cmbRol1.getSelectedItem().toString(); // cmbRol es el JComboBox para el rol
+        String curp = txt_curp.getText();  // txtCredencial es el JTextField para las credenciales
+        String estacionamiento = CB_estacionamiento.getSelectedItem().toString(); // cmbRol es el JComboBox para el rol
         String contraseña = new String(txtContraseña.getPassword()); // txtContraseña es el JPasswordField para la contraseña
+        
 
         // Establecer la conexión
         Connection con = conexion.getConection();
         if (con != null) {
             try {
                 // Crear la consulta SQL para insertar los datos
-                String sql = "INSERT INTO usuario (id_usuario, nombre, telefono, rol, credencial, contraseña) VALUES (?, ?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO usuario (id_usuario, Nombre, Telefono, Rango, CURP, id_estacionamiento, Contraseña) VALUES (?, ?, ?, ?, ?, ?,?)";
 
                 // Preparar la sentencia SQL
                 PreparedStatement ps = con.prepareStatement(sql);
@@ -877,8 +1063,9 @@ public class Menu_admin extends javax.swing.JFrame {
                 ps.setString(2, nombre);
                 ps.setString(3, telefono);
                 ps.setString(4, rol);
-                ps.setString(5, credencial);
-                ps.setString(6, contraseña); // Si deseas encriptar la contraseña, aquí debes hacerlo antes de insertarla
+                ps.setString(5, curp);
+                ps.setString(6, estacionamiento);
+                ps.setString(7, contraseña); // Si deseas encriptar la contraseña, aquí debes hacerlo antes de insertarla
 
                 // Ejecutar la consulta
                 int rowsAffected = ps.executeUpdate();
@@ -911,25 +1098,21 @@ public class Menu_admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lb_registrarMouseExited
 
-    private void btn_UsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuariosMouseClicked
-        jp_usuarios.setVisible(true);
-        jp_m.setVisible(false);
-        jp_dm.setVisible(false);
-    }//GEN-LAST:event_btn_UsuariosMouseClicked
+    private void btn_usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usuariosMouseClicked
+       
+    }//GEN-LAST:event_btn_usuariosMouseClicked
 
-    private void btn_UsuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuariosMouseEntered
-        btn_Usuarios.setBackground(new Color(255, 32, 78)); //rgb(255, 32, 78)
-        lbl_Usuarios.setForeground(Color.gray);
-    }//GEN-LAST:event_btn_UsuariosMouseEntered
+    private void btn_usuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usuariosMouseEntered
+        
+    }//GEN-LAST:event_btn_usuariosMouseEntered
 
-    private void btn_UsuariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UsuariosMouseExited
-        btn_Usuarios.setBackground(new Color(0, 34, 77)); //rgb(0, 34, 77)
-        lbl_Usuarios.setForeground(Color.white);
-    }//GEN-LAST:event_btn_UsuariosMouseExited
+    private void btn_usuariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usuariosMouseExited
+        
+    }//GEN-LAST:event_btn_usuariosMouseExited
 
-    private void cmbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRolActionPerformed
+    private void CB_estacionamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_estacionamientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbRolActionPerformed
+    }//GEN-LAST:event_CB_estacionamientoActionPerformed
 
     private void txt_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefonoActionPerformed
         // TODO add your handling code here:
@@ -1042,6 +1225,212 @@ public class Menu_admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtContraseñaMouseExited
 
+    
+    // ------------------------------- LOGICA DE QUE PANEL ESTA SELECCIONADO ----------------------------------------------------------------------------
+    // Variables de selección
+        private String panelSeleccionado = ""; // Nombre del panel actualmente seleccionado
+
+        private void seleccionarPanel(String panel) {
+            // Restaurar colores de todos los botones y etiquetas
+            restaurarEstadoPaneles();
+
+            // Cambiar colores y mostrar el panel correspondiente
+            switch (panel) {
+                case "usuarios":
+                    btn_usuarios.setBackground(Color.WHITE); // Seleccionado
+                    lb_usuarios.setForeground(new Color(0, 34, 77)); // Fuente
+                    jp_usuarios.setVisible(true);
+                    break;
+                case "membresia":
+                    btn_Membresia.setBackground(Color.WHITE);
+                    lb_membresia.setForeground(new Color(0, 34, 77));
+                    jp_membresia.setVisible(true);
+                    break;
+                case "registros":
+                    btn_registros.setBackground(Color.WHITE);
+                    lb_registros.setForeground(new Color(0, 34, 77));
+                    jp_registros.setVisible(true);
+                    break;
+                 case "HorayFraccion":
+                    btn_HorayFracc.setBackground(Color.WHITE);
+                    lb_HorayFraccion.setForeground(new Color(0, 34, 77));
+                    jp_HorayFraccion.setVisible(true);
+                    break;
+                 case "Lugares":
+                    btn_Lugares.setBackground(Color.WHITE);
+                    lb_lugares.setForeground(new Color(0, 34, 77));
+                    jp_lugares.setVisible(true);
+                    break;
+                 case "SalidaVehiculos":
+                    btn_SalVehiculos.setBackground(Color.WHITE);
+                    lb_salidaVehiculos.setForeground(new Color(0, 34, 77));
+                    jp_salidaVehiculos.setVisible(true);
+                    break;
+                
+            }
+
+            // Actualizar el panel seleccionado
+            panelSeleccionado = panel;
+        }
+    
+        private void restaurarEstadoPaneles() {
+            // Restaurar colores de todos los botones y etiquetas
+            btn_usuarios.setBackground(new Color(0, 34, 77));
+            lb_usuarios.setForeground(new Color(187, 187, 187));
+
+            btn_Membresia.setBackground(new Color(0, 34, 77));
+            lb_membresia.setForeground(new Color(187, 187, 187));
+
+            btn_registros.setBackground(new Color(0, 34, 77));
+            lb_registros.setForeground(new Color(187, 187, 187));
+            
+            btn_HorayFracc.setBackground(new Color(0, 34, 77));
+            lb_HorayFraccion.setForeground(new Color(187, 187, 187));
+            
+            btn_Lugares.setBackground(new Color(0, 34, 77));
+            lb_lugares.setForeground(new Color(187, 187, 187));
+            
+            btn_SalVehiculos.setBackground(new Color(0, 34, 77));
+            lb_salidaVehiculos.setForeground(new Color(187, 187, 187));
+
+            // Ocultar todos los paneles
+            jp_principal.setVisible(false);
+            jp_usuarios.setVisible(false);
+            jp_membresia.setVisible(false);
+            jp_registros.setVisible(false);
+            jp_HorayFraccion.setVisible(false);
+            jp_lugares.setVisible(false);
+            jp_salidaVehiculos.setVisible(false);
+            
+        }
+  
+    private void lb_usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_usuariosMouseClicked
+        if (!panelSeleccionado.equals("usuarios")) {
+            seleccionarPanel("usuarios");
+        }
+        
+    }//GEN-LAST:event_lb_usuariosMouseClicked
+
+    private void lb_membresiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_membresiaMouseClicked
+       if (!panelSeleccionado.equals("membresia")) {
+            seleccionarPanel("membresia");
+        }
+    }//GEN-LAST:event_lb_membresiaMouseClicked
+
+    private void lb_usuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_usuariosMouseEntered
+        // Cambiar color solo si no está seleccionado
+        if (!panelSeleccionado.equals("usuarios")) {
+             btn_usuarios.setBackground(Color.WHITE);
+            lb_usuarios.setForeground(new Color(0, 34, 77));
+        }
+    }//GEN-LAST:event_lb_usuariosMouseEntered
+
+    private void lb_usuariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_usuariosMouseExited
+        // Restaurar color solo si no está seleccionado
+        if (!panelSeleccionado.equals("usuarios")) {
+            btn_usuarios.setBackground(new Color(0, 34, 77));
+            lb_usuarios.setForeground(new Color(187, 187, 187)); 
+        }
+    }//GEN-LAST:event_lb_usuariosMouseExited
+
+    private void lb_registrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_registrosMouseClicked
+        if (!panelSeleccionado.equals("registros")) {
+            seleccionarPanel("registros");
+        }
+    }//GEN-LAST:event_lb_registrosMouseClicked
+
+    private void lb_HorayFraccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_HorayFraccionMouseClicked
+        if (!panelSeleccionado.equals("HorayFraccion")) {
+            seleccionarPanel("HorayFraccion");
+        }
+    }//GEN-LAST:event_lb_HorayFraccionMouseClicked
+
+    private void lb_lugaresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_lugaresMouseClicked
+        if (!panelSeleccionado.equals("Lugares")) {
+            seleccionarPanel("Lugares");
+        }
+    }//GEN-LAST:event_lb_lugaresMouseClicked
+
+    private void lb_salidaVehiculosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_salidaVehiculosMouseClicked
+        if (!panelSeleccionado.equals("SalidaVehiculos")) {
+            seleccionarPanel("SalidaVehiculos");
+        }
+    }//GEN-LAST:event_lb_salidaVehiculosMouseClicked
+
+    private void lb_membresiaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_membresiaMouseEntered
+        if (!panelSeleccionado.equals("membresia")) {
+             btn_Membresia.setBackground(Color.WHITE);
+            lb_membresia.setForeground(new Color(0, 34, 77));
+        }
+    }//GEN-LAST:event_lb_membresiaMouseEntered
+
+    private void lb_registrosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_registrosMouseEntered
+        if (!panelSeleccionado.equals("registros")) {
+             btn_registros.setBackground(Color.WHITE);
+            lb_registros.setForeground(new Color(0, 34, 77));
+        }
+    }//GEN-LAST:event_lb_registrosMouseEntered
+
+    private void lb_HorayFraccionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_HorayFraccionMouseEntered
+        if (!panelSeleccionado.equals("HorayFraccion")) {
+             btn_HorayFracc.setBackground(Color.WHITE);
+            lb_HorayFraccion.setForeground(new Color(0, 34, 77));
+        }
+    }//GEN-LAST:event_lb_HorayFraccionMouseEntered
+
+    private void lb_lugaresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_lugaresMouseEntered
+        if (!panelSeleccionado.equals("Lugares")) {
+             btn_Lugares.setBackground(Color.WHITE);
+            lb_lugares.setForeground(new Color(0, 34, 77));
+        }
+    }//GEN-LAST:event_lb_lugaresMouseEntered
+
+    private void lb_salidaVehiculosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_salidaVehiculosMouseEntered
+        if (!panelSeleccionado.equals("SalidaVehiculos")) {
+             btn_SalVehiculos.setBackground(Color.WHITE);
+            lb_salidaVehiculos.setForeground(new Color(0, 34, 77));
+        }
+    }//GEN-LAST:event_lb_salidaVehiculosMouseEntered
+
+    private void lb_membresiaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_membresiaMouseExited
+        if (!panelSeleccionado.equals("membresia")) {
+            btn_Membresia.setBackground(new Color(0, 34, 77));
+            lb_membresia.setForeground(new Color(187, 187, 187)); 
+        }
+    }//GEN-LAST:event_lb_membresiaMouseExited
+
+    private void lb_registrosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_registrosMouseExited
+        if (!panelSeleccionado.equals("registros")) {
+            btn_registros.setBackground(new Color(0, 34, 77));
+            lb_registros.setForeground(new Color(187, 187, 187)); 
+        }
+    }//GEN-LAST:event_lb_registrosMouseExited
+
+    private void lb_HorayFraccionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_HorayFraccionMouseExited
+        if (!panelSeleccionado.equals("HorayFraccion")) {
+            btn_HorayFracc.setBackground(new Color(0, 34, 77));
+            lb_HorayFraccion.setForeground(new Color(187, 187, 187)); 
+        }
+    }//GEN-LAST:event_lb_HorayFraccionMouseExited
+
+    private void lb_lugaresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_lugaresMouseExited
+        if (!panelSeleccionado.equals("Lugares")) {
+            btn_Lugares.setBackground(new Color(0, 34, 77));
+            lb_lugares.setForeground(new Color(187, 187, 187)); 
+        }
+    }//GEN-LAST:event_lb_lugaresMouseExited
+
+    private void lb_salidaVehiculosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_salidaVehiculosMouseExited
+        if (!panelSeleccionado.equals("SalidaVehiculos")) {
+            btn_SalVehiculos.setBackground(new Color(0, 34, 77));
+            lb_salidaVehiculos.setForeground(new Color(187, 187, 187)); 
+        }
+    }//GEN-LAST:event_lb_salidaVehiculosMouseExited
+
+    private void cmbRol1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRol1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbRol1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1078,37 +1467,33 @@ public class Menu_admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CB_estacionamiento;
     private javax.swing.JPanel IZQ2;
-    private Clases.PanelRound btn_DatosMembresia;
     private Clases.PanelRound btn_HorayFracc;
     private Clases.PanelRound btn_Lugares;
     private Clases.PanelRound btn_Membresia;
     private Clases.PanelRound btn_SalVehiculos;
-    private Clases.PanelRound btn_SalVehiculos1;
-    private Clases.PanelRound btn_Usuarios;
+    private Clases.PanelRound btn_cerrarsesion;
     private javax.swing.JPanel btn_exit;
     private javax.swing.JPanel btn_min;
     private javax.swing.JPanel btn_minmax;
     private Clases.PanelRound btn_registrar;
+    private Clases.PanelRound btn_registros;
+    private Clases.PanelRound btn_usuarios;
     private javax.swing.JPanel centro;
-    private javax.swing.JComboBox<String> cmbRol;
+    private javax.swing.JComboBox<String> cmbRol1;
     private javax.swing.JPanel header;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -1120,14 +1505,27 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JPanel jp_dm;
-    private javax.swing.JPanel jp_m;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JPanel jp_HorayFraccion;
+    private javax.swing.JPanel jp_lugares;
+    private javax.swing.JPanel jp_membresia;
+    private javax.swing.JPanel jp_principal;
+    private javax.swing.JPanel jp_registros;
+    private javax.swing.JPanel jp_salidaVehiculos;
     private javax.swing.JPanel jp_usuarios;
+    private javax.swing.JLabel lb_HorayFraccion;
+    private javax.swing.JLabel lb_cerrarsesion;
+    private javax.swing.JLabel lb_estac;
     private javax.swing.JLabel lb_exit;
+    private javax.swing.JLabel lb_lugares;
+    private javax.swing.JLabel lb_membresia;
     private javax.swing.JLabel lb_min;
     private javax.swing.JLabel lb_minmax;
+    private javax.swing.JLabel lb_nombreUsuario;
     private javax.swing.JLabel lb_registrar;
-    private javax.swing.JLabel lbl_Usuarios;
+    private javax.swing.JLabel lb_registros;
+    private javax.swing.JLabel lb_salidaVehiculos;
+    private javax.swing.JLabel lb_usuarios;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txt_curp;
     private javax.swing.JTextField txt_iduser;
