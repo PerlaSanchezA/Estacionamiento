@@ -8,6 +8,10 @@ import Clases.conexion;
 import java.sql.*;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -20,8 +24,14 @@ public class Menu_admin extends javax.swing.JFrame {
      */
     
     int xMouse, yMouse;
+   
     public Menu_admin() {
-        initComponents();
+         try {
+            UIManager.setLookAndFeel(new FlatLightLaf());  // O puedes usar FlatLightLaf para el modo claro
+        } catch (UnsupportedLookAndFeelException e) {
+        }
+         
+        initComponents();    
     }
 
     /**
@@ -63,7 +73,6 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         centro = new javax.swing.JPanel();
-        jp_m = new javax.swing.JPanel();
         jp_usuarios = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -87,6 +96,7 @@ public class Menu_admin extends javax.swing.JFrame {
         txt_telefono = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
+        jp_m = new javax.swing.JPanel();
         jp_dm = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -147,7 +157,7 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_exitLayout.setHorizontalGroup(
             btn_exitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_exitLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(lb_exit, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
         );
         btn_exitLayout.setVerticalGroup(
@@ -180,7 +190,7 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_minmaxLayout.setHorizontalGroup(
             btn_minmaxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_minmaxLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(lb_minmax, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
         );
         btn_minmaxLayout.setVerticalGroup(
@@ -215,7 +225,7 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_minLayout.setHorizontalGroup(
             btn_minLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_minLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(lb_min, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
         );
         btn_minLayout.setVerticalGroup(
@@ -237,15 +247,15 @@ public class Menu_admin extends javax.swing.JFrame {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 362, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 392, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(btn_min, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(btn_minmax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(btn_exit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         headerLayout.setVerticalGroup(
@@ -376,6 +386,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
+        btn_Usuarios.setBackground(new java.awt.Color(255, 255, 255));
         btn_Usuarios.setRoundBottomLeft(37);
         btn_Usuarios.setRoundTopLeft(37);
         btn_Usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -490,8 +501,6 @@ public class Menu_admin extends javax.swing.JFrame {
         centro.setBackground(new java.awt.Color(248, 244, 236));
         centro.setLayout(new javax.swing.OverlayLayout(centro));
 
-        jp_m.setBackground(new java.awt.Color(204, 153, 255));
-
         jp_usuarios.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -515,23 +524,33 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel19.setText("Credencial");
 
+        txt_iduser.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
         txt_iduser.setText("jTextField1");
         txt_iduser.setBorder(null);
 
         jLabel20.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel20.setText("Contraseña");
 
+        txt_nombre.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
         txt_nombre.setText("jTextField2");
         txt_nombre.setBorder(null);
 
+        txt_credencial.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
         txt_credencial.setText("jTextField5");
         txt_credencial.setBorder(null);
 
+        txtContraseña.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
         txtContraseña.setText("jPasswordField1");
         txtContraseña.setBorder(null);
 
+        cmbRol.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
         cmbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Empleado" }));
         cmbRol.setBorder(null);
+        cmbRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbRolActionPerformed(evt);
+            }
+        });
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
@@ -581,6 +600,7 @@ public class Menu_admin extends javax.swing.JFrame {
         jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
 
+        txt_telefono.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
         txt_telefono.setText("jTextField4");
         txt_telefono.setBorder(null);
 
@@ -633,7 +653,7 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_usuariosLayout.setVerticalGroup(
             jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_usuariosLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(70, 70, 70)
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -673,22 +693,24 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(71, 71, 71)
+                .addGap(56, 56, 56)
                 .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(143, 143, 143))
+                .addGap(145, 145, 145))
         );
+
+        centro.add(jp_usuarios);
+
+        jp_m.setBackground(new java.awt.Color(204, 153, 255));
 
         javax.swing.GroupLayout jp_mLayout = new javax.swing.GroupLayout(jp_m);
         jp_m.setLayout(jp_mLayout);
         jp_mLayout.setHorizontalGroup(
             jp_mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_mLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jp_usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 813, Short.MAX_VALUE)
         );
         jp_mLayout.setVerticalGroup(
             jp_mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_usuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 726, Short.MAX_VALUE)
         );
 
         centro.add(jp_m);
@@ -851,6 +873,10 @@ public class Menu_admin extends javax.swing.JFrame {
         lbl_Usuarios.setForeground(Color.white);
     }//GEN-LAST:event_btn_UsuariosMouseExited
 
+    private void cmbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbRolActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -881,7 +907,7 @@ public class Menu_admin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu_admin().setVisible(true);
+                SwingUtilities.invokeLater(() -> new Menu_admin().setVisible(true));
             }
         });
     }
