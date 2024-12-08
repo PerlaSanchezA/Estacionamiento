@@ -321,27 +321,29 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txt_idEstEH = new javax.swing.JTextField();
         jSeparator23 = new javax.swing.JSeparator();
         jLabel39 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        cb_placaEH = new javax.swing.JComboBox<>();
         jSeparator24 = new javax.swing.JSeparator();
         jLabel40 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        txt_horaEH = new javax.swing.JTextField();
         jSeparator25 = new javax.swing.JSeparator();
         jLabel41 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        txt_fechaEH = new javax.swing.JTextField();
         jLabel42 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
+        jsp_lugarEH = new javax.swing.JSpinner();
         jLabel43 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
+        txt_empleadoEH = new javax.swing.JTextField();
         jSeparator26 = new javax.swing.JSeparator();
         jSeparator27 = new javax.swing.JSeparator();
         panelRound1 = new Clases.PanelRound();
         jLabel44 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jLabel45 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtA_ticketEH = new javax.swing.JTextArea();
+        btn_ticket = new Clases.PanelRound();
+        lb_ticket = new javax.swing.JLabel();
         jp_lugares = new javax.swing.JPanel();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
@@ -610,7 +612,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(lb_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(116, 116, 116)
                 .addComponent(lb_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 292, Short.MAX_VALUE)
                 .addComponent(btn_min, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btn_minmax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -656,6 +658,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_usuarios.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
         lb_usuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_usuarios.setText("USUARIOS");
+        lb_usuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_usuariosMouseClicked(evt);
@@ -687,6 +690,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_membresia.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
         lb_membresia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_membresia.setText("Membresia");
+        lb_membresia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_membresia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_membresiaMouseClicked(evt);
@@ -718,6 +722,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_registros.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
         lb_registros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_registros.setText("Registros");
+        lb_registros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_registros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_registrosMouseClicked(evt);
@@ -749,6 +754,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_HorayFraccion.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
         lb_HorayFraccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_HorayFraccion.setText("Hora y fracción");
+        lb_HorayFraccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_HorayFraccion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_HorayFraccionMouseClicked(evt);
@@ -780,6 +786,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_lugares.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
         lb_lugares.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_lugares.setText("Lugares");
+        lb_lugares.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_lugares.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_lugaresMouseClicked(evt);
@@ -811,6 +818,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_salidaVehiculos.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
         lb_salidaVehiculos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_salidaVehiculos.setText("Salida vehículos");
+        lb_salidaVehiculos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_salidaVehiculos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_salidaVehiculosMouseClicked(evt);
@@ -843,6 +851,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_cerrarsesion.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
         lb_cerrarsesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_cerrarsesion.setText("Cerrar sesión");
+        lb_cerrarsesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout btn_cerrarsesionLayout = new javax.swing.GroupLayout(btn_cerrarsesion);
         btn_cerrarsesion.setLayout(btn_cerrarsesionLayout);
@@ -870,6 +879,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_vehiculo.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
         lb_vehiculo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_vehiculo.setText("Vehículos");
+        lb_vehiculo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_vehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_vehiculoMouseClicked(evt);
@@ -945,7 +955,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
 
         getContentPane().add(IZQ2, java.awt.BorderLayout.LINE_START);
@@ -965,14 +975,14 @@ public class Menu_admin extends javax.swing.JFrame {
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(229, 229, 229)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(758, Short.MAX_VALUE))
+                .addContainerGap(675, Short.MAX_VALUE))
         );
         jp_principalLayout.setVerticalGroup(
             jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(342, 342, 342)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(544, Short.MAX_VALUE))
+                .addContainerGap(527, Short.MAX_VALUE))
         );
 
         centro.add(jp_principal, "card2");
@@ -1088,6 +1098,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_registrar.setForeground(new java.awt.Color(255, 255, 255));
         lb_registrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_registrar.setText("REGISTRAR");
+        lb_registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_registrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_registrarMouseClicked(evt);
@@ -1166,6 +1177,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_actualizar.setForeground(new java.awt.Color(255, 255, 255));
         lb_actualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_actualizar.setText("ACTUALIZAR");
+        lb_actualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_actualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_actualizarMouseClicked(evt);
@@ -1239,7 +1251,7 @@ public class Menu_admin extends javax.swing.JFrame {
                                 .addComponent(jSeparator5)
                                 .addComponent(jSeparator7)
                                 .addComponent(cmbRol1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap(227, Short.MAX_VALUE))
+                        .addContainerGap(144, Short.MAX_VALUE))
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -1379,6 +1391,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_registrarV.setForeground(new java.awt.Color(255, 255, 255));
         lb_registrarV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_registrarV.setText("REGISTRAR");
+        lb_registrarV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_registrarV.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_registrarVMouseClicked(evt);
@@ -1434,6 +1447,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_actualizarV.setForeground(new java.awt.Color(255, 255, 255));
         lb_actualizarV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_actualizarV.setText("ACTUALIZAR");
+        lb_actualizarV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_actualizarV.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_actualizarVMouseClicked(evt);
@@ -1467,6 +1481,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_limpiar.setForeground(new java.awt.Color(255, 255, 255));
         lb_limpiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_limpiar.setText("LIMPIAR");
+        lb_limpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_limpiar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_limpiarMouseClicked(evt);
@@ -1488,6 +1503,7 @@ public class Menu_admin extends javax.swing.JFrame {
         );
 
         lb_buscarV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar.png"))); // NOI18N
+        lb_buscarV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_buscarV.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_buscarVMouseClicked(evt);
@@ -1542,21 +1558,18 @@ public class Menu_admin extends javax.swing.JFrame {
                                 .addComponent(btn_registrarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(100, 100, 100)
                                 .addComponent(btn_actualizarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel32))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel32)))
                     .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                        .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cb_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(347, 347, 347)
-                        .addComponent(btn_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(329, 329, 329))))
+                        .addGap(135, 135, 135)
+                        .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel23)
+                            .addGroup(jp_vehiculoLayout.createSequentialGroup()
+                                .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cb_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(347, 347, 347)
+                                .addComponent(btn_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         jp_vehiculoLayout.setVerticalGroup(
             jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1618,7 +1631,7 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ICON");
         jp_membresia.add(jLabel1);
-        jLabel1.setBounds(39, 51, 28, 28);
+        jLabel1.setBounds(39, 51, 30, 28);
 
         jLabel5.setText("Membresia");
         jp_membresia.add(jLabel5);
@@ -1626,7 +1639,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel6.setText("Id membresia");
         jp_membresia.add(jLabel6);
-        jLabel6.setBounds(39, 130, 73, 16);
+        jLabel6.setBounds(39, 130, 77, 16);
 
         txt_idmembresiaMD.setText("jTextField1");
         txt_idmembresiaMD.setBorder(null);
@@ -1637,11 +1650,11 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel12.setText("Hora");
         jp_membresia.add(jLabel12);
-        jLabel12.setBounds(39, 235, 26, 16);
+        jLabel12.setBounds(39, 235, 27, 16);
 
         jLabel13.setText("ICON");
         jp_membresia.add(jLabel13);
-        jLabel13.setBounds(590, 60, 28, 16);
+        jLabel13.setBounds(590, 60, 30, 16);
 
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Cliente");
@@ -1650,7 +1663,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel17.setText("Placa");
         jp_membresia.add(jLabel17);
-        jLabel17.setBounds(320, 230, 28, 16);
+        jLabel17.setBounds(320, 230, 31, 16);
 
         cb_placaMD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1670,7 +1683,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel18.setText("Fecha");
         jp_membresia.add(jLabel18);
-        jLabel18.setBounds(39, 338, 30, 16);
+        jLabel18.setBounds(39, 338, 34, 16);
 
         txt_fechaMD.setText("jTextField6");
         txt_fechaMD.addActionListener(new java.awt.event.ActionListener() {
@@ -1685,7 +1698,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel24.setText("Costo");
         jp_membresia.add(jLabel24);
-        jLabel24.setBounds(39, 439, 30, 16);
+        jLabel24.setBounds(39, 439, 33, 16);
 
         txt_costoMD.setText("jTextField7");
         jp_membresia.add(txt_costoMD);
@@ -1695,7 +1708,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel25.setText("Lugar de estacionamiento");
         jp_membresia.add(jLabel25);
-        jLabel25.setBounds(320, 140, 138, 16);
+        jLabel25.setBounds(320, 140, 144, 16);
 
         jsp_lugarMD.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
         jp_membresia.add(jsp_lugarMD);
@@ -1707,7 +1720,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel26.setText("Atiende");
         jp_membresia.add(jLabel26);
-        jLabel26.setBounds(39, 540, 42, 16);
+        jLabel26.setBounds(39, 540, 41, 16);
 
         txt_empleadoMD.setText("jTextField8");
         jp_membresia.add(txt_empleadoMD);
@@ -1742,11 +1755,11 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel27.setText("id_dueño");
         jp_membresia.add(jLabel27);
-        jLabel27.setBounds(550, 140, 49, 16);
+        jLabel27.setBounds(550, 140, 52, 16);
 
         jLabel29.setText("Nombre completo");
         jp_membresia.add(jLabel29);
-        jLabel29.setBounds(550, 230, 98, 16);
+        jLabel29.setBounds(550, 230, 99, 16);
 
         jLabel30.setText("Identificación");
         jp_membresia.add(jLabel30);
@@ -1896,6 +1909,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
         lb_consultarR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_consultarR.setText("Consultar");
+        lb_consultarR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_consultarR.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_consultarRMouseClicked(evt);
@@ -1933,7 +1947,7 @@ public class Menu_admin extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addComponent(btn_consultarR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
         jp_registrosLayout.setVerticalGroup(
             jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1950,7 +1964,7 @@ public class Menu_admin extends javax.swing.JFrame {
                     .addComponent(cb_tablas, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
                 .addGap(67, 67, 67)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(452, Short.MAX_VALUE))
+                .addContainerGap(435, Short.MAX_VALUE))
         );
 
         centro.add(jp_registros, "card5");
@@ -1963,30 +1977,30 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel38.setText("id_estacionamiento");
 
-        jTextField3.setText("jTextField3");
+        txt_idEstEH.setText("jTextField3");
 
         jLabel39.setText("Placa");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_placaEH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel40.setText("Hora");
 
-        jTextField13.setText("jTextField13");
+        txt_horaEH.setText("jTextField13");
 
         jLabel41.setText("Fecha");
 
-        jTextField14.setText("jTextField14");
+        txt_fechaEH.setText("jTextField14");
 
         jLabel42.setText("Lugar");
 
-        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
+        jsp_lugarEH.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
 
         jLabel43.setText("Empleado");
 
-        jTextField15.setText("jTextField15");
-        jTextField15.addActionListener(new java.awt.event.ActionListener() {
+        txt_empleadoEH.setText("jTextField15");
+        txt_empleadoEH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField15ActionPerformed(evt);
+                txt_empleadoEHActionPerformed(evt);
             }
         });
 
@@ -1997,6 +2011,12 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel44.setText("Registrar");
+        jLabel44.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel44.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel44MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -2009,12 +2029,44 @@ public class Menu_admin extends javax.swing.JFrame {
             .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
+        jLabel45.setForeground(new java.awt.Color(0, 0, 0));
         jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel45.setText("Ticket");
+
+        txtA_ticketEH.setColumns(20);
+        txtA_ticketEH.setRows(5);
+        jScrollPane5.setViewportView(txtA_ticketEH);
+
+        btn_ticket.setBackground(new java.awt.Color(255, 204, 255));
+        btn_ticket.setRoundBottomLeft(40);
+        btn_ticket.setRoundTopRight(40);
+
+        lb_ticket.setForeground(new java.awt.Color(0, 0, 0));
+        lb_ticket.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_ticket.setText("Ticket");
+        lb_ticket.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lb_ticket.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_ticketMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btn_ticketLayout = new javax.swing.GroupLayout(btn_ticket);
+        btn_ticket.setLayout(btn_ticketLayout);
+        btn_ticketLayout.setHorizontalGroup(
+            btn_ticketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ticketLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lb_ticket, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        btn_ticketLayout.setVerticalGroup(
+            btn_ticketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_ticketLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_ticket, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jp_HorayFraccionLayout = new javax.swing.GroupLayout(jp_HorayFraccion);
         jp_HorayFraccion.setLayout(jp_HorayFraccionLayout);
@@ -2025,7 +2077,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_HorayFraccionLayout.createSequentialGroup()
                         .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(1061, Short.MAX_VALUE))
+                        .addContainerGap(978, Short.MAX_VALUE))
                     .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
                         .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel40)
@@ -2035,20 +2087,20 @@ public class Menu_admin extends javax.swing.JFrame {
                                 .addComponent(jLabel36)
                                 .addGap(29, 29, 29)
                                 .addComponent(jLabel37))
-                            .addComponent(jTextField3)
+                            .addComponent(txt_idEstEH)
                             .addComponent(jSeparator23)
-                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cb_placaEH, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator24)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                            .addComponent(txt_horaEH, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                             .addComponent(jSeparator25))
                         .addGap(108, 108, 108)
                         .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel41)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                            .addComponent(txt_fechaEH, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
                             .addComponent(jLabel42)
-                            .addComponent(jSpinner2)
+                            .addComponent(jsp_lugarEH)
                             .addComponent(jLabel43)
-                            .addComponent(jTextField15)
+                            .addComponent(txt_empleadoEH)
                             .addComponent(jSeparator26)
                             .addComponent(jSeparator27))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2057,8 +2109,12 @@ public class Menu_admin extends javax.swing.JFrame {
                                 .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(76, 76, 76))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36))))))
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(62, 62, 62))))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_ticket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(132, 132, 132))
         );
         jp_HorayFraccionLayout.setVerticalGroup(
             jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2080,11 +2136,11 @@ public class Menu_admin extends javax.swing.JFrame {
                                     .addComponent(jLabel41))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txt_fechaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_idEstEH, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jSeparator23, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
                                         .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2092,8 +2148,8 @@ public class Menu_admin extends javax.swing.JFrame {
                                             .addComponent(jLabel39))
                                         .addGap(7, 7, 7)
                                         .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(cb_placaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jsp_lugarEH, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(20, 20, 20)
                                         .addComponent(jSeparator24, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jSeparator26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2103,20 +2159,22 @@ public class Menu_admin extends javax.swing.JFrame {
                                     .addComponent(jLabel43))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txt_horaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_empleadoEH, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
                                 .addGap(93, 93, 93)
                                 .addComponent(jLabel45)
-                                .addGap(38, 38, 38)
-                                .addComponent(jScrollPane1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane5)))
                         .addGap(3, 3, 3))
                     .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(136, 136, 136)
+                .addGap(27, 27, 27)
+                .addComponent(btn_ticket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(258, 258, 258))
         );
@@ -2128,11 +2186,11 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel47.setText("icon");
         jp_lugares.add(jLabel47);
-        jLabel47.setBounds(41, 37, 22, 16);
+        jLabel47.setBounds(41, 37, 23, 16);
 
         jLabel48.setText("Lugares");
         jp_lugares.add(jLabel48);
-        jLabel48.setBounds(82, 37, 41, 16);
+        jLabel48.setBounds(82, 37, 46, 16);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2748,15 +2806,15 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel79.setText("Icon");
         jp_salidaVehiculos.add(jLabel79);
-        jLabel79.setBounds(50, 48, 22, 16);
+        jLabel79.setBounds(50, 48, 23, 16);
 
         jLabel80.setText("Salida vehiculos");
         jp_salidaVehiculos.add(jLabel80);
-        jLabel80.setBounds(96, 48, 85, 16);
+        jLabel80.setBounds(96, 48, 90, 16);
 
         jLabel81.setText("Placa");
         jp_salidaVehiculos.add(jLabel81);
-        jLabel81.setBounds(50, 116, 28, 16);
+        jLabel81.setBounds(50, 116, 31, 16);
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jp_salidaVehiculos.add(jComboBox5);
@@ -2764,21 +2822,22 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel85.setText("Fecha");
         jp_salidaVehiculos.add(jLabel85);
-        jLabel85.setBounds(50, 308, 30, 16);
+        jLabel85.setBounds(50, 308, 34, 16);
 
         jLabel86.setText("Lugar");
         jp_salidaVehiculos.add(jLabel86);
-        jLabel86.setBounds(50, 393, 30, 16);
+        jLabel86.setBounds(50, 393, 32, 16);
 
         jLabel87.setText("Costo");
         jp_salidaVehiculos.add(jLabel87);
-        jLabel87.setBounds(50, 484, 30, 16);
+        jLabel87.setBounds(50, 484, 33, 16);
 
         panelRound2.setRoundBottomLeft(20);
         panelRound2.setRoundTopRight(20);
 
         jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel88.setText("Buscar");
+        jLabel88.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
@@ -2803,15 +2862,15 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel82.setText("Hora entrada");
         jPanel2.add(jLabel82);
-        jLabel82.setBounds(46, 44, 70, 16);
+        jLabel82.setBounds(46, 44, 72, 16);
 
         jLabel83.setText("Hora salida");
         jPanel2.add(jLabel83);
-        jLabel83.setBounds(400, 50, 61, 16);
+        jLabel83.setBounds(400, 50, 64, 16);
 
         jLabel84.setText("Tiempo");
         jPanel2.add(jLabel84);
-        jLabel84.setBounds(250, 50, 41, 16);
+        jLabel84.setBounds(250, 50, 42, 16);
 
         jTextField16.setText("jTextField16");
         jPanel2.add(jTextField16);
@@ -2832,14 +2891,13 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel91.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel91.setText("Calcular");
+        jLabel91.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
         panelRound3.setLayout(panelRound3Layout);
         panelRound3Layout.setHorizontalGroup(
             panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound3Layout.createSequentialGroup()
-                .addGap(0, 30, Short.MAX_VALUE)
-                .addComponent(jLabel91, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel91, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
         );
         panelRound3Layout.setVerticalGroup(
             panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2854,7 +2912,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel92.setText("id_estacionamiento");
         jp_salidaVehiculos.add(jLabel92);
-        jLabel92.setBounds(50, 209, 103, 16);
+        jLabel92.setBounds(50, 209, 109, 16);
         jp_salidaVehiculos.add(jSeparator32);
         jSeparator32.setBounds(50, 181, 248, 10);
 
@@ -2883,6 +2941,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel93.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel93.setText("Pagar");
+        jLabel93.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout panelRound4Layout = new javax.swing.GroupLayout(panelRound4);
         panelRound4.setLayout(panelRound4Layout);
@@ -3428,9 +3487,9 @@ public class Menu_admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_placaMDActionPerformed
 
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+    private void txt_empleadoEHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_empleadoEHActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
+    }//GEN-LAST:event_txt_empleadoEHActionPerformed
 
     // ------------------ Actualiza los registro USUARIOS -------------------------------------------------
     private void lb_actualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_actualizarMouseClicked
@@ -3922,6 +3981,86 @@ public class Menu_admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtContraseñaMousePressed
 
+    // -----------------------------------------------  Ticket  --------------------------------------------------------
+  
+    public void datosTicket() {
+    Connection con = null; // Usamos la clase conexión
+    try {
+        // Consulta SQL para obtener los datos del estacionamiento
+        String query = "SELECT id_estacionamiento, Nombre_estaci, Direccion FROM estacionamiento WHERE id_estacionamiento = ?";
+        con = conexion.getConection(); // Obtener la conexión usando tu clase
+        PreparedStatement ps = con.prepareStatement(query);
+
+        // Fijamos un ID de estacionamiento, o lo obtenemos de otra fuente
+        int estacionamientoId = 1; // Cambia este valor según tus necesidades o toma de otro campo
+        ps.setInt(1, estacionamientoId); // Establecemos el ID del estacionamiento en la consulta
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            // Obtener los datos del estacionamiento desde la base de datos
+            String idEstacionamiento = rs.getString("id_estacionamiento");
+            String nombre = rs.getString("Nombre_estaci");
+            String direccion = rs.getString("Direccion");
+
+            // Generar el contenido del ticket con formato bonito
+            StringBuilder ticketContent = new StringBuilder();
+            
+            ticketContent.append("==============================================================\n");
+            ticketContent.append("                TICKET DE ESTACIONAMIENTO                     \n");
+            ticketContent.append("==============================================================\n\n");
+            
+            ticketContent.append(String.format("%-20s: %s\n", "ID Estacionamiento", idEstacionamiento));
+            ticketContent.append(String.format("%-20s: %s\n", "Nombre", nombre));
+            ticketContent.append(String.format("%-20s: %s\n", "Dirección", direccion));
+            
+            ticketContent.append("\n--------------------------------------------------------------\n");
+            ticketContent.append("                    ESTACIONAMIENTO POR HORA                   \n");
+            ticketContent.append("--------------------------------------------------------------\n\n");
+
+            ticketContent.append(String.format("%-20s: %s\n", "ID Vehículo", txt_idEstEH.getText()));
+            ticketContent.append(String.format("%-20s: %s\n", "Placa", cb_placaEH.getSelectedItem().toString()));
+            ticketContent.append(String.format("%-20s: %s\n", "Hora", txt_horaEH.getText()));
+            ticketContent.append(String.format("%-20s: %s\n", "Fecha", txt_fechaEH.getText()));
+            ticketContent.append(String.format("%-20s: %d\n", "Lugar", (int) jsp_lugarMD.getValue()));
+            ticketContent.append(String.format("%-20s: %s\n", "Empleado", txt_empleadoEH.getText()));
+
+            ticketContent.append("\n==============================================================\n");
+            ticketContent.append("                  ¡GRACIAS POR USAR NUESTRO SERVICIO!          \n");
+            ticketContent.append("==============================================================\n");
+
+            // Mostrar el contenido del ticket en el área de texto
+            txtA_ticketEH.setText(ticketContent.toString());
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró el estacionamiento con ese ID.");
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al obtener los datos: " + e.getMessage());
+    } finally {
+        try {
+            if (con != null) con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+}
+
+    
+    
+    private void lb_ticketMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_ticketMouseClicked
+            datosTicket();
+        
+    }//GEN-LAST:event_lb_ticketMouseClicked
+
+    private void jLabel44MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel44MouseClicked
+         
+        try {
+            txtA_ticketEH.print();
+            } catch (Exception e) {
+         }
+    }//GEN-LAST:event_jLabel44MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -3976,16 +4115,17 @@ public class Menu_admin extends javax.swing.JFrame {
     private Clases.PanelRound btn_registrarMD;
     private Clases.PanelRound btn_registrarV;
     private Clases.PanelRound btn_registros;
+    private Clases.PanelRound btn_ticket;
     private Clases.PanelRound btn_usuarios;
     private Clases.PanelRound btn_vehiculo;
     private javax.swing.JComboBox<String> cb_marca;
+    private javax.swing.JComboBox<String> cb_placaEH;
     private javax.swing.JComboBox<String> cb_placaMD;
     private javax.swing.JComboBox<String> cb_tablas;
     private javax.swing.JComboBox<String> cb_tipo;
     private javax.swing.JPanel centro;
     private javax.swing.JComboBox<String> cmbRol1;
     private javax.swing.JPanel header;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -4093,10 +4233,10 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -4133,20 +4273,14 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel jp1;
     private javax.swing.JPanel jp10;
     private javax.swing.JPanel jp11;
@@ -4185,6 +4319,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JPanel jp_salidaVehiculos;
     private javax.swing.JPanel jp_usuarios;
     private javax.swing.JPanel jp_vehiculo;
+    private javax.swing.JSpinner jsp_lugarEH;
     private javax.swing.JSpinner jsp_lugarMD;
     private javax.swing.JTable jtb_registros;
     private javax.swing.JLabel lb_HorayFraccion;
@@ -4207,6 +4342,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel lb_registros;
     private javax.swing.JLabel lb_resgistrarMD;
     private javax.swing.JLabel lb_salidaVehiculos;
+    private javax.swing.JLabel lb_ticket;
     private javax.swing.JLabel lb_tiempo;
     private javax.swing.JLabel lb_usuarios;
     private javax.swing.JLabel lb_vehiculo;
@@ -4216,14 +4352,19 @@ public class Menu_admin extends javax.swing.JFrame {
     private Clases.PanelRound panelRound4;
     private Clases.PanelRound panelRound6;
     private Clases.PanelRound panelRound7;
+    private javax.swing.JTextArea txtA_ticketEH;
     private javax.swing.JTextArea txtA_ticketMD;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txt_color;
     private javax.swing.JTextField txt_costoMD;
     private javax.swing.JTextField txt_curp;
+    private javax.swing.JTextField txt_empleadoEH;
     private javax.swing.JTextField txt_empleadoMD;
+    private javax.swing.JTextField txt_fechaEH;
     private javax.swing.JTextField txt_fechaMD;
+    private javax.swing.JTextField txt_horaEH;
     private javax.swing.JTextField txt_horaMD;
+    private javax.swing.JTextField txt_idEstEH;
     private javax.swing.JTextField txt_identificacionMD;
     private javax.swing.JTextField txt_idmembresiaMD;
     private javax.swing.JTextField txt_idueñoMD;
