@@ -20,6 +20,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -50,6 +51,7 @@ public class Menu_admin extends javax.swing.JFrame {
         
         consultas.RellenarComboBox("estacionamiento", "id_estacionamiento",CB_estacionamiento);
          consultas.RellenarComboBox("vehiculo", "Placa",cb_placaMD);
+         
         tiempo(); //Lama el metodo para mostrarlo
         
     }
@@ -67,10 +69,12 @@ public class Menu_admin extends javax.swing.JFrame {
             SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
             String formattedDate = dateFormatter.format(date);
             lb_fecha.setText(formattedDate);
+            txt_fechaMD.setText(formattedDate);
 
             SimpleDateFormat timeFormatter = new SimpleDateFormat("hh:mm:ss a");
             String formattedTime = timeFormatter.format(date);
             lb_tiempo.setText(formattedTime);
+            txt_horaMD.setText(formattedTime);
 
             
         });
@@ -294,15 +298,23 @@ public class Menu_admin extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtA_ticketMD = new javax.swing.JTextArea();
         jLabel46 = new javax.swing.JLabel();
+        panelRound6 = new Clases.PanelRound();
+        jLabel28 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel99 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        panelRound7 = new Clases.PanelRound();
+        jLabel100 = new javax.swing.JLabel();
         jp_registros = new javax.swing.JPanel();
         jLabel95 = new javax.swing.JLabel();
         jLabel96 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jtb_registros = new javax.swing.JTable();
+        cb_tablas = new javax.swing.JComboBox<>();
         jLabel97 = new javax.swing.JLabel();
-        panelRound5 = new Clases.PanelRound();
-        jLabel98 = new javax.swing.JLabel();
+        btn_consultarR = new Clases.PanelRound();
+        lb_consultarR = new javax.swing.JLabel();
         jp_HorayFraccion = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
@@ -455,7 +467,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Soberana Sans", 1, 16)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("La estación");
+        jLabel8.setText("ParkCar");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -596,7 +608,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(lb_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(lb_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 428, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, Short.MAX_VALUE)
                 .addComponent(btn_min, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btn_minmax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -931,7 +943,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         getContentPane().add(IZQ2, java.awt.BorderLayout.LINE_START);
@@ -952,14 +964,14 @@ public class Menu_admin extends javax.swing.JFrame {
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(229, 229, 229)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(700, Short.MAX_VALUE))
+                .addContainerGap(608, Short.MAX_VALUE))
         );
         jp_principalLayout.setVerticalGroup(
             jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(342, 342, 342)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(470, Short.MAX_VALUE))
+                .addContainerGap(458, Short.MAX_VALUE))
         );
 
         centro.add(jp_principal, "card2");
@@ -1218,7 +1230,7 @@ public class Menu_admin extends javax.swing.JFrame {
                                 .addComponent(jSeparator5)
                                 .addComponent(jSeparator7)
                                 .addComponent(cmbRol1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap(432, Short.MAX_VALUE))
+                        .addContainerGap(340, Short.MAX_VALUE))
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -1648,6 +1660,88 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_membresia.add(jLabel46);
         jLabel46.setBounds(850, 120, 270, 20);
 
+        panelRound6.setRoundBottomLeft(40);
+        panelRound6.setRoundTopRight(40);
+
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("Buscar placa");
+
+        javax.swing.GroupLayout panelRound6Layout = new javax.swing.GroupLayout(panelRound6);
+        panelRound6.setLayout(panelRound6Layout);
+        panelRound6Layout.setHorizontalGroup(
+            panelRound6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+        );
+        panelRound6Layout.setVerticalGroup(
+            panelRound6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jp_membresia.add(panelRound6);
+        panelRound6.setBounds(320, 330, 140, 40);
+
+        jLabel35.setText("Renovación");
+
+        jLabel99.setText("Fecha");
+
+        jTextField1.setText("jTextField1");
+
+        panelRound7.setBackground(new java.awt.Color(0, 0, 102));
+        panelRound7.setForeground(new java.awt.Color(0, 51, 102));
+        panelRound7.setRoundBottomLeft(40);
+        panelRound7.setRoundTopRight(40);
+
+        jLabel100.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel100.setText("Renovar");
+
+        javax.swing.GroupLayout panelRound7Layout = new javax.swing.GroupLayout(panelRound7);
+        panelRound7.setLayout(panelRound7Layout);
+        panelRound7Layout.setHorizontalGroup(
+            panelRound7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel100, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+        );
+        panelRound7Layout.setVerticalGroup(
+            panelRound7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel100, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel35)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel99)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                        .addComponent(panelRound7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel99)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelRound7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        jp_membresia.add(jPanel3);
+        jPanel3.setBounds(550, 560, 320, 110);
+
         centro.add(jp_membresia, "card4");
 
         jp_registros.setBackground(new java.awt.Color(255, 255, 255));
@@ -1656,7 +1750,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel96.setText("Registros");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtb_registros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1667,31 +1761,36 @@ public class Menu_admin extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable1);
+        jScrollPane4.setViewportView(jtb_registros);
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_tablas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuarios", "Vehiculos", "Membresias", "Hora x estacionamiento", " " }));
 
         jLabel97.setText("¿Que desea consultar?");
 
-        panelRound5.setRoundBottomLeft(40);
-        panelRound5.setRoundBottomRight(40);
-        panelRound5.setRoundTopLeft(40);
-        panelRound5.setRoundTopRight(40);
+        btn_consultarR.setRoundBottomLeft(40);
+        btn_consultarR.setRoundBottomRight(40);
+        btn_consultarR.setRoundTopLeft(40);
+        btn_consultarR.setRoundTopRight(40);
 
-        jLabel98.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel98.setText("Consultar");
+        lb_consultarR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_consultarR.setText("Consultar");
+        lb_consultarR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_consultarRMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout panelRound5Layout = new javax.swing.GroupLayout(panelRound5);
-        panelRound5.setLayout(panelRound5Layout);
-        panelRound5Layout.setHorizontalGroup(
-            panelRound5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound5Layout.createSequentialGroup()
-                .addComponent(jLabel98, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+        javax.swing.GroupLayout btn_consultarRLayout = new javax.swing.GroupLayout(btn_consultarR);
+        btn_consultarR.setLayout(btn_consultarRLayout);
+        btn_consultarRLayout.setHorizontalGroup(
+            btn_consultarRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_consultarRLayout.createSequentialGroup()
+                .addComponent(lb_consultarR, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        panelRound5Layout.setVerticalGroup(
-            panelRound5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel98, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        btn_consultarRLayout.setVerticalGroup(
+            btn_consultarRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_consultarR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jp_registrosLayout = new javax.swing.GroupLayout(jp_registros);
@@ -1707,12 +1806,12 @@ public class Menu_admin extends javax.swing.JFrame {
                         .addComponent(jLabel96))
                     .addGroup(jp_registrosLayout.createSequentialGroup()
                         .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel97, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                            .addComponent(jComboBox6, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel97, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cb_tablas, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(61, 61, 61)
-                        .addComponent(panelRound5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_consultarR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
         jp_registrosLayout.setVerticalGroup(
             jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1725,11 +1824,11 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(jLabel97)
                 .addGap(18, 18, 18)
                 .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelRound5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                    .addComponent(btn_consultarR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cb_tablas, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
                 .addGap(67, 67, 67)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(378, Short.MAX_VALUE))
+                .addContainerGap(366, Short.MAX_VALUE))
         );
 
         centro.add(jp_registros, "card5");
@@ -1805,7 +1904,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_HorayFraccionLayout.createSequentialGroup()
                         .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(1003, Short.MAX_VALUE))
+                        .addContainerGap(911, Short.MAX_VALUE))
                     .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
                         .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel40)
@@ -1947,7 +2046,7 @@ public class Menu_admin extends javax.swing.JFrame {
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 63, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(546, 45, -1, 63));
@@ -1973,7 +2072,7 @@ public class Menu_admin extends javax.swing.JFrame {
         jPanel18.setLayout(jPanel18Layout);
         jPanel18Layout.setHorizontalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 66, Short.MAX_VALUE)
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3375,55 +3474,61 @@ public class Menu_admin extends javax.swing.JFrame {
     //------------------------------------------- ACTUALIZAR DATOS VEHICULO -------------------------
     private void lb_actualizarVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_actualizarVMouseClicked
          // Capturar los datos de los campos de texto del formulario
-        String placa = txt_placa.getText();
-        String tipo = cb_tipo.getSelectedItem().toString();
-        String marca = cb_marca.getSelectedItem().toString();
-        String modelo = txt_modelo.getText();
-        String color = txt_color.getText();
+        // Capturar los datos de los campos de texto del formulario
+    String placa = txt_placa.getText(); // Nueva placa
+    String tipo = cb_tipo.getSelectedItem().toString();
+    String marca = cb_marca.getSelectedItem().toString();
+    String modelo = txt_modelo.getText();
+    String color = txt_color.getText();
 
-        // Establecer la conexión
-        Connection con = conexion.getConection();
-        if (con != null) {
-            try {
-                // Crear la consulta SQL para actualizar los datos
-                String sql = "UPDATE vehiculo SET Placa = ?, Tipo = ?, Marca = ?, Modelo = ?, Color = ?  WHERE id_usuario = ?";
+    // Si tienes un campo para la placa original, úsalo. Por ahora, asumiremos que hay una variable placaOriginal.
+    String placaOriginal = txt_placa.getText();
 
-                // Preparar la sentencia SQL
-                PreparedStatement ps = con.prepareStatement(sql);
-                 ps.setString(1, placa);
-                ps.setString(2, tipo);
-                ps.setString(3, marca);
-                ps.setString(4, modelo);
-                ps.setString(5, color);
+    // Establecer la conexión
+    Connection con = conexion.getConection();
+    if (con != null) {
+        try {
+            // Crear la consulta SQL para actualizar los datos
+            String sql = "UPDATE vehiculo SET Placa = ?, Tipo = ?, Marca = ?, Modelo = ?, Color = ? WHERE Placa = ?";
 
-                // Ejecutar la consulta
-                int rowsAffected = ps.executeUpdate();
+            // Preparar la sentencia SQL
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, placa);          // Nueva placa
+            ps.setString(2, tipo);
+            ps.setString(3, marca);
+            ps.setString(4, modelo);
+            ps.setString(5, color);
+            ps.setString(6, placaOriginal); // Placa original para identificar el registro
 
-                // Verificar si la actualización fue exitosa
-                if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(null, "Datos del usuario actualizados exitosamente.");
+            // Ejecutar la consulta
+            int rowsAffected = ps.executeUpdate();
 
-                    // Limpiar los campos de texto y restablecer los controles
-                    txt_placa.setText("");
-                    cb_tipo.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado
-                    cb_marca.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado
-                    txt_modelo.setText("");
-                    txt_color.setText("");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al actualizar los datos del usuario.");
-                }
+            // Verificar si la actualización fue exitosa
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Datos del vehículo actualizados exitosamente.");
 
-                // Cerrar la conexión y el PreparedStatement
-                ps.close();
-                con.close();
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos: " + e.getMessage());
+                // Limpiar los campos de texto y restablecer los controles
+                txt_placa.setText("");
+                txt_placa.setText(""); // Limpiar también este campo
+                cb_tipo.setSelectedIndex(0);   // Restablecer JComboBox al valor predeterminado
+                cb_marca.setSelectedIndex(0);  // Restablecer JComboBox al valor predeterminado
+                txt_modelo.setText("");
+                txt_color.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al actualizar los datos del vehículo.");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "No se pudo establecer conexión con la base de datos.");
+
+            // Cerrar la conexión y el PreparedStatement
+            ps.close();
+            con.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos: " + e.getMessage());
         }
+    } else {
+        JOptionPane.showMessageDialog(null, "No se pudo establecer conexión con la base de datos.");
+    }
     }//GEN-LAST:event_lb_actualizarVMouseClicked
 
     private void lb_actualizarVMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_actualizarVMouseEntered
@@ -3594,6 +3699,72 @@ public class Menu_admin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_lb_resgistrarMDMouseClicked
 
+    private void lb_consultarRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_consultarRMouseClicked
+       
+        Connection con = conexion.getConection(); // Usa tu clase de conexión
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    
+    // Obtener el valor seleccionado del JComboBox
+    String seleccion = cb_tablas.getSelectedItem().toString(); // Cambia 'jComboBoxTablas' al nombre correcto de tu JComboBox
+    
+    // Variables para almacenar el nombre real de la tabla y los encabezados
+    String nombreTabla = "";
+    String[] encabezados = {};
+
+    // Usar un switch para asignar el nombre real de la tabla y los encabezados
+    switch (seleccion) {
+        case "Usuarios": // Nombre mostrado en el JComboBox
+            nombreTabla = "usuario"; // Nombre real de la tabla
+            encabezados = new String[]{"ID", "Nombre", "Telefono", "Rango", "Curp", "Sucursal"}; // Ajusta los encabezados
+            break;
+        case "Vehiculos":
+            nombreTabla = "vehiculo";
+            encabezados = new String[]{"Placa", "Tipo", "Marca", "Model", "Color"}; // Ajusta los encabezados
+            break;
+        case "Membresias": 
+            nombreTabla = "membresia";
+            encabezados = new String[]{"ID", "Placa", "Hora", "Fecha", "Costo", "Lugar", "Empleado", "Dueño"}; // Ajusta los encabezados
+            break;
+        default:
+            JOptionPane.showMessageDialog(this, "Tabla no válida seleccionada");
+            return; // Detener la ejecución si no es una selección válida
+    }
+    
+
+    // Construir la consulta SQL
+    String consultaSQL = "SELECT * FROM " + nombreTabla;
+
+    try {
+        ps = con.prepareStatement(consultaSQL);
+        rs = ps.executeQuery();
+        
+        // Configurar modelo de la tabla con encabezados dinámicos
+        DefaultTableModel modelo = new DefaultTableModel(encabezados, 0); // 0 indica sin filas iniciales
+        jtb_registros.setModel(modelo); // Asignar el nuevo modelo a la JTable
+
+        // Cargar datos a la tabla
+        int columnas = rs.getMetaData().getColumnCount();
+        while (rs.next()) {
+            Object[] fila = new Object[columnas];
+            for (int i = 0; i < columnas; i++) {
+                fila[i] = rs.getObject(i + 1);
+            }
+            modelo.addRow(fila);
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error al realizar la consulta: " + e.getMessage());
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (ps != null) ps.close();
+            if (con != null) con.close();
+        } catch (SQLException ex) {
+            System.out.println("Error al cerrar conexión: " + ex.getMessage());
+        }
+    }
+    }//GEN-LAST:event_lb_consultarRMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -3639,6 +3810,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private Clases.PanelRound btn_actualizarU;
     private Clases.PanelRound btn_actualizarV;
     private Clases.PanelRound btn_cerrarsesion;
+    private Clases.PanelRound btn_consultarR;
     private javax.swing.JPanel btn_exit;
     private Clases.PanelRound btn_limpiar;
     private javax.swing.JPanel btn_min;
@@ -3651,15 +3823,16 @@ public class Menu_admin extends javax.swing.JFrame {
     private Clases.PanelRound btn_vehiculo;
     private javax.swing.JComboBox<String> cb_marca;
     private javax.swing.JComboBox<String> cb_placaMD;
+    private javax.swing.JComboBox<String> cb_tablas;
     private javax.swing.JComboBox<String> cb_tipo;
     private javax.swing.JPanel centro;
     private javax.swing.JComboBox<String> cmbRol1;
     private javax.swing.JPanel header;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -3678,6 +3851,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -3685,6 +3859,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
@@ -3753,12 +3928,13 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel96;
     private javax.swing.JLabel jLabel97;
-    private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -3802,9 +3978,9 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
@@ -3853,11 +4029,13 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JPanel jp_usuarios;
     private javax.swing.JPanel jp_vehiculo;
     private javax.swing.JSpinner jsp_lugarMD;
+    private javax.swing.JTable jtb_registros;
     private javax.swing.JLabel lb_HorayFraccion;
     private javax.swing.JLabel lb_actualizar;
     private javax.swing.JLabel lb_actualizarV;
     private javax.swing.JLabel lb_buscarV;
     private javax.swing.JLabel lb_cerrarsesion;
+    private javax.swing.JLabel lb_consultarR;
     private javax.swing.JLabel lb_estac;
     private javax.swing.JLabel lb_exit;
     private javax.swing.JLabel lb_fecha;
@@ -3879,7 +4057,8 @@ public class Menu_admin extends javax.swing.JFrame {
     private Clases.PanelRound panelRound2;
     private Clases.PanelRound panelRound3;
     private Clases.PanelRound panelRound4;
-    private Clases.PanelRound panelRound5;
+    private Clases.PanelRound panelRound6;
+    private Clases.PanelRound panelRound7;
     private javax.swing.JTextArea txtA_ticketMD;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txt_color;
