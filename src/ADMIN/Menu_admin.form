@@ -19,7 +19,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,-18,0,0,5,113"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,-16,0,0,5,113"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -367,7 +367,7 @@
                   <Component id="btn_SalVehiculos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btn_cerrarsesion" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="267" max="32767" attributes="0"/>
+                  <EmptySpace pref="269" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -799,7 +799,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" pref="95" max="-2" attributes="0"/>
-                      <EmptySpace pref="527" max="32767" attributes="0"/>
+                      <EmptySpace pref="529" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -861,7 +861,7 @@
                               <Component id="btn_actualizarU" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -881,7 +881,7 @@
                                       <Component id="cmbRol1" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="144" max="32767" attributes="0"/>
+                              <EmptySpace pref="156" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
@@ -1851,44 +1851,66 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="ICON"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/IMG/afiliacion.png"/>
+                </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="39" y="51" width="-1" height="28"/>
+                  <AbsoluteConstraints x="39" y="51" width="40" height="28"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Creato Display" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Membresia"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="87" y="57" width="131" height="-1"/>
+                  <AbsoluteConstraints x="87" y="50" width="150" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Louis George Cafe" size="16" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Id membresia"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="39" y="130" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="39" y="130" width="120" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_idmembresiaMD">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ingrese el ID de la membresia"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_idmembresiaMDMouseExited"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_idmembresiaMDMousePressed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_idmembresiaMDActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="39" y="164" width="213" height="43"/>
+                  <AbsoluteConstraints x="39" y="170" width="212" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1901,21 +1923,26 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Louis George Cafe" size="16" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Hora"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="39" y="235" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="39" y="235" width="70" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel13">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ICON"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/IMG/usuario.png"/>
+                </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="590" y="60" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="550" y="58" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1924,26 +1951,38 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Creato Display" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cliente"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="640" y="60" width="96" height="-1"/>
+                  <AbsoluteConstraints x="600" y="60" width="96" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Louis George Cafe" size="16" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Placa"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="320" y="230" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="320" y="235" width="70" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JComboBox" name="cb_placaMD">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="0"/>
+                </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
@@ -1956,7 +1995,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="320" y="260" width="144" height="37"/>
+                  <AbsoluteConstraints x="320" y="270" width="144" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1969,11 +2008,20 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txt_horaMD">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jTextField5"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_horaMDActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="39" y="257" width="213" height="33"/>
+                  <AbsoluteConstraints x="40" y="270" width="212" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1986,24 +2034,33 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Louis George Cafe" size="16" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Fecha"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="39" y="338" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="39" y="338" width="80" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_fechaMD">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jTextField6"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_fechaMDActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="39" y="366" width="213" height="33"/>
+                  <AbsoluteConstraints x="40" y="370" width="212" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -2016,21 +2073,38 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel24">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Louis George Cafe" size="16" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Costo"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="39" y="439" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="39" y="439" width="80" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_costoMD">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField7"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ingrese el costo"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_costoMDMouseExited"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_costoMDMousePressed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_costoMDActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="39" y="467" width="213" height="33"/>
+                  <AbsoluteConstraints x="40" y="470" width="212" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -2043,11 +2117,14 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel25">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Lugar de estacionamiento"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Louis George Cafe" size="15" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Caj&#xf3;n"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="320" y="140" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="320" y="130" width="190" height="19"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -2059,7 +2136,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="320" y="170" width="144" height="30"/>
+                  <AbsoluteConstraints x="320" y="170" width="140" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -2075,16 +2152,22 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel26">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Louis George Cafe" size="16" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Atiende"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="39" y="540" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="39" y="540" width="100" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_empleadoMD">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jTextField8"/>
               </Properties>
               <Constraints>
@@ -2095,6 +2178,9 @@
             </Component>
             <Container class="Clases.PanelRound" name="btn_registrarMD">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="38" green="9" red="74" type="rgb"/>
+                </Property>
                 <Property name="roundBottomLeft" type="int" value="40"/>
                 <Property name="roundBottomRight" type="int" value="40"/>
                 <Property name="roundTopLeft" type="int" value="40"/>
@@ -2102,27 +2188,33 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="39" y="635" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="40" y="670" width="140" height="50"/>
                 </Constraint>
               </Constraints>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lb_resgistrarMD" alignment="0" pref="124" max="32767" attributes="0"/>
+                      <Component id="lb_resgistrarMD" alignment="1" pref="140" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lb_resgistrarMD" alignment="0" pref="40" max="32767" attributes="0"/>
+                      <Component id="lb_resgistrarMD" alignment="0" pref="50" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="lb_resgistrarMD">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="15" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Registrar"/>
+                    <Property name="text" type="java.lang.String" value="REGISTRAR"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lb_resgistrarMDMouseClicked"/>
@@ -2132,82 +2224,131 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel27">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Louis George Cafe" size="16" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="id_due&#xf1;o"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="550" y="140" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="550" y="140" width="90" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel29">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Louis George Cafe" size="16" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nombre completo"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="550" y="230" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="550" y="230" width="140" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel30">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Louis George Cafe" size="16" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Identificaci&#xf3;n"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="550" y="330" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="550" y="330" width="110" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_idue&#xf1;oMD">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField9"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ingrese el ID del due&#xf1;o"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_idue&#xf1;oMDMouseExited"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_idue&#xf1;oMDMousePressed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_idue&#xf1;oMDActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="550" y="160" width="247" height="36"/>
+                  <AbsoluteConstraints x="550" y="170" width="212" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_nombrecompletoMD">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField10"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ingrese el nombre completo"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_nombrecompletoMDMouseExited"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_nombrecompletoMDMousePressed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="550" y="250" width="247" height="39"/>
+                  <AbsoluteConstraints x="550" y="259" width="212" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_identificacionMD">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField11"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ingrese la identificaci&#xf3;n"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_identificacionMDMouseExited"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_identificacionMDMousePressed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="550" y="360" width="247" height="36"/>
+                  <AbsoluteConstraints x="550" y="360" width="212" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator19">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="550" y="210" width="247" height="10"/>
+                  <AbsoluteConstraints x="550" y="210" width="212" height="10"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator20">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="550" y="300" width="247" height="10"/>
+                  <AbsoluteConstraints x="550" y="300" width="212" height="10"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator21">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="550" y="410" width="247" height="10"/>
+                  <AbsoluteConstraints x="550" y="403" width="212" height="10"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -2233,6 +2374,12 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel46">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="16" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Ticket"/>
               </Properties>
@@ -2244,19 +2391,22 @@
             </Component>
             <Container class="Clases.PanelRound" name="panelRound6">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
                 <Property name="roundBottomLeft" type="int" value="40"/>
                 <Property name="roundTopRight" type="int" value="40"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="320" y="330" width="140" height="40"/>
+                  <AbsoluteConstraints x="320" y="340" width="140" height="40"/>
                 </Constraint>
               </Constraints>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel28" alignment="0" pref="140" max="32767" attributes="0"/>
+                      <Component id="jLabel28" alignment="1" pref="140" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -2268,8 +2418,14 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel28">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="13" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Buscar placa"/>
+                    <Property name="text" type="java.lang.String" value="BUSCAR PLACA"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -2277,46 +2433,46 @@
             <Container class="javax.swing.JPanel" name="jPanel3">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="550" y="560" width="320" height="110"/>
+                  <AbsoluteConstraints x="540" y="550" width="330" height="120"/>
                 </Constraint>
               </Constraints>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel99" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField1" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="85" max="32767" attributes="0"/>
-                                  <Component id="panelRound7" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel99" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextField1" min="-2" pref="142" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace pref="37" max="32767" attributes="0"/>
+                          <Component id="panelRound7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                   <Component id="jLabel99" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="panelRound7" max="32767" attributes="0"/>
+                              <Component id="panelRound7" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="30" max="32767" attributes="0"/>
+                          <EmptySpace pref="10" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2324,23 +2480,35 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel35">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Creato Display" size="18" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="66" red="66" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Renovaci&#xf3;n"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel99">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Louis George Cafe" size="16" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Fecha"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField1">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Nirmala UI" size="14" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="jTextField1"/>
                   </Properties>
                 </Component>
                 <Container class="Clases.PanelRound" name="panelRound7">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="66" green="0" red="0" type="rgb"/>
+                      <Color blue="89" green="21" red="21" type="rgb"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="33" red="0" type="rgb"/>
@@ -2352,23 +2520,26 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel100" pref="80" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jLabel100" alignment="1" pref="94" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel100" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jLabel100" alignment="1" pref="47" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabel100">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Nirmala UI" size="14" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="horizontalAlignment" type="int" value="0"/>
-                        <Property name="text" type="java.lang.String" value="Renovar"/>
+                        <Property name="text" type="java.lang.String" value="RENOVAR"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -2431,7 +2602,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                       <Component id="jScrollPane4" min="-2" pref="293" max="-2" attributes="0"/>
-                      <EmptySpace pref="435" max="32767" attributes="0"/>
+                      <EmptySpace pref="437" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2629,7 +2800,7 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jSeparator23" min="-2" pref="10" max="-2" attributes="0"/>
-                                      <EmptySpace pref="63" max="32767" attributes="0"/>
+                                      <EmptySpace pref="65" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="3" attributes="0">
@@ -2817,9 +2988,6 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel45">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Ticket"/>
               </Properties>
@@ -2868,9 +3036,6 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="lb_ticket">
                   <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="0" green="0" red="0" type="rgb"/>
-                    </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="Ticket"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

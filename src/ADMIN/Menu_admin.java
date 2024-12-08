@@ -955,7 +955,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addContainerGap(269, Short.MAX_VALUE))
         );
 
         getContentPane().add(IZQ2, java.awt.BorderLayout.LINE_START);
@@ -982,7 +982,7 @@ public class Menu_admin extends javax.swing.JFrame {
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(342, 342, 342)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(527, Short.MAX_VALUE))
+                .addContainerGap(529, Short.MAX_VALUE))
         );
 
         centro.add(jp_principal, "card2");
@@ -1234,7 +1234,7 @@ public class Menu_admin extends javax.swing.JFrame {
                         .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65)
                         .addComponent(btn_actualizarU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(253, 253, 253)
+                .addGap(241, 241, 241)
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
                         .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1251,7 +1251,7 @@ public class Menu_admin extends javax.swing.JFrame {
                                 .addComponent(jSeparator5)
                                 .addComponent(jSeparator7)
                                 .addComponent(cmbRol1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap(144, Short.MAX_VALUE))
+                        .addContainerGap(156, Short.MAX_VALUE))
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -1629,110 +1629,166 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_membresia.setLayout(null);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ICON");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/afiliacion.png"))); // NOI18N
         jp_membresia.add(jLabel1);
-        jLabel1.setBounds(39, 51, 30, 28);
+        jLabel1.setBounds(39, 51, 40, 28);
 
+        jLabel5.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Membresia");
         jp_membresia.add(jLabel5);
-        jLabel5.setBounds(87, 57, 131, 16);
+        jLabel5.setBounds(87, 50, 150, 30);
 
+        jLabel6.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel6.setText("Id membresia");
         jp_membresia.add(jLabel6);
-        jLabel6.setBounds(39, 130, 77, 16);
+        jLabel6.setBounds(39, 130, 120, 19);
 
-        txt_idmembresiaMD.setText("jTextField1");
+        txt_idmembresiaMD.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_idmembresiaMD.setForeground(new java.awt.Color(102, 102, 102));
+        txt_idmembresiaMD.setText("Ingrese el ID de la membresia");
         txt_idmembresiaMD.setBorder(null);
+        txt_idmembresiaMD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_idmembresiaMDMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_idmembresiaMDMousePressed(evt);
+            }
+        });
+        txt_idmembresiaMD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_idmembresiaMDActionPerformed(evt);
+            }
+        });
         jp_membresia.add(txt_idmembresiaMD);
-        txt_idmembresiaMD.setBounds(39, 164, 213, 43);
+        txt_idmembresiaMD.setBounds(39, 170, 212, 40);
         jp_membresia.add(jSeparator9);
         jSeparator9.setBounds(39, 213, 213, 16);
 
+        jLabel12.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel12.setText("Hora");
         jp_membresia.add(jLabel12);
-        jLabel12.setBounds(39, 235, 27, 16);
+        jLabel12.setBounds(39, 235, 70, 19);
 
-        jLabel13.setText("ICON");
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/usuario.png"))); // NOI18N
         jp_membresia.add(jLabel13);
-        jLabel13.setBounds(590, 60, 30, 16);
+        jLabel13.setBounds(550, 58, 32, 32);
 
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel15.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("Cliente");
         jp_membresia.add(jLabel15);
-        jLabel15.setBounds(640, 60, 96, 16);
+        jLabel15.setBounds(600, 60, 96, 30);
 
+        jLabel17.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel17.setText("Placa");
         jp_membresia.add(jLabel17);
-        jLabel17.setBounds(320, 230, 31, 16);
+        jLabel17.setBounds(320, 235, 70, 19);
 
+        cb_placaMD.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         cb_placaMD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cb_placaMDActionPerformed(evt);
             }
         });
         jp_membresia.add(cb_placaMD);
-        cb_placaMD.setBounds(320, 260, 144, 37);
+        cb_placaMD.setBounds(320, 270, 144, 40);
         jp_membresia.add(jSeparator14);
         jSeparator14.setBounds(320, 310, 144, 22);
 
+        txt_horaMD.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txt_horaMD.setText("jTextField5");
+        txt_horaMD.setBorder(null);
+        txt_horaMD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_horaMDActionPerformed(evt);
+            }
+        });
         jp_membresia.add(txt_horaMD);
-        txt_horaMD.setBounds(39, 257, 213, 33);
+        txt_horaMD.setBounds(40, 270, 212, 40);
         jp_membresia.add(jSeparator15);
         jSeparator15.setBounds(39, 310, 213, 10);
 
+        jLabel18.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel18.setText("Fecha");
         jp_membresia.add(jLabel18);
-        jLabel18.setBounds(39, 338, 34, 16);
+        jLabel18.setBounds(39, 338, 80, 19);
 
+        txt_fechaMD.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txt_fechaMD.setText("jTextField6");
+        txt_fechaMD.setBorder(null);
         txt_fechaMD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_fechaMDActionPerformed(evt);
             }
         });
         jp_membresia.add(txt_fechaMD);
-        txt_fechaMD.setBounds(39, 366, 213, 33);
+        txt_fechaMD.setBounds(40, 370, 212, 40);
         jp_membresia.add(jSeparator16);
         jSeparator16.setBounds(39, 411, 213, 10);
 
+        jLabel24.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel24.setText("Costo");
         jp_membresia.add(jLabel24);
-        jLabel24.setBounds(39, 439, 33, 16);
+        jLabel24.setBounds(39, 439, 80, 19);
 
-        txt_costoMD.setText("jTextField7");
+        txt_costoMD.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_costoMD.setForeground(new java.awt.Color(102, 102, 102));
+        txt_costoMD.setText("Ingrese el costo");
+        txt_costoMD.setBorder(null);
+        txt_costoMD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_costoMDMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_costoMDMousePressed(evt);
+            }
+        });
+        txt_costoMD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_costoMDActionPerformed(evt);
+            }
+        });
         jp_membresia.add(txt_costoMD);
-        txt_costoMD.setBounds(39, 467, 213, 33);
+        txt_costoMD.setBounds(40, 470, 212, 40);
         jp_membresia.add(jSeparator17);
         jSeparator17.setBounds(39, 512, 213, 10);
 
-        jLabel25.setText("Lugar de estacionamiento");
+        jLabel25.setFont(new java.awt.Font("Louis George Cafe", 0, 15)); // NOI18N
+        jLabel25.setText("Cajón");
         jp_membresia.add(jLabel25);
-        jLabel25.setBounds(320, 140, 144, 16);
+        jLabel25.setBounds(320, 130, 190, 19);
 
         jsp_lugarMD.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
         jp_membresia.add(jsp_lugarMD);
-        jsp_lugarMD.setBounds(320, 170, 144, 30);
+        jsp_lugarMD.setBounds(320, 170, 140, 40);
 
         jSeparator18.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jp_membresia.add(jSeparator18);
         jSeparator18.setBounds(510, 90, 16, 520);
 
+        jLabel26.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel26.setText("Atiende");
         jp_membresia.add(jLabel26);
-        jLabel26.setBounds(39, 540, 41, 16);
+        jLabel26.setBounds(39, 540, 100, 19);
 
+        txt_empleadoMD.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txt_empleadoMD.setText("jTextField8");
         jp_membresia.add(txt_empleadoMD);
         txt_empleadoMD.setBounds(39, 568, 440, 37);
 
+        btn_registrarMD.setBackground(new java.awt.Color(116, 9, 56));
         btn_registrarMD.setRoundBottomLeft(40);
         btn_registrarMD.setRoundBottomRight(40);
         btn_registrarMD.setRoundTopLeft(40);
         btn_registrarMD.setRoundTopRight(40);
 
+        lb_resgistrarMD.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        lb_resgistrarMD.setForeground(new java.awt.Color(255, 255, 255));
         lb_resgistrarMD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_resgistrarMD.setText("Registrar");
+        lb_resgistrarMD.setText("REGISTRAR");
         lb_resgistrarMD.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_resgistrarMDMouseClicked(evt);
@@ -1743,45 +1799,86 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_registrarMD.setLayout(btn_registrarMDLayout);
         btn_registrarMDLayout.setHorizontalGroup(
             btn_registrarMDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_resgistrarMD, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+            .addComponent(lb_resgistrarMD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
         );
         btn_registrarMDLayout.setVerticalGroup(
             btn_registrarMDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_resgistrarMD, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(lb_resgistrarMD, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         jp_membresia.add(btn_registrarMD);
-        btn_registrarMD.setBounds(39, 635, 124, 40);
+        btn_registrarMD.setBounds(40, 670, 140, 50);
 
+        jLabel27.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel27.setText("id_dueño");
         jp_membresia.add(jLabel27);
-        jLabel27.setBounds(550, 140, 52, 16);
+        jLabel27.setBounds(550, 140, 90, 19);
 
+        jLabel29.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel29.setText("Nombre completo");
         jp_membresia.add(jLabel29);
-        jLabel29.setBounds(550, 230, 99, 16);
+        jLabel29.setBounds(550, 230, 140, 19);
 
+        jLabel30.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel30.setText("Identificación");
         jp_membresia.add(jLabel30);
-        jLabel30.setBounds(550, 330, 72, 16);
+        jLabel30.setBounds(550, 330, 110, 19);
 
-        txt_idueñoMD.setText("jTextField9");
+        txt_idueñoMD.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_idueñoMD.setForeground(new java.awt.Color(102, 102, 102));
+        txt_idueñoMD.setText("Ingrese el ID del dueño");
+        txt_idueñoMD.setBorder(null);
+        txt_idueñoMD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_idueñoMDMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_idueñoMDMousePressed(evt);
+            }
+        });
+        txt_idueñoMD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_idueñoMDActionPerformed(evt);
+            }
+        });
         jp_membresia.add(txt_idueñoMD);
-        txt_idueñoMD.setBounds(550, 160, 247, 36);
+        txt_idueñoMD.setBounds(550, 170, 212, 40);
 
-        txt_nombrecompletoMD.setText("jTextField10");
+        txt_nombrecompletoMD.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_nombrecompletoMD.setForeground(new java.awt.Color(102, 102, 102));
+        txt_nombrecompletoMD.setText("Ingrese el nombre completo");
+        txt_nombrecompletoMD.setBorder(null);
+        txt_nombrecompletoMD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_nombrecompletoMDMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_nombrecompletoMDMousePressed(evt);
+            }
+        });
         jp_membresia.add(txt_nombrecompletoMD);
-        txt_nombrecompletoMD.setBounds(550, 250, 247, 39);
+        txt_nombrecompletoMD.setBounds(550, 259, 212, 40);
 
-        txt_identificacionMD.setText("jTextField11");
+        txt_identificacionMD.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_identificacionMD.setForeground(new java.awt.Color(102, 102, 102));
+        txt_identificacionMD.setText("Ingrese la identificación");
+        txt_identificacionMD.setBorder(null);
+        txt_identificacionMD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_identificacionMDMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_identificacionMDMousePressed(evt);
+            }
+        });
         jp_membresia.add(txt_identificacionMD);
-        txt_identificacionMD.setBounds(550, 360, 247, 36);
+        txt_identificacionMD.setBounds(550, 360, 212, 40);
         jp_membresia.add(jSeparator19);
-        jSeparator19.setBounds(550, 210, 247, 10);
+        jSeparator19.setBounds(550, 210, 212, 10);
         jp_membresia.add(jSeparator20);
-        jSeparator20.setBounds(550, 300, 247, 10);
+        jSeparator20.setBounds(550, 300, 212, 10);
         jp_membresia.add(jSeparator21);
-        jSeparator21.setBounds(550, 410, 247, 10);
+        jSeparator21.setBounds(550, 403, 212, 10);
 
         txtA_ticketMD.setColumns(20);
         txtA_ticketMD.setRows(5);
@@ -1790,22 +1887,27 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_membresia.add(jScrollPane2);
         jScrollPane2.setBounds(850, 160, 270, 330);
 
+        jLabel46.setFont(new java.awt.Font("Nirmala UI", 1, 16)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(102, 102, 102));
         jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel46.setText("Ticket");
         jp_membresia.add(jLabel46);
         jLabel46.setBounds(850, 120, 270, 20);
 
+        panelRound6.setBackground(new java.awt.Color(102, 102, 102));
         panelRound6.setRoundBottomLeft(40);
         panelRound6.setRoundTopRight(40);
 
+        jLabel28.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("Buscar placa");
+        jLabel28.setText("BUSCAR PLACA");
 
         javax.swing.GroupLayout panelRound6Layout = new javax.swing.GroupLayout(panelRound6);
         panelRound6.setLayout(panelRound6Layout);
         panelRound6Layout.setHorizontalGroup(
             panelRound6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
         );
         panelRound6Layout.setVerticalGroup(
             panelRound6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1813,33 +1915,37 @@ public class Menu_admin extends javax.swing.JFrame {
         );
 
         jp_membresia.add(panelRound6);
-        panelRound6.setBounds(320, 330, 140, 40);
+        panelRound6.setBounds(320, 340, 140, 40);
 
+        jLabel35.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(102, 102, 102));
         jLabel35.setText("Renovación");
 
+        jLabel99.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel99.setText("Fecha");
 
+        jTextField1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jTextField1.setText("jTextField1");
 
-        panelRound7.setBackground(new java.awt.Color(0, 0, 102));
+        panelRound7.setBackground(new java.awt.Color(33, 33, 137));
         panelRound7.setForeground(new java.awt.Color(0, 51, 102));
         panelRound7.setRoundBottomLeft(40);
         panelRound7.setRoundTopRight(40);
 
+        jLabel100.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        jLabel100.setForeground(new java.awt.Color(255, 255, 255));
         jLabel100.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel100.setText("Renovar");
+        jLabel100.setText("RENOVAR");
 
         javax.swing.GroupLayout panelRound7Layout = new javax.swing.GroupLayout(panelRound7);
         panelRound7.setLayout(panelRound7Layout);
         panelRound7Layout.setHorizontalGroup(
             panelRound7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel100, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+            .addComponent(jLabel100, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
         );
         panelRound7Layout.setVerticalGroup(
             panelRound7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel100, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel100, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -1847,35 +1953,36 @@ public class Menu_admin extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel35)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel99)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                        .addComponent(panelRound7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel99)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(panelRound7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel35)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(jLabel35)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addComponent(jLabel99)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelRound7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(panelRound7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         jp_membresia.add(jPanel3);
-        jPanel3.setBounds(550, 560, 320, 110);
+        jPanel3.setBounds(540, 550, 330, 120);
 
         centro.add(jp_membresia, "card4");
 
@@ -1964,7 +2071,7 @@ public class Menu_admin extends javax.swing.JFrame {
                     .addComponent(cb_tablas, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
                 .addGap(67, 67, 67)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(435, Short.MAX_VALUE))
+                .addContainerGap(437, Short.MAX_VALUE))
         );
 
         centro.add(jp_registros, "card5");
@@ -2029,7 +2136,6 @@ public class Menu_admin extends javax.swing.JFrame {
             .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
-        jLabel45.setForeground(new java.awt.Color(0, 0, 0));
         jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel45.setText("Ticket");
 
@@ -2041,7 +2147,6 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_ticket.setRoundBottomLeft(40);
         btn_ticket.setRoundTopRight(40);
 
-        lb_ticket.setForeground(new java.awt.Color(0, 0, 0));
         lb_ticket.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_ticket.setText("Ticket");
         lb_ticket.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2140,7 +2245,7 @@ public class Menu_admin extends javax.swing.JFrame {
                                     .addComponent(txt_idEstEH, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jSeparator23, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
                                         .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2186,11 +2291,11 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel47.setText("icon");
         jp_lugares.add(jLabel47);
-        jLabel47.setBounds(41, 37, 23, 16);
+        jLabel47.setBounds(41, 37, 22, 16);
 
         jLabel48.setText("Lugares");
         jp_lugares.add(jLabel48);
-        jLabel48.setBounds(82, 37, 46, 16);
+        jLabel48.setBounds(82, 37, 41, 16);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2806,15 +2911,15 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel79.setText("Icon");
         jp_salidaVehiculos.add(jLabel79);
-        jLabel79.setBounds(50, 48, 23, 16);
+        jLabel79.setBounds(50, 48, 22, 16);
 
         jLabel80.setText("Salida vehiculos");
         jp_salidaVehiculos.add(jLabel80);
-        jLabel80.setBounds(96, 48, 90, 16);
+        jLabel80.setBounds(96, 48, 85, 16);
 
         jLabel81.setText("Placa");
         jp_salidaVehiculos.add(jLabel81);
-        jLabel81.setBounds(50, 116, 31, 16);
+        jLabel81.setBounds(50, 116, 28, 16);
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jp_salidaVehiculos.add(jComboBox5);
@@ -2822,15 +2927,15 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel85.setText("Fecha");
         jp_salidaVehiculos.add(jLabel85);
-        jLabel85.setBounds(50, 308, 34, 16);
+        jLabel85.setBounds(50, 308, 30, 16);
 
         jLabel86.setText("Lugar");
         jp_salidaVehiculos.add(jLabel86);
-        jLabel86.setBounds(50, 393, 32, 16);
+        jLabel86.setBounds(50, 393, 30, 16);
 
         jLabel87.setText("Costo");
         jp_salidaVehiculos.add(jLabel87);
-        jLabel87.setBounds(50, 484, 33, 16);
+        jLabel87.setBounds(50, 484, 30, 16);
 
         panelRound2.setRoundBottomLeft(20);
         panelRound2.setRoundTopRight(20);
@@ -2862,15 +2967,15 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel82.setText("Hora entrada");
         jPanel2.add(jLabel82);
-        jLabel82.setBounds(46, 44, 72, 16);
+        jLabel82.setBounds(46, 44, 70, 16);
 
         jLabel83.setText("Hora salida");
         jPanel2.add(jLabel83);
-        jLabel83.setBounds(400, 50, 64, 16);
+        jLabel83.setBounds(400, 50, 61, 16);
 
         jLabel84.setText("Tiempo");
         jPanel2.add(jLabel84);
-        jLabel84.setBounds(250, 50, 42, 16);
+        jLabel84.setBounds(250, 50, 41, 16);
 
         jTextField16.setText("jTextField16");
         jPanel2.add(jTextField16);
@@ -2912,7 +3017,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jLabel92.setText("id_estacionamiento");
         jp_salidaVehiculos.add(jLabel92);
-        jLabel92.setBounds(50, 209, 109, 16);
+        jLabel92.setBounds(50, 209, 103, 16);
         jp_salidaVehiculos.add(jSeparator32);
         jSeparator32.setBounds(50, 181, 248, 10);
 
@@ -4060,6 +4165,92 @@ public class Menu_admin extends javax.swing.JFrame {
             } catch (Exception e) {
          }
     }//GEN-LAST:event_jLabel44MouseClicked
+
+    private void txt_horaMDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_horaMDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_horaMDActionPerformed
+
+    private void txt_costoMDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_costoMDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_costoMDActionPerformed
+
+    private void txt_idmembresiaMDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idmembresiaMDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_idmembresiaMDActionPerformed
+
+    private void txt_idueñoMDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idueñoMDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_idueñoMDActionPerformed
+
+    private void txt_idmembresiaMDMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_idmembresiaMDMouseExited
+        if (txt_idmembresiaMD.getText().isEmpty()) {
+            txt_idmembresiaMD.setText("Ingrese el ID de la membresia");
+            txt_idmembresiaMD.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txt_idmembresiaMDMouseExited
+
+    private void txt_idmembresiaMDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_idmembresiaMDMousePressed
+        if (txt_idmembresiaMD.getText().equals("Ingrese el ID de la membresia")) {
+            txt_idmembresiaMD.setText("");
+            txt_idmembresiaMD.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txt_idmembresiaMDMousePressed
+
+    private void txt_costoMDMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_costoMDMouseExited
+        if (txt_costoMD.getText().isEmpty()) {
+            txt_costoMD.setText("Ingrese el costo");
+            txt_costoMD.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txt_costoMDMouseExited
+
+    private void txt_costoMDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_costoMDMousePressed
+        if (txt_costoMD.getText().equals("Ingrese el costo")) {
+            txt_costoMD.setText("");
+            txt_costoMD.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txt_costoMDMousePressed
+
+    private void txt_idueñoMDMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_idueñoMDMouseExited
+        if (txt_idueñoMD.getText().isEmpty()) {
+            txt_idueñoMD.setText("Ingrese el ID del dueño");
+            txt_idueñoMD.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txt_idueñoMDMouseExited
+
+    private void txt_idueñoMDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_idueñoMDMousePressed
+        if (txt_idueñoMD.getText().equals("Ingrese el ID del dueño")) {
+            txt_idueñoMD.setText("");
+            txt_idueñoMD.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txt_idueñoMDMousePressed
+
+    private void txt_nombrecompletoMDMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_nombrecompletoMDMouseExited
+        if (txt_nombrecompletoMD.getText().isEmpty()) {
+            txt_nombrecompletoMD.setText("Ingrese el nombre completo");
+            txt_nombrecompletoMD.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txt_nombrecompletoMDMouseExited
+
+    private void txt_nombrecompletoMDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_nombrecompletoMDMousePressed
+        if (txt_nombrecompletoMD.getText().equals("Ingrese el nombre completo")) {
+            txt_nombrecompletoMD.setText("");
+            txt_nombrecompletoMD.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txt_nombrecompletoMDMousePressed
+
+    private void txt_identificacionMDMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_identificacionMDMouseExited
+        if (txt_identificacionMD.getText().isEmpty()) {
+            txt_identificacionMD.setText("Ingrese la identificación");
+            txt_identificacionMD.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txt_identificacionMDMouseExited
+
+    private void txt_identificacionMDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_identificacionMDMousePressed
+        if (txt_identificacionMD.getText().equals("Ingrese la identificación")) {
+            txt_identificacionMD.setText("");
+            txt_identificacionMD.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txt_identificacionMDMousePressed
 
     /**
      * @param args the command line arguments
