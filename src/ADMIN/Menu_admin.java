@@ -281,6 +281,14 @@ public class Menu_admin extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jLabel46 = new javax.swing.JLabel();
         jp_registros = new javax.swing.JPanel();
+        jLabel95 = new javax.swing.JLabel();
+        jLabel96 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jLabel97 = new javax.swing.JLabel();
+        panelRound5 = new Clases.PanelRound();
+        jLabel98 = new javax.swing.JLabel();
         jp_HorayFraccion = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
@@ -378,6 +386,40 @@ public class Menu_admin extends javax.swing.JFrame {
         jp29 = new javax.swing.JPanel();
         jLabel77 = new javax.swing.JLabel();
         jp_salidaVehiculos = new javax.swing.JPanel();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel80 = new javax.swing.JLabel();
+        jLabel81 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jLabel85 = new javax.swing.JLabel();
+        jLabel86 = new javax.swing.JLabel();
+        jLabel87 = new javax.swing.JLabel();
+        panelRound2 = new Clases.PanelRound();
+        jLabel88 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel89 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
+        jLabel84 = new javax.swing.JLabel();
+        jTextField16 = new javax.swing.JTextField();
+        jTextField17 = new javax.swing.JTextField();
+        jLabel90 = new javax.swing.JLabel();
+        panelRound3 = new Clases.PanelRound();
+        jLabel91 = new javax.swing.JLabel();
+        jLabel92 = new javax.swing.JLabel();
+        jSeparator32 = new javax.swing.JSeparator();
+        jTextField18 = new javax.swing.JTextField();
+        jSeparator33 = new javax.swing.JSeparator();
+        jTextField19 = new javax.swing.JTextField();
+        jSeparator34 = new javax.swing.JSeparator();
+        jTextField21 = new javax.swing.JTextField();
+        jSeparator35 = new javax.swing.JSeparator();
+        panelRound4 = new Clases.PanelRound();
+        jLabel93 = new javax.swing.JLabel();
+        jLabel94 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jSpinner3 = new javax.swing.JSpinner();
+        jSeparator36 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -764,7 +806,7 @@ public class Menu_admin extends javax.swing.JFrame {
             .addComponent(lb_salidaVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
-        btn_cerrarsesion.setBackground(new java.awt.Color(93, 14, 65));
+        btn_cerrarsesion.setBackground(new java.awt.Color(175, 23, 64));
         btn_cerrarsesion.setRoundBottomLeft(37);
         btn_cerrarsesion.setRoundBottomRight(37);
         btn_cerrarsesion.setRoundTopLeft(37);
@@ -782,7 +824,7 @@ public class Menu_admin extends javax.swing.JFrame {
         );
         btn_cerrarsesionLayout.setVerticalGroup(
             btn_cerrarsesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_cerrarsesion, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+            .addComponent(lb_cerrarsesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logo.png"))); // NOI18N
@@ -1385,6 +1427,8 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel25.setText("Lugar de estacionamiento");
         jp_membresia.add(jLabel25);
         jLabel25.setBounds(320, 140, 144, 16);
+
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
         jp_membresia.add(jSpinner1);
         jSpinner1.setBounds(320, 170, 144, 30);
 
@@ -1471,17 +1515,86 @@ public class Menu_admin extends javax.swing.JFrame {
 
         centro.add(jp_membresia, "card4");
 
-        jp_registros.setBackground(new java.awt.Color(255, 204, 153));
+        jp_registros.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel95.setText("ICON");
+
+        jLabel96.setText("Registros");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable1);
+
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel97.setText("¿Que desea consultar?");
+
+        panelRound5.setRoundBottomLeft(40);
+        panelRound5.setRoundBottomRight(40);
+        panelRound5.setRoundTopLeft(40);
+        panelRound5.setRoundTopRight(40);
+
+        jLabel98.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel98.setText("Consultar");
+
+        javax.swing.GroupLayout panelRound5Layout = new javax.swing.GroupLayout(panelRound5);
+        panelRound5.setLayout(panelRound5Layout);
+        panelRound5Layout.setHorizontalGroup(
+            panelRound5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound5Layout.createSequentialGroup()
+                .addComponent(jLabel98, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelRound5Layout.setVerticalGroup(
+            panelRound5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel98, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jp_registrosLayout = new javax.swing.GroupLayout(jp_registros);
         jp_registros.setLayout(jp_registrosLayout);
         jp_registrosLayout.setHorizontalGroup(
             jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1011, Short.MAX_VALUE)
+            .addGroup(jp_registrosLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_registrosLayout.createSequentialGroup()
+                        .addComponent(jLabel95)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel96))
+                    .addGroup(jp_registrosLayout.createSequentialGroup()
+                        .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel97, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(jComboBox6, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(61, 61, 61)
+                        .addComponent(panelRound5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         jp_registrosLayout.setVerticalGroup(
             jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 895, Short.MAX_VALUE)
+            .addGroup(jp_registrosLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel95)
+                    .addComponent(jLabel96))
+                .addGap(49, 49, 49)
+                .addComponent(jLabel97)
+                .addGap(18, 18, 18)
+                .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelRound5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox6, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                .addGap(67, 67, 67)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(366, Short.MAX_VALUE))
         );
 
         centro.add(jp_registros, "card5");
@@ -1510,6 +1623,8 @@ public class Menu_admin extends javax.swing.JFrame {
         jTextField14.setText("jTextField14");
 
         jLabel42.setText("Lugar");
+
+        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
 
         jLabel43.setText("Empleado");
 
@@ -1552,11 +1667,11 @@ public class Menu_admin extends javax.swing.JFrame {
             jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
+                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_HorayFraccionLayout.createSequentialGroup()
                         .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(796, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
+                    .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
                         .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel40)
                             .addComponent(jLabel39)
@@ -1582,10 +1697,13 @@ public class Menu_admin extends javax.swing.JFrame {
                             .addComponent(jSeparator26)
                             .addComponent(jSeparator27))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
-                        .addGap(76, 76, 76))))
+                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
+                                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(76, 76, 76))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36))))))
         );
         jp_HorayFraccionLayout.setVerticalGroup(
             jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2301,16 +2419,177 @@ public class Menu_admin extends javax.swing.JFrame {
 
         centro.add(jp_lugares, "card7");
 
-        javax.swing.GroupLayout jp_salidaVehiculosLayout = new javax.swing.GroupLayout(jp_salidaVehiculos);
-        jp_salidaVehiculos.setLayout(jp_salidaVehiculosLayout);
-        jp_salidaVehiculosLayout.setHorizontalGroup(
-            jp_salidaVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1011, Short.MAX_VALUE)
+        jp_salidaVehiculos.setBackground(new java.awt.Color(255, 255, 255));
+        jp_salidaVehiculos.setLayout(null);
+
+        jLabel79.setText("Icon");
+        jp_salidaVehiculos.add(jLabel79);
+        jLabel79.setBounds(50, 48, 23, 16);
+
+        jLabel80.setText("Salida vehiculos");
+        jp_salidaVehiculos.add(jLabel80);
+        jLabel80.setBounds(96, 48, 90, 16);
+
+        jLabel81.setText("Placa");
+        jp_salidaVehiculos.add(jLabel81);
+        jLabel81.setBounds(50, 116, 31, 16);
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jp_salidaVehiculos.add(jComboBox5);
+        jComboBox5.setBounds(50, 138, 248, 37);
+
+        jLabel85.setText("Fecha");
+        jp_salidaVehiculos.add(jLabel85);
+        jLabel85.setBounds(50, 308, 34, 16);
+
+        jLabel86.setText("Lugar");
+        jp_salidaVehiculos.add(jLabel86);
+        jLabel86.setBounds(50, 393, 32, 16);
+
+        jLabel87.setText("Costo");
+        jp_salidaVehiculos.add(jLabel87);
+        jLabel87.setBounds(50, 484, 33, 16);
+
+        panelRound2.setRoundBottomLeft(20);
+        panelRound2.setRoundTopRight(20);
+
+        jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel88.setText("Buscar");
+
+        javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
+        panelRound2.setLayout(panelRound2Layout);
+        panelRound2Layout.setHorizontalGroup(
+            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel88, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
         );
-        jp_salidaVehiculosLayout.setVerticalGroup(
-            jp_salidaVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 895, Short.MAX_VALUE)
+        panelRound2Layout.setVerticalGroup(
+            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel88, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
         );
+
+        jp_salidaVehiculos.add(panelRound2);
+        panelRound2.setBounds(316, 138, 91, 37);
+
+        jPanel2.setLayout(null);
+
+        jLabel89.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel89.setText("Calculador");
+        jPanel2.add(jLabel89);
+        jLabel89.setBounds(26, 16, 467, 16);
+
+        jLabel82.setText("Hora entrada");
+        jPanel2.add(jLabel82);
+        jLabel82.setBounds(46, 44, 72, 16);
+
+        jLabel83.setText("Hora salida");
+        jPanel2.add(jLabel83);
+        jLabel83.setBounds(400, 50, 64, 16);
+
+        jLabel84.setText("Tiempo");
+        jPanel2.add(jLabel84);
+        jLabel84.setBounds(250, 50, 42, 16);
+
+        jTextField16.setText("jTextField16");
+        jPanel2.add(jTextField16);
+        jTextField16.setBounds(30, 70, 129, 34);
+
+        jTextField17.setText("jTextField17");
+        jPanel2.add(jTextField17);
+        jTextField17.setBounds(380, 70, 113, 34);
+
+        jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel90.setText("mm");
+        jPanel2.add(jLabel90);
+        jLabel90.setBounds(220, 70, 103, 34);
+
+        panelRound3.setBackground(new java.awt.Color(204, 255, 204));
+        panelRound3.setRoundBottomLeft(40);
+        panelRound3.setRoundTopRight(40);
+
+        jLabel91.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel91.setText("Calcular");
+
+        javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
+        panelRound3.setLayout(panelRound3Layout);
+        panelRound3Layout.setHorizontalGroup(
+            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound3Layout.createSequentialGroup()
+                .addGap(0, 30, Short.MAX_VALUE)
+                .addComponent(jLabel91, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        panelRound3Layout.setVerticalGroup(
+            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel91, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(panelRound3);
+        panelRound3.setBounds(220, 140, 110, 42);
+
+        jp_salidaVehiculos.add(jPanel2);
+        jPanel2.setBounds(480, 80, 530, 210);
+
+        jLabel92.setText("id_estacionamiento");
+        jp_salidaVehiculos.add(jLabel92);
+        jLabel92.setBounds(50, 209, 109, 16);
+        jp_salidaVehiculos.add(jSeparator32);
+        jSeparator32.setBounds(50, 181, 248, 10);
+
+        jTextField18.setText("jTextField18");
+        jp_salidaVehiculos.add(jTextField18);
+        jTextField18.setBounds(50, 231, 248, 39);
+        jp_salidaVehiculos.add(jSeparator33);
+        jSeparator33.setBounds(50, 276, 248, 10);
+
+        jTextField19.setText("jTextField19");
+        jp_salidaVehiculos.add(jTextField19);
+        jTextField19.setBounds(50, 330, 248, 35);
+        jp_salidaVehiculos.add(jSeparator34);
+        jSeparator34.setBounds(50, 460, 248, 10);
+
+        jTextField21.setText("jTextField21");
+        jp_salidaVehiculos.add(jTextField21);
+        jTextField21.setBounds(50, 518, 248, 34);
+        jp_salidaVehiculos.add(jSeparator35);
+        jSeparator35.setBounds(50, 564, 248, 10);
+
+        panelRound4.setRoundBottomLeft(40);
+        panelRound4.setRoundBottomRight(40);
+        panelRound4.setRoundTopLeft(40);
+        panelRound4.setRoundTopRight(40);
+
+        jLabel93.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel93.setText("Pagar");
+
+        javax.swing.GroupLayout panelRound4Layout = new javax.swing.GroupLayout(panelRound4);
+        panelRound4.setLayout(panelRound4Layout);
+        panelRound4Layout.setHorizontalGroup(
+            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel93, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+        );
+        panelRound4Layout.setVerticalGroup(
+            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel93, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+        );
+
+        jp_salidaVehiculos.add(panelRound4);
+        panelRound4.setBounds(50, 610, 139, 51);
+
+        jLabel94.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel94.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel94.setText("Ticket");
+        jp_salidaVehiculos.add(jLabel94);
+        jLabel94.setBounds(480, 310, 526, 16);
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane3.setViewportView(jTextArea3);
+
+        jp_salidaVehiculos.add(jScrollPane3);
+        jScrollPane3.setBounds(550, 340, 406, 310);
+        jp_salidaVehiculos.add(jSpinner3);
+        jSpinner3.setBounds(50, 420, 240, 30);
+        jp_salidaVehiculos.add(jSeparator36);
+        jSeparator36.setBounds(50, 371, 248, 10);
 
         centro.add(jp_salidaVehiculos, "card8");
 
@@ -2877,6 +3156,8 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2953,16 +3234,39 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
+    private javax.swing.JLabel jLabel98;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -2988,6 +3292,11 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator30;
     private javax.swing.JSeparator jSeparator31;
+    private javax.swing.JSeparator jSeparator32;
+    private javax.swing.JSeparator jSeparator33;
+    private javax.swing.JSeparator jSeparator34;
+    private javax.swing.JSeparator jSeparator35;
+    private javax.swing.JSeparator jSeparator36;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
@@ -2996,8 +3305,11 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -3005,7 +3317,12 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -3069,6 +3386,10 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel lb_usuarios;
     private javax.swing.JLabel lb_vehiculo;
     private Clases.PanelRound panelRound1;
+    private Clases.PanelRound panelRound2;
+    private Clases.PanelRound panelRound3;
+    private Clases.PanelRound panelRound4;
+    private Clases.PanelRound panelRound5;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txt_curp;
     private javax.swing.JTextField txt_iduser;
