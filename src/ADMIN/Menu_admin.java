@@ -7,13 +7,15 @@ package ADMIN;
 import Clases.conexion;
 import java.sql.*;
 import java.awt.Color;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JPanel;
+import javax.swing.SpinnerListModel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.UIManager;
@@ -41,10 +43,13 @@ public class Menu_admin extends javax.swing.JFrame {
          
         initComponents();   
         
+
+        
         mapearPaneles(); // Llenar el mapa de paneles
         actualizarColores(); // Actualizar los colores según la base de datos
         
         consultas.RellenarComboBox("estacionamiento", "id_estacionamiento",CB_estacionamiento);
+         consultas.RellenarComboBox("vehiculo", "Placa",cb_placaMD);
         tiempo(); //Lama el metodo para mostrarlo
         
     }
@@ -109,45 +114,48 @@ public class Menu_admin extends javax.swing.JFrame {
         // Continúa agregando todos los paneles...
     }
     
-    private void actualizarColores() {
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
+        private void actualizarColores() {
+    Connection con = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
 
-        try {
-            con = conexion.getConection(); // Llama a tu clase conexión
-            if (con != null) {
-                String query = "SELECT id_espacio, estado FROM espacio_lugar WHERE id_estacionamiento = 123";
-                ps = con.prepareStatement(query);
-                rs = ps.executeQuery();
+    try {
+        con = conexion.getConection(); // Llama a tu clase conexión
+        if (con != null) {
+            // Usa comillas adecuadas para nombres de columnas
+            String query = "SELECT id_espacio, `Espacio(L/O)` FROM espacio_lugar WHERE id_estacionamiento = 1";
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
 
-                while (rs.next()) {
-                    int idEspacio = rs.getInt("id_espacio");
-                    String estado = rs.getString("estado");
+            while (rs.next()) {
+                int idEspacio = rs.getInt("id_espacio");
+                String estado = rs.getString("Espacio(L/O)").trim();
 
-                    // Cambiar el color según el estado
-                    JPanel panel = panelMap.get(idEspacio);
-                    if (panel != null) {
-                        if (estado.equalsIgnoreCase("Disponible")) {
-                            panel.setBackground(Color.GREEN);
-                        } else if (estado.equalsIgnoreCase("Ocupado")) {
-                            panel.setBackground(Color.RED);
-                        }
+                // Cambiar el color según el estado
+                JPanel panel = panelMap.get(idEspacio);
+                if (panel != null) {
+                    if (estado.equalsIgnoreCase("Disponible")) {
+                        panel.setBackground(Color.GREEN);
+                    } else if (estado.equalsIgnoreCase("Ocupado")) {
+                        panel.setBackground(Color.RED);
                     }
                 }
             }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (ps != null) ps.close();
+            if (con != null) con.close();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) rs.close();
-                if (ps != null) ps.close();
-                if (con != null) con.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
     }
+}
+
+
 
 
     /**
@@ -220,9 +228,11 @@ public class Menu_admin extends javax.swing.JFrame {
         cmbRol1 = new javax.swing.JComboBox<>();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel16 = new javax.swing.JLabel();
+        btn_actualizarU = new Clases.PanelRound();
+        lb_actualizar = new javax.swing.JLabel();
         jp_vehiculo = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txt_placa = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
@@ -230,55 +240,59 @@ public class Menu_admin extends javax.swing.JFrame {
         jSeparator12 = new javax.swing.JSeparator();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cb_marca = new javax.swing.JComboBox<>();
         jLabel33 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        txt_color = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jSeparator22 = new javax.swing.JSeparator();
         btn_registrarV = new Clases.PanelRound();
         lb_registrarV = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txt_modelo = new javax.swing.JTextField();
         jSeparator13 = new javax.swing.JSeparator();
-        jLabel35 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        lb_buscarV = new javax.swing.JLabel();
+        cb_tipo = new javax.swing.JComboBox<>();
+        btn_actualizarV = new Clases.PanelRound();
+        lb_actualizarV = new javax.swing.JLabel();
+        btn_limpiar = new Clases.PanelRound();
+        lb_limpiar = new javax.swing.JLabel();
         jp_membresia = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_idmembresiaMD = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cb_placaMD = new javax.swing.JComboBox<>();
         jSeparator14 = new javax.swing.JSeparator();
-        jTextField5 = new javax.swing.JTextField();
+        txt_horaMD = new javax.swing.JTextField();
         jSeparator15 = new javax.swing.JSeparator();
         jLabel18 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txt_fechaMD = new javax.swing.JTextField();
         jSeparator16 = new javax.swing.JSeparator();
         jLabel24 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txt_costoMD = new javax.swing.JTextField();
         jSeparator17 = new javax.swing.JSeparator();
         jLabel25 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        jsp_lugarMD = new javax.swing.JSpinner();
         jSeparator18 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txt_empleadoMD = new javax.swing.JTextField();
         btn_registrarMD = new Clases.PanelRound();
-        jLabel28 = new javax.swing.JLabel();
+        lb_resgistrarMD = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        txt_idueñoMD = new javax.swing.JTextField();
+        txt_nombrecompletoMD = new javax.swing.JTextField();
+        txt_identificacionMD = new javax.swing.JTextField();
         jSeparator19 = new javax.swing.JSeparator();
         jSeparator20 = new javax.swing.JSeparator();
         jSeparator21 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtA_ticketMD = new javax.swing.JTextArea();
         jLabel46 = new javax.swing.JLabel();
         jp_registros = new javax.swing.JPanel();
         jLabel95 = new javax.swing.JLabel();
@@ -582,7 +596,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(lb_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(lb_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 428, Short.MAX_VALUE)
                 .addComponent(btn_min, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btn_minmax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -917,7 +931,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         getContentPane().add(IZQ2, java.awt.BorderLayout.LINE_START);
@@ -938,14 +952,14 @@ public class Menu_admin extends javax.swing.JFrame {
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(229, 229, 229)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(493, Short.MAX_VALUE))
+                .addContainerGap(700, Short.MAX_VALUE))
         );
         jp_principalLayout.setVerticalGroup(
             jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(342, 342, 342)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(458, Short.MAX_VALUE))
+                .addContainerGap(470, Short.MAX_VALUE))
         );
 
         centro.add(jp_principal, "card2");
@@ -1125,6 +1139,38 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel16.setText("Rango");
 
+        btn_actualizarU.setBackground(new java.awt.Color(116, 9, 56));
+        btn_actualizarU.setRoundBottomLeft(50);
+        btn_actualizarU.setRoundBottomRight(50);
+        btn_actualizarU.setRoundTopLeft(50);
+        btn_actualizarU.setRoundTopRight(50);
+
+        lb_actualizar.setForeground(new java.awt.Color(255, 255, 255));
+        lb_actualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_actualizar.setText("Actualizar");
+        lb_actualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_actualizarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_actualizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_actualizarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btn_actualizarULayout = new javax.swing.GroupLayout(btn_actualizarU);
+        btn_actualizarU.setLayout(btn_actualizarULayout);
+        btn_actualizarULayout.setHorizontalGroup(
+            btn_actualizarULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_actualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+        );
+        btn_actualizarULayout.setVerticalGroup(
+            btn_actualizarULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jp_usuariosLayout = new javax.swing.GroupLayout(jp_usuarios);
         jp_usuarios.setLayout(jp_usuariosLayout);
         jp_usuariosLayout.setHorizontalGroup(
@@ -1151,16 +1197,18 @@ public class Menu_admin extends javax.swing.JFrame {
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel9))))
-                    .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(74, 74, 74)
+                    .addGroup(jp_usuariosLayout.createSequentialGroup()
+                        .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btn_actualizarU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48)
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
                         .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(lb_estac)
-                                .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CB_estacionamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)))
+                                .addComponent(CB_estacionamiento, 0, 339, Short.MAX_VALUE)
+                                .addComponent(jSeparator8))
                             .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel20)
                                 .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
@@ -1170,7 +1218,7 @@ public class Menu_admin extends javax.swing.JFrame {
                                 .addComponent(jSeparator5)
                                 .addComponent(jSeparator7)
                                 .addComponent(cmbRol1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 136, Short.MAX_VALUE))
+                        .addContainerGap(432, Short.MAX_VALUE))
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -1220,16 +1268,18 @@ public class Menu_admin extends javax.swing.JFrame {
                     .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_usuariosLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(lb_estac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CB_estacionamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(126, 126, 126))
+                        .addComponent(CB_estacionamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_usuariosLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_actualizarU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_registrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(292, 292, 292))
         );
 
         centro.add(jp_usuarios, "card3");
@@ -1242,9 +1292,9 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_vehiculo.add(jLabel21);
         jLabel21.setBounds(65, 108, 31, 16);
 
-        jTextField2.setText("jTextField2");
-        jp_vehiculo.add(jTextField2);
-        jTextField2.setBounds(65, 130, 285, 38);
+        txt_placa.setText("jTextField2");
+        jp_vehiculo.add(txt_placa);
+        txt_placa.setBounds(65, 130, 285, 38);
 
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Tipo");
@@ -1271,18 +1321,18 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_vehiculo.add(jLabel32);
         jLabel32.setBounds(124, 48, 47, 16);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Nissan", "Ford", "Yamaha", "Chevrolet", "Mercedes-Benz" }));
-        jp_vehiculo.add(jComboBox2);
-        jComboBox2.setBounds(65, 385, 285, 42);
+        cb_marca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Nissan", "Ford", "Yamaha", "Chevrolet", "Mercedes-Benz" }));
+        jp_vehiculo.add(cb_marca);
+        cb_marca.setBounds(65, 385, 285, 42);
 
         jLabel33.setForeground(new java.awt.Color(0, 0, 0));
         jLabel33.setText("Modelo");
         jp_vehiculo.add(jLabel33);
         jLabel33.setBounds(448, 108, 40, 16);
 
-        jTextField12.setText("jTextField12");
-        jp_vehiculo.add(jTextField12);
-        jTextField12.setBounds(448, 248, 364, 35);
+        txt_color.setText("jTextField12");
+        jp_vehiculo.add(txt_color);
+        txt_color.setBounds(448, 248, 364, 35);
 
         jLabel34.setForeground(new java.awt.Color(0, 0, 0));
         jLabel34.setText("Color");
@@ -1291,13 +1341,26 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_vehiculo.add(jSeparator22);
         jSeparator22.setBounds(448, 289, 364, 10);
 
+        btn_registrarV.setBackground(new java.awt.Color(116, 9, 56));
         btn_registrarV.setRoundBottomLeft(40);
         btn_registrarV.setRoundBottomRight(40);
         btn_registrarV.setRoundTopLeft(40);
         btn_registrarV.setRoundTopRight(40);
 
+        lb_registrarV.setBackground(new java.awt.Color(51, 0, 0));
         lb_registrarV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_registrarV.setText("Registrar");
+        lb_registrarV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_registrarVMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_registrarVMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_registrarVMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_registrarVLayout = new javax.swing.GroupLayout(btn_registrarV);
         btn_registrarV.setLayout(btn_registrarVLayout);
@@ -1313,19 +1376,87 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_vehiculo.add(btn_registrarV);
         btn_registrarV.setBounds(65, 517, 136, 47);
 
-        jTextField4.setText("jTextField4");
-        jp_vehiculo.add(jTextField4);
-        jTextField4.setBounds(448, 130, 364, 38);
+        txt_modelo.setText("jTextField4");
+        jp_vehiculo.add(txt_modelo);
+        txt_modelo.setBounds(448, 130, 364, 38);
         jp_vehiculo.add(jSeparator13);
         jSeparator13.setBounds(448, 174, 364, 10);
 
-        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/lupa.png"))); // NOI18N
-        jp_vehiculo.add(jLabel35);
-        jLabel35.setBounds(362, 123, 32, 45);
+        lb_buscarV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/lupa.png"))); // NOI18N
+        lb_buscarV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lb_buscarV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_buscarVMouseClicked(evt);
+            }
+        });
+        jp_vehiculo.add(lb_buscarV);
+        lb_buscarV.setBounds(362, 123, 32, 45);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sedán", "Motocicleta", "Pick-up" }));
-        jp_vehiculo.add(jComboBox3);
-        jComboBox3.setBounds(65, 252, 285, 38);
+        cb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sedán", "Motocicleta", "Pick-up" }));
+        jp_vehiculo.add(cb_tipo);
+        cb_tipo.setBounds(65, 252, 285, 38);
+
+        btn_actualizarV.setBackground(new java.awt.Color(116, 9, 56));
+        btn_actualizarV.setRoundBottomLeft(40);
+        btn_actualizarV.setRoundBottomRight(40);
+        btn_actualizarV.setRoundTopLeft(40);
+        btn_actualizarV.setRoundTopRight(40);
+
+        lb_actualizarV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_actualizarV.setText("Actualizar");
+        lb_actualizarV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_actualizarVMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_actualizarVMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_actualizarVMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btn_actualizarVLayout = new javax.swing.GroupLayout(btn_actualizarV);
+        btn_actualizarV.setLayout(btn_actualizarVLayout);
+        btn_actualizarVLayout.setHorizontalGroup(
+            btn_actualizarVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_actualizarV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+        );
+        btn_actualizarVLayout.setVerticalGroup(
+            btn_actualizarVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_actualizarV, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jp_vehiculo.add(btn_actualizarV);
+        btn_actualizarV.setBounds(250, 520, 150, 40);
+
+        btn_limpiar.setBackground(new java.awt.Color(116, 9, 56));
+        btn_limpiar.setRoundBottomLeft(40);
+        btn_limpiar.setRoundBottomRight(40);
+        btn_limpiar.setRoundTopLeft(40);
+        btn_limpiar.setRoundTopRight(40);
+
+        lb_limpiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_limpiar.setText("Limpiar");
+        lb_limpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_limpiarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btn_limpiarLayout = new javax.swing.GroupLayout(btn_limpiar);
+        btn_limpiar.setLayout(btn_limpiarLayout);
+        btn_limpiarLayout.setHorizontalGroup(
+            btn_limpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        );
+        btn_limpiarLayout.setVerticalGroup(
+            btn_limpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_limpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jp_vehiculo.add(btn_limpiar);
+        btn_limpiar.setBounds(450, 520, 130, 40);
 
         centro.add(jp_vehiculo, "card9");
 
@@ -1349,12 +1480,12 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_membresia.add(jLabel6);
         jLabel6.setBounds(39, 130, 77, 16);
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("jTextField1");
-        jTextField1.setBorder(null);
-        jp_membresia.add(jTextField1);
-        jTextField1.setBounds(39, 164, 213, 43);
+        txt_idmembresiaMD.setBackground(new java.awt.Color(255, 255, 255));
+        txt_idmembresiaMD.setForeground(new java.awt.Color(0, 0, 0));
+        txt_idmembresiaMD.setText("jTextField1");
+        txt_idmembresiaMD.setBorder(null);
+        jp_membresia.add(txt_idmembresiaMD);
+        txt_idmembresiaMD.setBounds(39, 164, 213, 43);
         jp_membresia.add(jSeparator9);
         jSeparator9.setBounds(39, 213, 213, 16);
 
@@ -1379,20 +1510,19 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_membresia.add(jLabel17);
         jLabel17.setBounds(320, 230, 31, 16);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cb_placaMD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cb_placaMDActionPerformed(evt);
             }
         });
-        jp_membresia.add(jComboBox1);
-        jComboBox1.setBounds(320, 260, 144, 37);
+        jp_membresia.add(cb_placaMD);
+        cb_placaMD.setBounds(320, 260, 144, 37);
         jp_membresia.add(jSeparator14);
         jSeparator14.setBounds(320, 310, 144, 22);
 
-        jTextField5.setText("jTextField5");
-        jp_membresia.add(jTextField5);
-        jTextField5.setBounds(39, 257, 213, 33);
+        txt_horaMD.setText("jTextField5");
+        jp_membresia.add(txt_horaMD);
+        txt_horaMD.setBounds(39, 257, 213, 33);
         jp_membresia.add(jSeparator15);
         jSeparator15.setBounds(39, 310, 213, 10);
 
@@ -1401,14 +1531,14 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_membresia.add(jLabel18);
         jLabel18.setBounds(39, 338, 34, 16);
 
-        jTextField6.setText("jTextField6");
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        txt_fechaMD.setText("jTextField6");
+        txt_fechaMD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                txt_fechaMDActionPerformed(evt);
             }
         });
-        jp_membresia.add(jTextField6);
-        jTextField6.setBounds(39, 366, 213, 33);
+        jp_membresia.add(txt_fechaMD);
+        txt_fechaMD.setBounds(39, 366, 213, 33);
         jp_membresia.add(jSeparator16);
         jSeparator16.setBounds(39, 411, 213, 10);
 
@@ -1417,9 +1547,9 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_membresia.add(jLabel24);
         jLabel24.setBounds(39, 439, 33, 16);
 
-        jTextField7.setText("jTextField7");
-        jp_membresia.add(jTextField7);
-        jTextField7.setBounds(39, 467, 213, 33);
+        txt_costoMD.setText("jTextField7");
+        jp_membresia.add(txt_costoMD);
+        txt_costoMD.setBounds(39, 467, 213, 33);
         jp_membresia.add(jSeparator17);
         jSeparator17.setBounds(39, 512, 213, 10);
 
@@ -1428,9 +1558,9 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_membresia.add(jLabel25);
         jLabel25.setBounds(320, 140, 144, 16);
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
-        jp_membresia.add(jSpinner1);
-        jSpinner1.setBounds(320, 170, 144, 30);
+        jsp_lugarMD.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
+        jp_membresia.add(jsp_lugarMD);
+        jsp_lugarMD.setBounds(320, 170, 144, 30);
 
         jSeparator18.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jp_membresia.add(jSeparator18);
@@ -1441,27 +1571,32 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_membresia.add(jLabel26);
         jLabel26.setBounds(39, 540, 41, 16);
 
-        jTextField8.setText("jTextField8");
-        jp_membresia.add(jTextField8);
-        jTextField8.setBounds(39, 568, 440, 37);
+        txt_empleadoMD.setText("jTextField8");
+        jp_membresia.add(txt_empleadoMD);
+        txt_empleadoMD.setBounds(39, 568, 440, 37);
 
         btn_registrarMD.setRoundBottomLeft(40);
         btn_registrarMD.setRoundBottomRight(40);
         btn_registrarMD.setRoundTopLeft(40);
         btn_registrarMD.setRoundTopRight(40);
 
-        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("Registrar");
+        lb_resgistrarMD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_resgistrarMD.setText("Registrar");
+        lb_resgistrarMD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_resgistrarMDMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_registrarMDLayout = new javax.swing.GroupLayout(btn_registrarMD);
         btn_registrarMD.setLayout(btn_registrarMDLayout);
         btn_registrarMDLayout.setHorizontalGroup(
             btn_registrarMDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+            .addComponent(lb_resgistrarMD, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
         );
         btn_registrarMDLayout.setVerticalGroup(
             btn_registrarMDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(lb_resgistrarMD, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         jp_membresia.add(btn_registrarMD);
@@ -1482,17 +1617,17 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_membresia.add(jLabel30);
         jLabel30.setBounds(550, 330, 72, 16);
 
-        jTextField9.setText("jTextField9");
-        jp_membresia.add(jTextField9);
-        jTextField9.setBounds(550, 160, 247, 36);
+        txt_idueñoMD.setText("jTextField9");
+        jp_membresia.add(txt_idueñoMD);
+        txt_idueñoMD.setBounds(550, 160, 247, 36);
 
-        jTextField10.setText("jTextField10");
-        jp_membresia.add(jTextField10);
-        jTextField10.setBounds(550, 250, 247, 39);
+        txt_nombrecompletoMD.setText("jTextField10");
+        jp_membresia.add(txt_nombrecompletoMD);
+        txt_nombrecompletoMD.setBounds(550, 250, 247, 39);
 
-        jTextField11.setText("jTextField11");
-        jp_membresia.add(jTextField11);
-        jTextField11.setBounds(550, 360, 247, 36);
+        txt_identificacionMD.setText("jTextField11");
+        jp_membresia.add(txt_identificacionMD);
+        txt_identificacionMD.setBounds(550, 360, 247, 36);
         jp_membresia.add(jSeparator19);
         jSeparator19.setBounds(550, 210, 247, 10);
         jp_membresia.add(jSeparator20);
@@ -1500,9 +1635,9 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_membresia.add(jSeparator21);
         jSeparator21.setBounds(550, 410, 247, 10);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        txtA_ticketMD.setColumns(20);
+        txtA_ticketMD.setRows(5);
+        jScrollPane2.setViewportView(txtA_ticketMD);
 
         jp_membresia.add(jScrollPane2);
         jScrollPane2.setBounds(850, 160, 270, 330);
@@ -1577,7 +1712,7 @@ public class Menu_admin extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addComponent(panelRound5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
         jp_registrosLayout.setVerticalGroup(
             jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1594,7 +1729,7 @@ public class Menu_admin extends javax.swing.JFrame {
                     .addComponent(jComboBox6, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
                 .addGap(67, 67, 67)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(366, Short.MAX_VALUE))
+                .addContainerGap(378, Short.MAX_VALUE))
         );
 
         centro.add(jp_registros, "card5");
@@ -1670,7 +1805,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_HorayFraccionLayout.createSequentialGroup()
                         .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(796, Short.MAX_VALUE))
+                        .addContainerGap(1003, Short.MAX_VALUE))
                     .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
                         .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel40)
@@ -2415,7 +2550,7 @@ public class Menu_admin extends javax.swing.JFrame {
         jPanel1.add(jp29, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, -1, 63));
 
         jp_lugares.add(jPanel1);
-        jPanel1.setBounds(235, 46, 915, 601);
+        jPanel1.setBounds(235, 46, 866, 601);
 
         centro.add(jp_lugares, "card7");
 
@@ -2699,6 +2834,16 @@ public class Menu_admin extends javax.swing.JFrame {
                 // Verificar si la inserción fue exitosa
                 if (rowsAffected > 0) {
                     JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente.");
+                    
+                     // Limpiar los campos de texto y restablecer los controles
+                   txt_iduser.setText("");
+                    txt_nombre.setText("");
+                    txt_telefono.setText("");
+                    txt_curp.setText("");
+                    txtContraseña.setText("");
+                    cmbRol1.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado
+                    CB_estacionamiento.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado 
+                    
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al registrar usuario.");
                 }
@@ -3085,17 +3230,369 @@ public class Menu_admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lb_vehiculoMouseExited
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txt_fechaMDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fechaMDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txt_fechaMDActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cb_placaMDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_placaMDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cb_placaMDActionPerformed
 
     private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField15ActionPerformed
+
+    // ------------------ Actualiza los registro USUARIOS -------------------------------------------------
+    private void lb_actualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_actualizarMouseClicked
+        
+        // Capturar los datos de los campos de texto del formulario
+        String id_usuario = txt_iduser.getText();
+        String nombre = txt_nombre.getText();
+        String telefono = txt_telefono.getText();
+        String rol = cmbRol1.getSelectedItem().toString();
+        String curp = txt_curp.getText();
+        String estacionamiento = CB_estacionamiento.getSelectedItem().toString();
+        String contraseña = new String(txtContraseña.getPassword());
+
+        // Establecer la conexión
+        Connection con = conexion.getConection();
+        if (con != null) {
+            try {
+                // Crear la consulta SQL para actualizar los datos
+                String sql = "UPDATE usuario SET Nombre = ?, Telefono = ?, Rango = ?, CURP = ?, id_estacionamiento = ?, Contraseña = ? WHERE id_usuario = ?";
+
+                // Preparar la sentencia SQL
+                PreparedStatement ps = con.prepareStatement(sql);
+                ps.setString(1, nombre);
+                ps.setString(2, telefono);
+                ps.setString(3, rol);
+                ps.setString(4, curp);
+                ps.setString(5, estacionamiento);
+                ps.setString(6, contraseña);
+                ps.setString(7, id_usuario);
+
+                // Ejecutar la consulta
+                int rowsAffected = ps.executeUpdate();
+
+                // Verificar si la actualización fue exitosa
+                if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(null, "Datos del usuario actualizados exitosamente.");
+
+                    // Limpiar los campos de texto y restablecer los controles
+                    txt_iduser.setText("");
+                    txt_nombre.setText("");
+                    txt_telefono.setText("");
+                    txt_curp.setText("");
+                    txtContraseña.setText("");
+                    cmbRol1.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado
+                    CB_estacionamiento.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al actualizar los datos del usuario.");
+                }
+
+                // Cerrar la conexión y el PreparedStatement
+                ps.close();
+                con.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se pudo establecer conexión con la base de datos.");
+        }
+        
+    }//GEN-LAST:event_lb_actualizarMouseClicked
+
+    private void lb_actualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_actualizarMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_actualizarMouseEntered
+
+    private void lb_actualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_actualizarMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_actualizarMouseExited
+
+    
+    // ------------------------- BOTON REGITRAr AUTOMOVILESS --------------------------------------------
+    private void lb_registrarVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_registrarVMouseClicked
+        
+        // Capturar los datos de los campos de texto del formulario
+    String placa = txt_placa.getText().trim();
+    String tipo = cb_tipo.getSelectedItem().toString();
+    String marca = cb_marca.getSelectedItem().toString();
+    String modelo = txt_modelo.getText().trim();
+    String color = txt_color.getText().trim();
+
+    // Validar que los campos no estén vacíos
+    if (placa.isEmpty() || tipo.isEmpty() || marca.isEmpty() || modelo.isEmpty() || color.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos antes de registrar el vehículo.");
+        return;
+    }
+
+    // Conexión a la base de datos
+    try (Connection con = conexion.getConection();
+         PreparedStatement ps = con.prepareStatement(
+            "INSERT INTO vehiculo (Placa, Tipo, Marca, Modelo, Color) VALUES (?, ?, ?, ?, ?)")) {
+
+        // Configurar los parámetros de la consulta
+        ps.setString(1, placa);
+        ps.setString(2, tipo);
+        ps.setString(3, marca);
+        ps.setString(4, modelo);
+        ps.setString(5, color);
+
+        // Ejecutar la consulta
+        int rowsAffected = ps.executeUpdate();
+
+        // Verificar si la inserción fue exitosa
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Vehículo registrado exitosamente.");
+
+            // Limpiar los campos de texto y restablecer los controles
+            txt_placa.setText("");
+            cb_tipo.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado
+            cb_marca.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado
+            txt_modelo.setText("");
+            txt_color.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al registrar vehículo.");
+        }
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error al registrar el vehículo: " + e.getMessage());
+        e.printStackTrace(); // Solo para depuración
+    }
+    }//GEN-LAST:event_lb_registrarVMouseClicked
+
+    private void lb_registrarVMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_registrarVMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_registrarVMouseEntered
+
+    private void lb_registrarVMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_registrarVMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_registrarVMouseExited
+
+    //------------------------------------------- ACTUALIZAR DATOS VEHICULO -------------------------
+    private void lb_actualizarVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_actualizarVMouseClicked
+         // Capturar los datos de los campos de texto del formulario
+        String placa = txt_placa.getText();
+        String tipo = cb_tipo.getSelectedItem().toString();
+        String marca = cb_marca.getSelectedItem().toString();
+        String modelo = txt_modelo.getText();
+        String color = txt_color.getText();
+
+        // Establecer la conexión
+        Connection con = conexion.getConection();
+        if (con != null) {
+            try {
+                // Crear la consulta SQL para actualizar los datos
+                String sql = "UPDATE vehiculo SET Placa = ?, Tipo = ?, Marca = ?, Modelo = ?, Color = ?  WHERE id_usuario = ?";
+
+                // Preparar la sentencia SQL
+                PreparedStatement ps = con.prepareStatement(sql);
+                 ps.setString(1, placa);
+                ps.setString(2, tipo);
+                ps.setString(3, marca);
+                ps.setString(4, modelo);
+                ps.setString(5, color);
+
+                // Ejecutar la consulta
+                int rowsAffected = ps.executeUpdate();
+
+                // Verificar si la actualización fue exitosa
+                if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(null, "Datos del usuario actualizados exitosamente.");
+
+                    // Limpiar los campos de texto y restablecer los controles
+                    txt_placa.setText("");
+                    cb_tipo.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado
+                    cb_marca.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado
+                    txt_modelo.setText("");
+                    txt_color.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al actualizar los datos del usuario.");
+                }
+
+                // Cerrar la conexión y el PreparedStatement
+                ps.close();
+                con.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se pudo establecer conexión con la base de datos.");
+        }
+    }//GEN-LAST:event_lb_actualizarVMouseClicked
+
+    private void lb_actualizarVMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_actualizarVMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_actualizarVMouseEntered
+
+    private void lb_actualizarVMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_actualizarVMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_actualizarVMouseExited
+
+    private void lb_buscarVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_buscarVMouseClicked
+         // Capturar la placa ingresada por el usuario
+            String placa = txt_placa.getText(); // txt_placa es el JTextField donde el usuario ingresa la placa
+
+            // Establecer la conexión
+            Connection con = conexion.getConection();
+            if (con != null) {
+                try {
+                    // Crear la consulta SQL para buscar los datos
+                    String sql = "SELECT Placa, Tipo, Marca, Modelo, Color FROM vehiculo WHERE Placa = ?";
+
+                    // Preparar la sentencia SQL
+                    PreparedStatement ps = con.prepareStatement(sql);
+                    ps.setString(1, placa);
+
+                    // Ejecutar la consulta
+                    ResultSet rs = ps.executeQuery();
+
+                    // Verificar si se encontró un resultado
+                    if (rs.next()) {
+                        // Rellenar los campos del formulario con los datos obtenidos
+                        txt_placa.setText(rs.getString("Placa"));
+                        cb_tipo.setSelectedItem(rs.getString("Tipo")); // jComboBox
+                        cb_marca.setSelectedItem(rs.getString("Marca")); // jComboBox
+                        txt_modelo.setText(rs.getString("Modelo"));
+                         txt_color.setText(rs.getString("Color"));
+                        
+
+                        JOptionPane.showMessageDialog(null, "Datos encontrados.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se encontraron datos para la placa ingresada.");
+                    }
+
+                    // Cerrar ResultSet y PreparedStatement
+                    rs.close();
+                    ps.close();
+                    con.close();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos: " + e.getMessage());
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo establecer conexión con la base de datos.");
+            }
+    }//GEN-LAST:event_lb_buscarVMouseClicked
+
+    private void lb_limpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_limpiarMouseClicked
+        // Limpiar los campos de texto y restablecer los controles
+                    txt_placa.setText("");
+                    cb_tipo.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado
+                    cb_marca.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado
+                    txt_modelo.setText("");
+                    txt_color.setText("");
+    }//GEN-LAST:event_lb_limpiarMouseClicked
+
+       
+
+
+    // --------------------------- Membresia y dueño vehiculo--------------------------------------------
+    private void lb_resgistrarMDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_resgistrarMDMouseClicked
+        
+        String iddueño = txt_idueñoMD.getText();
+        String nombrecompleto = txt_nombrecompletoMD.getText();
+        String credencial = txt_identificacionMD.getText();
+
+        String idmembresia = txt_idmembresiaMD.getText();
+        String placa = cb_placaMD.getSelectedItem().toString();
+        String hora = txt_horaMD.getText();
+        String fecha = txt_fechaMD.getText();
+        String costo = txt_costoMD.getText();
+        int lugar = (int) jsp_lugarMD.getValue();
+        String empleado = txt_empleadoMD.getText();
+
+        // Establecer la conexión
+        Connection con = conexion.getConection();
+        if (con != null) {
+            try {
+                // Verificar si el lugar está ocupado
+                String consultaLugar = "SELECT Espacio(L/O) FROM espacio_lugar WHERE id_espacio = ? AND id_estacionamiento = ?";
+                PreparedStatement psConsulta = con.prepareStatement(consultaLugar);
+                psConsulta.setInt(1, lugar);
+                psConsulta.setString(2, "ParkCar"); // Ajusta según sea necesario
+
+                ResultSet rs = psConsulta.executeQuery();
+
+                if (rs.next()) {
+                    String estadoLugar = rs.getString("Disponible");
+                    if (estadoLugar.equalsIgnoreCase("Ocupado")) {
+                        JOptionPane.showMessageDialog(null, "El lugar seleccionado está ocupado.");
+                        return; // Detener el proceso si el lugar está ocupado
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "El lugar seleccionado no existe.");
+                    return; // Detener el proceso si no existe el lugar
+                }
+
+                // Crear la consulta SQL para insertar los datos
+                String sqlDueño = "INSERT INTO dueño_vehiculo (Id_DueñoV, Nombre, Identificacion) VALUES (?, ?, ?)";
+                String sqlMembresia = "INSERT INTO vehiculo (id_membresia, Placa, hora, fecha, costo, id_espacio, id_usuario, id_DueñoV) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+                // Preparar las sentencias SQL
+                PreparedStatement psDueño = con.prepareStatement(sqlDueño);
+                psDueño.setString(1, iddueño);
+                psDueño.setString(2, nombrecompleto);
+                psDueño.setString(3, credencial);
+
+                PreparedStatement psMembresia = con.prepareStatement(sqlMembresia);
+                psMembresia.setString(1, idmembresia);
+                psMembresia.setString(2, placa);
+                psMembresia.setString(3, hora);
+                psMembresia.setString(4, fecha);
+                psMembresia.setString(5, costo);
+                psMembresia.setInt(6, lugar);
+                psMembresia.setString(7, empleado);
+                psMembresia.setString(8, iddueño);
+
+                // Ejecutar las consultas de inserción
+                int rowsDueño = psDueño.executeUpdate();
+                int rowsMembresia = psMembresia.executeUpdate();
+
+                if (rowsDueño > 0 && rowsMembresia > 0) {
+                    // Actualizar el estado del lugar a "Ocupado"
+                    String actualizarLugar = "UPDATE espacio_lugar SET Espacio(L/O) = 'Ocupado' WHERE id_espacio = ? AND id_estacionamiento = ?";
+                    PreparedStatement psActualizarLugar = con.prepareStatement(actualizarLugar);
+                    psActualizarLugar.setInt(1, lugar);
+                    psActualizarLugar.setString(2, "ParkCar");
+                    psActualizarLugar.executeUpdate();
+
+                    JOptionPane.showMessageDialog(null, "Dueño y membresía registrados exitosamente.");
+
+                    // Limpiar los campos
+                    txt_idueñoMD.setText("");
+                    txt_nombrecompletoMD.setText("");
+                    txt_identificacionMD.setText("");
+                    txt_idmembresiaMD.setText("");
+                    cb_placaMD.setSelectedIndex(0);
+                    
+                    txt_costoMD.setText("");
+                    jsp_lugarMD.setValue(0);
+                    txt_empleadoMD.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al registrar dueño y membresía.");
+                }
+
+                // Cerrar la conexión
+                psDueño.close();
+                psMembresia.close();
+                con.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se pudo establecer conexión con la base de datos.");
+        }
+        
+    }//GEN-LAST:event_lb_resgistrarMDMouseClicked
 
     /**
      * @param args the command line arguments
@@ -3139,8 +3636,11 @@ public class Menu_admin extends javax.swing.JFrame {
     private Clases.PanelRound btn_Lugares;
     private Clases.PanelRound btn_Membresia;
     private Clases.PanelRound btn_SalVehiculos;
+    private Clases.PanelRound btn_actualizarU;
+    private Clases.PanelRound btn_actualizarV;
     private Clases.PanelRound btn_cerrarsesion;
     private javax.swing.JPanel btn_exit;
+    private Clases.PanelRound btn_limpiar;
     private javax.swing.JPanel btn_min;
     private javax.swing.JPanel btn_minmax;
     private Clases.PanelRound btn_registrar;
@@ -3149,12 +3649,12 @@ public class Menu_admin extends javax.swing.JFrame {
     private Clases.PanelRound btn_registros;
     private Clases.PanelRound btn_usuarios;
     private Clases.PanelRound btn_vehiculo;
+    private javax.swing.JComboBox<String> cb_marca;
+    private javax.swing.JComboBox<String> cb_placaMD;
+    private javax.swing.JComboBox<String> cb_tipo;
     private javax.swing.JPanel centro;
     private javax.swing.JComboBox<String> cmbRol1;
     private javax.swing.JPanel header;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
@@ -3178,7 +3678,6 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -3186,7 +3685,6 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
@@ -3258,7 +3756,6 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel98;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
@@ -3303,17 +3800,11 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
@@ -3321,15 +3812,8 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel jp1;
     private javax.swing.JPanel jp10;
     private javax.swing.JPanel jp11;
@@ -3368,11 +3852,16 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JPanel jp_salidaVehiculos;
     private javax.swing.JPanel jp_usuarios;
     private javax.swing.JPanel jp_vehiculo;
+    private javax.swing.JSpinner jsp_lugarMD;
     private javax.swing.JLabel lb_HorayFraccion;
+    private javax.swing.JLabel lb_actualizar;
+    private javax.swing.JLabel lb_actualizarV;
+    private javax.swing.JLabel lb_buscarV;
     private javax.swing.JLabel lb_cerrarsesion;
     private javax.swing.JLabel lb_estac;
     private javax.swing.JLabel lb_exit;
     private javax.swing.JLabel lb_fecha;
+    private javax.swing.JLabel lb_limpiar;
     private javax.swing.JLabel lb_lugares;
     private javax.swing.JLabel lb_membresia;
     private javax.swing.JLabel lb_min;
@@ -3381,6 +3870,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel lb_registrar;
     private javax.swing.JLabel lb_registrarV;
     private javax.swing.JLabel lb_registros;
+    private javax.swing.JLabel lb_resgistrarMD;
     private javax.swing.JLabel lb_salidaVehiculos;
     private javax.swing.JLabel lb_tiempo;
     private javax.swing.JLabel lb_usuarios;
@@ -3390,10 +3880,22 @@ public class Menu_admin extends javax.swing.JFrame {
     private Clases.PanelRound panelRound3;
     private Clases.PanelRound panelRound4;
     private Clases.PanelRound panelRound5;
+    private javax.swing.JTextArea txtA_ticketMD;
     private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JTextField txt_color;
+    private javax.swing.JTextField txt_costoMD;
     private javax.swing.JTextField txt_curp;
+    private javax.swing.JTextField txt_empleadoMD;
+    private javax.swing.JTextField txt_fechaMD;
+    private javax.swing.JTextField txt_horaMD;
+    private javax.swing.JTextField txt_identificacionMD;
+    private javax.swing.JTextField txt_idmembresiaMD;
+    private javax.swing.JTextField txt_idueñoMD;
     private javax.swing.JTextField txt_iduser;
+    private javax.swing.JTextField txt_modelo;
     private javax.swing.JTextField txt_nombre;
+    private javax.swing.JTextField txt_nombrecompletoMD;
+    private javax.swing.JTextField txt_placa;
     private javax.swing.JTextField txt_telefono;
     // End of variables declaration//GEN-END:variables
 }
