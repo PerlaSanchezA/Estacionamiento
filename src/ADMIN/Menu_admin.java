@@ -596,7 +596,7 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_fecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_fecha.setText("dd/mm/yyyy");
 
-        lb_nombreUsuario.setFont(new java.awt.Font("Louis George Cafe", 1, 12)); // NOI18N
+        lb_nombreUsuario.setFont(new java.awt.Font("Louis George Cafe", 1, 15)); // NOI18N
         lb_nombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lb_nombreUsuario.setText("user");
 
@@ -606,8 +606,8 @@ public class Menu_admin extends javax.swing.JFrame {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lb_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lb_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(lb_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(116, 116, 116)
@@ -1994,6 +1994,7 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel96.setForeground(new java.awt.Color(102, 102, 102));
         jLabel96.setText("Registros");
 
+        jtb_registros.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jtb_registros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -2295,13 +2296,18 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_lugares.setBackground(new java.awt.Color(255, 255, 255));
         jp_lugares.setLayout(null);
 
+        jLabel47.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/coche.png"))); // NOI18N
         jLabel47.setText("icon");
         jp_lugares.add(jLabel47);
-        jLabel47.setBounds(41, 37, 22, 16);
+        jLabel47.setBounds(60, 60, 30, 30);
 
+        jLabel48.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(102, 102, 102));
         jLabel48.setText("Lugares");
         jp_lugares.add(jLabel48);
-        jLabel48.setBounds(82, 37, 41, 16);
+        jLabel48.setBounds(110, 60, 80, 30);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2908,7 +2914,7 @@ public class Menu_admin extends javax.swing.JFrame {
         jPanel1.add(jp29, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, -1, 63));
 
         jp_lugares.add(jPanel1);
-        jPanel1.setBounds(235, 46, 866, 601);
+        jPanel1.setBounds(170, 180, 866, 601);
 
         centro.add(jp_lugares, "card7");
 
