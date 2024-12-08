@@ -106,6 +106,8 @@ public class Menu_admin extends javax.swing.JFrame {
         lb_cerrarsesion = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        btn_dueño = new Clases.PanelRound();
+        lb_dueño = new javax.swing.JLabel();
         centro = new javax.swing.JPanel();
         jp_principal = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -135,7 +137,53 @@ public class Menu_admin extends javax.swing.JFrame {
         cmbRol1 = new javax.swing.JComboBox<>();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel16 = new javax.swing.JLabel();
+        jp_dueño = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jSeparator10 = new javax.swing.JSeparator();
+        jTextField3 = new javax.swing.JTextField();
+        jSeparator11 = new javax.swing.JSeparator();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jSeparator12 = new javax.swing.JSeparator();
+        jSeparator13 = new javax.swing.JSeparator();
         jp_membresia = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jSeparator9 = new javax.swing.JSeparator();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jSeparator14 = new javax.swing.JSeparator();
+        jTextField5 = new javax.swing.JTextField();
+        jSeparator15 = new javax.swing.JSeparator();
+        jLabel18 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jSeparator16 = new javax.swing.JSeparator();
+        jLabel24 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jSeparator17 = new javax.swing.JSeparator();
+        jLabel25 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jSeparator18 = new javax.swing.JSeparator();
+        jLabel26 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        btn_registrarMD = new Clases.PanelRound();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jSeparator19 = new javax.swing.JSeparator();
+        jSeparator20 = new javax.swing.JSeparator();
+        jSeparator21 = new javax.swing.JSeparator();
         jp_registros = new javax.swing.JPanel();
         jp_HorayFraccion = new javax.swing.JPanel();
         jp_lugares = new javax.swing.JPanel();
@@ -302,7 +350,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(lb_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(lb_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(btn_min, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btn_minmax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -329,6 +377,7 @@ public class Menu_admin extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(222, 124, 125));
 
         btn_usuarios.setBackground(new java.awt.Color(0, 34, 77));
+        btn_usuarios.setForeground(new java.awt.Color(204, 204, 204));
         btn_usuarios.setRoundBottomLeft(37);
         btn_usuarios.setRoundTopLeft(37);
         btn_usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -398,7 +447,7 @@ public class Menu_admin extends javax.swing.JFrame {
         );
         btn_MembresiaLayout.setVerticalGroup(
             btn_MembresiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_membresia, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+            .addComponent(lb_membresia, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
         );
 
         btn_registros.setBackground(new java.awt.Color(0, 34, 77));
@@ -425,7 +474,7 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_registros.setLayout(btn_registrosLayout);
         btn_registrosLayout.setHorizontalGroup(
             btn_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_registros, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+            .addComponent(lb_registros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_registrosLayout.setVerticalGroup(
             btn_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,13 +567,14 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_SalVehiculos.setLayout(btn_SalVehiculosLayout);
         btn_SalVehiculosLayout.setHorizontalGroup(
             btn_SalVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_salidaVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lb_salidaVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
         );
         btn_SalVehiculosLayout.setVerticalGroup(
             btn_SalVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lb_salidaVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
+        btn_cerrarsesion.setBackground(new java.awt.Color(93, 14, 65));
         btn_cerrarsesion.setRoundBottomLeft(37);
         btn_cerrarsesion.setRoundBottomRight(37);
         btn_cerrarsesion.setRoundTopLeft(37);
@@ -552,6 +602,37 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Admin");
 
+        btn_dueño.setBackground(new java.awt.Color(0, 34, 77));
+        btn_dueño.setForeground(new java.awt.Color(204, 204, 204));
+        btn_dueño.setRoundBottomLeft(37);
+        btn_dueño.setRoundTopLeft(37);
+
+        lb_dueño.setForeground(new java.awt.Color(204, 204, 204));
+        lb_dueño.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_dueño.setText("Vehiculos");
+        lb_dueño.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_dueñoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_dueñoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_dueñoMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btn_dueñoLayout = new javax.swing.GroupLayout(btn_dueño);
+        btn_dueño.setLayout(btn_dueñoLayout);
+        btn_dueñoLayout.setHorizontalGroup(
+            btn_dueñoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_dueño, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        btn_dueñoLayout.setVerticalGroup(
+            btn_dueñoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_dueño, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout IZQ2Layout = new javax.swing.GroupLayout(IZQ2);
         IZQ2.setLayout(IZQ2Layout);
         IZQ2Layout.setHorizontalGroup(
@@ -560,20 +641,24 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addComponent(jLabel2)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IZQ2Layout.createSequentialGroup()
-                .addGap(0, 21, Short.MAX_VALUE)
+            .addGroup(IZQ2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btn_usuarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_Membresia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_registros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_HorayFracc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_Lugares, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))))
+                    .addComponent(btn_dueño, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_usuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(IZQ2Layout.createSequentialGroup()
+                        .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btn_Membresia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_registros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_HorayFracc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_Lugares, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         IZQ2Layout.setVerticalGroup(
             IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -584,8 +669,10 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addGap(26, 26, 26)
                 .addComponent(btn_usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_dueño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_Membresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -596,9 +683,9 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(btn_Lugares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         getContentPane().add(IZQ2, java.awt.BorderLayout.LINE_START);
@@ -619,14 +706,14 @@ public class Menu_admin extends javax.swing.JFrame {
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(229, 229, 229)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         jp_principalLayout.setVerticalGroup(
             jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(342, 342, 342)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addContainerGap(295, Short.MAX_VALUE))
         );
 
         centro.add(jp_principal, "card2");
@@ -841,7 +928,7 @@ public class Menu_admin extends javax.swing.JFrame {
                                 .addComponent(lb_estac)
                                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(CB_estacionamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator8)))
+                                    .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)))
                             .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel20)
                                 .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
@@ -851,7 +938,7 @@ public class Menu_admin extends javax.swing.JFrame {
                                 .addComponent(jSeparator5)
                                 .addComponent(jSeparator7)
                                 .addComponent(cmbRol1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 31, Short.MAX_VALUE))
+                        .addGap(0, 48, Short.MAX_VALUE))
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -915,18 +1002,245 @@ public class Menu_admin extends javax.swing.JFrame {
 
         centro.add(jp_usuarios, "card3");
 
-        jp_membresia.setBackground(new java.awt.Color(204, 153, 255));
+        jp_dueño.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jp_membresiaLayout = new javax.swing.GroupLayout(jp_membresia);
-        jp_membresia.setLayout(jp_membresiaLayout);
-        jp_membresiaLayout.setHorizontalGroup(
-            jp_membresiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 813, Short.MAX_VALUE)
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setText("id_dueño");
+
+        jTextField2.setText("jTextField2");
+
+        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel22.setText("Nombre completo");
+
+        jTextField3.setText("jTextField3");
+
+        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel23.setText("Identificación");
+
+        jTextField4.setText("jTextField4");
+
+        jSeparator13.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        javax.swing.GroupLayout jp_dueñoLayout = new javax.swing.GroupLayout(jp_dueño);
+        jp_dueño.setLayout(jp_dueñoLayout);
+        jp_dueñoLayout.setHorizontalGroup(
+            jp_dueñoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_dueñoLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jp_dueñoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField4)
+                    .addComponent(jSeparator12)
+                    .addComponent(jSeparator11)
+                    .addComponent(jTextField2)
+                    .addComponent(jSeparator10)
+                    .addGroup(jp_dueñoLayout.createSequentialGroup()
+                        .addGroup(jp_dueñoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel21))
+                        .addGap(0, 278, Short.MAX_VALUE))
+                    .addComponent(jTextField3))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(383, 383, 383))
         );
-        jp_membresiaLayout.setVerticalGroup(
-            jp_membresiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 726, Short.MAX_VALUE)
+        jp_dueñoLayout.setVerticalGroup(
+            jp_dueñoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_dueñoLayout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addGroup(jp_dueñoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_dueñoLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel22)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
+
+        centro.add(jp_dueño, "card9");
+
+        jp_membresia.setBackground(new java.awt.Color(255, 255, 255));
+        jp_membresia.setForeground(new java.awt.Color(0, 0, 0));
+        jp_membresia.setLayout(null);
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("ICON");
+        jp_membresia.add(jLabel1);
+        jLabel1.setBounds(39, 51, 30, 28);
+
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Membresia");
+        jp_membresia.add(jLabel5);
+        jLabel5.setBounds(87, 57, 131, 16);
+
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Id membresia");
+        jp_membresia.add(jLabel6);
+        jLabel6.setBounds(39, 130, 77, 16);
+
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField1.setText("jTextField1");
+        jTextField1.setBorder(null);
+        jp_membresia.add(jTextField1);
+        jTextField1.setBounds(39, 164, 213, 43);
+        jp_membresia.add(jSeparator9);
+        jSeparator9.setBounds(39, 213, 213, 16);
+
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Hora");
+        jp_membresia.add(jLabel12);
+        jLabel12.setBounds(39, 235, 27, 16);
+
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("ICON");
+        jp_membresia.add(jLabel13);
+        jLabel13.setBounds(642, 57, 30, 16);
+
+        jLabel15.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("Cliente");
+        jp_membresia.add(jLabel15);
+        jLabel15.setBounds(690, 57, 96, 16);
+
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setText("Placa");
+        jp_membresia.add(jLabel17);
+        jLabel17.setBounds(388, 235, 31, 16);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jp_membresia.add(jComboBox1);
+        jComboBox1.setBounds(388, 255, 144, 37);
+        jp_membresia.add(jSeparator14);
+        jSeparator14.setBounds(388, 310, 144, 22);
+
+        jTextField5.setText("jTextField5");
+        jp_membresia.add(jTextField5);
+        jTextField5.setBounds(39, 257, 213, 33);
+        jp_membresia.add(jSeparator15);
+        jSeparator15.setBounds(39, 310, 213, 10);
+
+        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel18.setText("Fecha");
+        jp_membresia.add(jLabel18);
+        jLabel18.setBounds(39, 338, 34, 16);
+
+        jTextField6.setText("jTextField6");
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        jp_membresia.add(jTextField6);
+        jTextField6.setBounds(39, 366, 213, 33);
+        jp_membresia.add(jSeparator16);
+        jSeparator16.setBounds(39, 411, 213, 10);
+
+        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel24.setText("Costo");
+        jp_membresia.add(jLabel24);
+        jLabel24.setBounds(39, 439, 33, 16);
+
+        jTextField7.setText("jTextField7");
+        jp_membresia.add(jTextField7);
+        jTextField7.setBounds(39, 467, 213, 33);
+        jp_membresia.add(jSeparator17);
+        jSeparator17.setBounds(39, 512, 213, 10);
+
+        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel25.setText("Lugar de estacionamiento");
+        jp_membresia.add(jLabel25);
+        jLabel25.setBounds(388, 130, 144, 16);
+        jp_membresia.add(jSpinner1);
+        jSpinner1.setBounds(388, 164, 144, 43);
+
+        jSeparator18.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jp_membresia.add(jSeparator18);
+        jSeparator18.setBounds(600, 85, 16, 520);
+
+        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel26.setText("Atiende");
+        jp_membresia.add(jLabel26);
+        jLabel26.setBounds(39, 540, 41, 16);
+
+        jTextField8.setText("jTextField8");
+        jp_membresia.add(jTextField8);
+        jTextField8.setBounds(39, 568, 490, 37);
+
+        btn_registrarMD.setRoundBottomLeft(40);
+        btn_registrarMD.setRoundBottomRight(40);
+        btn_registrarMD.setRoundTopLeft(40);
+        btn_registrarMD.setRoundTopRight(40);
+
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("Registrar");
+
+        javax.swing.GroupLayout btn_registrarMDLayout = new javax.swing.GroupLayout(btn_registrarMD);
+        btn_registrarMD.setLayout(btn_registrarMDLayout);
+        btn_registrarMDLayout.setHorizontalGroup(
+            btn_registrarMDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+        );
+        btn_registrarMDLayout.setVerticalGroup(
+            btn_registrarMDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jp_membresia.add(btn_registrarMD);
+        btn_registrarMD.setBounds(39, 635, 124, 40);
+
+        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel27.setText("id_dueño");
+        jp_membresia.add(jLabel27);
+        jLabel27.setBounds(660, 130, 52, 16);
+
+        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel29.setText("Nombre completo");
+        jp_membresia.add(jLabel29);
+        jLabel29.setBounds(660, 230, 99, 16);
+
+        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel30.setText("Identificación");
+        jp_membresia.add(jLabel30);
+        jLabel30.setBounds(660, 330, 72, 16);
+
+        jTextField9.setText("jTextField9");
+        jp_membresia.add(jTextField9);
+        jTextField9.setBounds(660, 160, 247, 36);
+
+        jTextField10.setText("jTextField10");
+        jp_membresia.add(jTextField10);
+        jTextField10.setBounds(660, 250, 247, 39);
+
+        jTextField11.setText("jTextField11");
+        jp_membresia.add(jTextField11);
+        jTextField11.setBounds(660, 360, 247, 36);
+        jp_membresia.add(jSeparator19);
+        jSeparator19.setBounds(660, 210, 247, 10);
+        jp_membresia.add(jSeparator20);
+        jSeparator20.setBounds(660, 300, 247, 10);
+        jp_membresia.add(jSeparator21);
+        jSeparator21.setBounds(660, 410, 247, 10);
 
         centro.add(jp_membresia, "card4");
 
@@ -936,11 +1250,11 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_registros.setLayout(jp_registrosLayout);
         jp_registrosLayout.setHorizontalGroup(
             jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 813, Short.MAX_VALUE)
+            .addGap(0, 835, Short.MAX_VALUE)
         );
         jp_registrosLayout.setVerticalGroup(
             jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 726, Short.MAX_VALUE)
+            .addGap(0, 732, Short.MAX_VALUE)
         );
 
         centro.add(jp_registros, "card5");
@@ -951,11 +1265,11 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_HorayFraccion.setLayout(jp_HorayFraccionLayout);
         jp_HorayFraccionLayout.setHorizontalGroup(
             jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 813, Short.MAX_VALUE)
+            .addGap(0, 835, Short.MAX_VALUE)
         );
         jp_HorayFraccionLayout.setVerticalGroup(
             jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 726, Short.MAX_VALUE)
+            .addGap(0, 732, Short.MAX_VALUE)
         );
 
         centro.add(jp_HorayFraccion, "card6");
@@ -966,11 +1280,11 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_lugares.setLayout(jp_lugaresLayout);
         jp_lugaresLayout.setHorizontalGroup(
             jp_lugaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 813, Short.MAX_VALUE)
+            .addGap(0, 835, Short.MAX_VALUE)
         );
         jp_lugaresLayout.setVerticalGroup(
             jp_lugaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 726, Short.MAX_VALUE)
+            .addGap(0, 732, Short.MAX_VALUE)
         );
 
         centro.add(jp_lugares, "card7");
@@ -979,11 +1293,11 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_salidaVehiculos.setLayout(jp_salidaVehiculosLayout);
         jp_salidaVehiculosLayout.setHorizontalGroup(
             jp_salidaVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 813, Short.MAX_VALUE)
+            .addGap(0, 835, Short.MAX_VALUE)
         );
         jp_salidaVehiculosLayout.setVerticalGroup(
             jp_salidaVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 726, Short.MAX_VALUE)
+            .addGap(0, 732, Short.MAX_VALUE)
         );
 
         centro.add(jp_salidaVehiculos, "card8");
@@ -1262,6 +1576,11 @@ public class Menu_admin extends javax.swing.JFrame {
                     lb_usuarios.setForeground(new Color(0, 34, 77)); // Fuente
                     jp_usuarios.setVisible(true);
                     break;
+                case "dueño":
+                    btn_dueño.setBackground(Color.WHITE); // Seleccionado
+                    lb_dueño.setForeground(new Color(0, 34, 77)); // Fuente
+                    jp_dueño.setVisible(true);
+                    break;
                 case "membresia":
                     btn_Membresia.setBackground(Color.WHITE);
                     lb_membresia.setForeground(new Color(0, 34, 77));
@@ -1298,6 +1617,9 @@ public class Menu_admin extends javax.swing.JFrame {
             // Restaurar colores de todos los botones y etiquetas
             btn_usuarios.setBackground(new Color(0, 34, 77));
             lb_usuarios.setForeground(new Color(187, 187, 187));
+            
+            btn_dueño.setBackground(new Color(0, 34, 77));
+            lb_dueño.setForeground(new Color(187, 187, 187));
 
             btn_Membresia.setBackground(new Color(0, 34, 77));
             lb_membresia.setForeground(new Color(187, 187, 187));
@@ -1317,6 +1639,7 @@ public class Menu_admin extends javax.swing.JFrame {
             // Ocultar todos los paneles
             jp_principal.setVisible(false);
             jp_usuarios.setVisible(false);
+            jp_dueño.setVisible(false);
             jp_membresia.setVisible(false);
             jp_registros.setVisible(false);
             jp_HorayFraccion.setVisible(false);
@@ -1328,8 +1651,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private void lb_usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_usuariosMouseClicked
         if (!panelSeleccionado.equals("usuarios")) {
             seleccionarPanel("usuarios");
-        }
-        
+        }  
     }//GEN-LAST:event_lb_usuariosMouseClicked
 
     private void lb_membresiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_membresiaMouseClicked
@@ -1452,6 +1774,34 @@ public class Menu_admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbRol1ActionPerformed
 
+    private void lb_dueñoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_dueñoMouseClicked
+        if (!panelSeleccionado.equals("dueño")) {
+            seleccionarPanel("dueño");
+        }
+    }//GEN-LAST:event_lb_dueñoMouseClicked
+
+    private void lb_dueñoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_dueñoMouseEntered
+        if (!panelSeleccionado.equals("dueño")) {
+             btn_dueño.setBackground(Color.WHITE);
+            lb_dueño.setForeground(new Color(0, 34, 77));
+        }
+    }//GEN-LAST:event_lb_dueñoMouseEntered
+
+    private void lb_dueñoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_dueñoMouseExited
+        if (!panelSeleccionado.equals("dueño")) {
+            btn_dueño.setBackground(new Color(0, 34, 77));
+            lb_dueño.setForeground(new Color(187, 187, 187)); 
+        }
+    }//GEN-LAST:event_lb_dueñoMouseExited
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1495,37 +1845,84 @@ public class Menu_admin extends javax.swing.JFrame {
     private Clases.PanelRound btn_Membresia;
     private Clases.PanelRound btn_SalVehiculos;
     private Clases.PanelRound btn_cerrarsesion;
+    private Clases.PanelRound btn_dueño;
     private javax.swing.JPanel btn_exit;
     private javax.swing.JPanel btn_min;
     private javax.swing.JPanel btn_minmax;
     private Clases.PanelRound btn_registrar;
+    private Clases.PanelRound btn_registrarMD;
     private Clases.PanelRound btn_registros;
     private Clases.PanelRound btn_usuarios;
     private javax.swing.JPanel centro;
     private javax.swing.JComboBox<String> cmbRol1;
     private javax.swing.JPanel header;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator20;
+    private javax.swing.JSeparator jSeparator21;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel jp_HorayFraccion;
+    private javax.swing.JPanel jp_dueño;
     private javax.swing.JPanel jp_lugares;
     private javax.swing.JPanel jp_membresia;
     private javax.swing.JPanel jp_principal;
@@ -1534,6 +1931,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JPanel jp_usuarios;
     private javax.swing.JLabel lb_HorayFraccion;
     private javax.swing.JLabel lb_cerrarsesion;
+    private javax.swing.JLabel lb_dueño;
     private javax.swing.JLabel lb_estac;
     private javax.swing.JLabel lb_exit;
     private javax.swing.JLabel lb_fecha;
