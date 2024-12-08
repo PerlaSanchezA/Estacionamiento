@@ -1988,8 +1988,10 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jp_registros.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel95.setText("ICON");
+        jLabel95.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/registro.png"))); // NOI18N
 
+        jLabel96.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
+        jLabel96.setForeground(new java.awt.Color(102, 102, 102));
         jLabel96.setText("Registros");
 
         jtb_registros.setModel(new javax.swing.table.DefaultTableModel(
@@ -2005,17 +2007,22 @@ public class Menu_admin extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(jtb_registros);
 
+        cb_tablas.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         cb_tablas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuarios", "Vehiculos", "Membresias", "Hora x estacionamiento", " " }));
 
-        jLabel97.setText("¿Que desea consultar?");
+        jLabel97.setFont(new java.awt.Font("Louis George Cafe", 0, 17)); // NOI18N
+        jLabel97.setText("¿Qué desea consultar?");
 
+        btn_consultarR.setBackground(new java.awt.Color(102, 102, 102));
         btn_consultarR.setRoundBottomLeft(40);
         btn_consultarR.setRoundBottomRight(40);
         btn_consultarR.setRoundTopLeft(40);
         btn_consultarR.setRoundTopRight(40);
 
+        lb_consultarR.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lb_consultarR.setForeground(new java.awt.Color(255, 255, 255));
         lb_consultarR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_consultarR.setText("Consultar");
+        lb_consultarR.setText("CONSULTAR");
         lb_consultarR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_consultarR.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2033,7 +2040,7 @@ public class Menu_admin extends javax.swing.JFrame {
         );
         btn_consultarRLayout.setVerticalGroup(
             btn_consultarRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_consultarR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lb_consultarR, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jp_registrosLayout = new javax.swing.GroupLayout(jp_registros);
@@ -2041,37 +2048,36 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_registrosLayout.setHorizontalGroup(
             jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_registrosLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel95)
+                .addGap(11, 11, 11)
                 .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_registrosLayout.createSequentialGroup()
-                        .addComponent(jLabel95)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel96))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 920, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel96)
                     .addGroup(jp_registrosLayout.createSequentialGroup()
                         .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel97, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cb_tablas, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(61, 61, 61)
-                        .addComponent(btn_consultarR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(248, Short.MAX_VALUE))
+                        .addComponent(btn_consultarR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         jp_registrosLayout.setVerticalGroup(
             jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_registrosLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(70, 70, 70)
                 .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel95)
-                    .addComponent(jLabel96))
-                .addGap(49, 49, 49)
+                    .addComponent(jLabel96, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
                 .addComponent(jLabel97)
-                .addGap(18, 18, 18)
-                .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_consultarR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cb_tablas, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cb_tablas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_consultarR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(437, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         centro.add(jp_registros, "card5");
