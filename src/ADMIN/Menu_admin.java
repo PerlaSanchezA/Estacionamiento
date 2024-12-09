@@ -344,6 +344,7 @@ public class Menu_admin extends javax.swing.JFrame {
         txtA_ticketEH = new javax.swing.JTextArea();
         btn_ticket = new Clases.PanelRound();
         lb_ticket = new javax.swing.JLabel();
+        jSeparator37 = new javax.swing.JSeparator();
         jp_lugares = new javax.swing.JPanel();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
@@ -437,11 +438,11 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel91 = new javax.swing.JLabel();
         jLabel92 = new javax.swing.JLabel();
         jSeparator32 = new javax.swing.JSeparator();
-        jTextField18 = new javax.swing.JTextField();
+        txt_idEstSV = new javax.swing.JTextField();
         jSeparator33 = new javax.swing.JSeparator();
         jTextField19 = new javax.swing.JTextField();
         jSeparator34 = new javax.swing.JSeparator();
-        jTextField21 = new javax.swing.JTextField();
+        txt_costoSV = new javax.swing.JTextField();
         jSeparator35 = new javax.swing.JSeparator();
         panelRound4 = new Clases.PanelRound();
         jLabel93 = new javax.swing.JLabel();
@@ -955,7 +956,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(IZQ2, java.awt.BorderLayout.LINE_START);
@@ -963,26 +964,27 @@ public class Menu_admin extends javax.swing.JFrame {
         centro.setBackground(new java.awt.Color(248, 244, 236));
         centro.setLayout(new java.awt.CardLayout());
 
-        jp_principal.setBackground(new java.awt.Color(255, 204, 255));
+        jp_principal.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Bienvenido");
+        jLabel3.setFont(new java.awt.Font("Louis George Cafe", 1, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jLabel3.setText("¡Bienvenido, Administrador!\nAquí puedes gestionar todos los aspectos del estacionamiento.\nSelecciona una opción para comenzar:\n\n1. Usuarios - Gestiona la información de los usuarios.\n2. Vehículos - Administra los vehículos registrados.\n3. Membresía - Gestiona las opciones de membresía.\n4. Registros - Revisa los registros de entradas y salidas.\n5. Hora y fracción - Configura los tiempos de cobro.\n6. Lugares - Administra los espacios de estacionamiento.\n7. Salida de vehículos - Registra las salidas de los vehículos.\n\nPara finalizar sesión, haz clic en 'Cerrar sesión'.");
 
         javax.swing.GroupLayout jp_principalLayout = new javax.swing.GroupLayout(jp_principal);
         jp_principal.setLayout(jp_principalLayout);
         jp_principalLayout.setHorizontalGroup(
             jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_principalLayout.createSequentialGroup()
-                .addGap(229, 229, 229)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(675, Short.MAX_VALUE))
+                .addGap(184, 184, 184)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(192, Short.MAX_VALUE))
         );
         jp_principalLayout.setVerticalGroup(
             jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_principalLayout.createSequentialGroup()
-                .addGap(342, 342, 342)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(529, Short.MAX_VALUE))
+                .addGap(199, 199, 199)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         centro.add(jp_principal, "card2");
@@ -1093,6 +1095,11 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_registrar.setRoundBottomRight(50);
         btn_registrar.setRoundTopLeft(50);
         btn_registrar.setRoundTopRight(50);
+        btn_registrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_registrarMouseEntered(evt);
+            }
+        });
 
         lb_registrar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lb_registrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -1434,7 +1441,7 @@ public class Menu_admin extends javax.swing.JFrame {
         });
 
         cb_tipo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        cb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sedán", "Motocicleta", "Pick-up" }));
+        cb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sedán", "Furgoneta", "Motocicleta", "Pick-up" }));
         cb_tipo.setBorder(null);
 
         btn_actualizarV.setBackground(new java.awt.Color(116, 9, 56));
@@ -2085,46 +2092,78 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jp_HorayFraccion.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/tiempo.png"))); // NOI18N
+        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/tarifa-por-hora.png"))); // NOI18N
 
+        jLabel37.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(102, 102, 102));
         jLabel37.setText("Estacionamiento x hora");
 
+        jLabel38.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel38.setText("id_estacionamiento");
 
-        txt_idEstEH.setText("jTextField3");
+        txt_idEstEH.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_idEstEH.setForeground(new java.awt.Color(102, 102, 102));
+        txt_idEstEH.setText("Ingrese el ID del cajón");
+        txt_idEstEH.setBorder(null);
+        txt_idEstEH.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_idEstEHMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_idEstEHMousePressed(evt);
+            }
+        });
 
+        jLabel39.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel39.setText("Placa");
 
+        cb_placaEH.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         cb_placaEH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_placaEH.setBorder(null);
 
+        jLabel40.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel40.setText("Hora");
 
+        txt_horaEH.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txt_horaEH.setText("jTextField13");
+        txt_horaEH.setBorder(null);
 
+        jLabel41.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel41.setText("Fecha");
 
+        txt_fechaEH.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txt_fechaEH.setText("jTextField14");
+        txt_fechaEH.setBorder(null);
 
+        jLabel42.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel42.setText("Lugar");
 
+        jsp_lugarEH.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jsp_lugarEH.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
 
+        jLabel43.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel43.setText("Empleado");
 
+        txt_empleadoEH.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txt_empleadoEH.setText("jTextField15");
+        txt_empleadoEH.setBorder(null);
         txt_empleadoEH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_empleadoEHActionPerformed(evt);
             }
         });
 
+        panelRound1.setBackground(new java.awt.Color(116, 9, 56));
         panelRound1.setRoundBottomLeft(40);
         panelRound1.setRoundBottomRight(40);
         panelRound1.setRoundTopLeft(40);
         panelRound1.setRoundTopRight(40);
 
+        jLabel44.setBackground(new java.awt.Color(116, 9, 56));
+        jLabel44.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
         jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel44.setText("Registrar");
+        jLabel44.setText("REGISTRAR");
         jLabel44.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel44.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2136,13 +2175,15 @@ public class Menu_admin extends javax.swing.JFrame {
         panelRound1.setLayout(panelRound1Layout);
         panelRound1Layout.setHorizontalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+            .addComponent(jLabel44, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
+        jLabel45.setFont(new java.awt.Font("Louis George Cafe", 1, 16)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(102, 102, 102));
         jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel45.setText("Ticket");
 
@@ -2150,12 +2191,14 @@ public class Menu_admin extends javax.swing.JFrame {
         txtA_ticketEH.setRows(5);
         jScrollPane5.setViewportView(txtA_ticketEH);
 
-        btn_ticket.setBackground(new java.awt.Color(255, 204, 255));
+        btn_ticket.setBackground(new java.awt.Color(153, 211, 206));
         btn_ticket.setRoundBottomLeft(40);
         btn_ticket.setRoundTopRight(40);
 
+        lb_ticket.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lb_ticket.setForeground(new java.awt.Color(255, 255, 255));
         lb_ticket.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_ticket.setText("Ticket");
+        lb_ticket.setText("TICKET");
         lb_ticket.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_ticket.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2167,10 +2210,7 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_ticket.setLayout(btn_ticketLayout);
         btn_ticketLayout.setHorizontalGroup(
             btn_ticketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_ticketLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(lb_ticket, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+            .addComponent(lb_ticket, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
         );
         btn_ticketLayout.setVerticalGroup(
             btn_ticketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2184,111 +2224,108 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_HorayFraccion.setLayout(jp_HorayFraccionLayout);
         jp_HorayFraccionLayout.setHorizontalGroup(
             jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_HorayFraccionLayout.createSequentialGroup()
-                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(978, Short.MAX_VALUE))
-                    .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
-                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel39)
-                            .addComponent(jLabel38)
-                            .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
-                                .addComponent(jLabel36)
-                                .addGap(29, 29, 29)
-                                .addComponent(jLabel37))
-                            .addComponent(txt_idEstEH)
-                            .addComponent(jSeparator23)
-                            .addComponent(cb_placaEH, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparator24)
-                            .addComponent(txt_horaEH, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-                            .addComponent(jSeparator25))
-                        .addGap(108, 108, 108)
-                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel41)
-                            .addComponent(txt_fechaEH, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                            .addComponent(jLabel42)
-                            .addComponent(jsp_lugarEH)
-                            .addComponent(jLabel43)
-                            .addComponent(txt_empleadoEH)
-                            .addComponent(jSeparator26)
-                            .addComponent(jSeparator27))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
-                                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(76, 76, 76))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_ticket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(132, 132, 132))
+                .addGap(131, 131, 131))
+            .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
+                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel40)
+                                .addComponent(jLabel39)
+                                .addComponent(jLabel38))))
+                    .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel37))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_horaEH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_placaEH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_idEstEH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(90, 90, 90)
+                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel41)
+                    .addComponent(txt_fechaEH, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                    .addComponent(jLabel42)
+                    .addComponent(jsp_lugarEH)
+                    .addComponent(jLabel43)
+                    .addComponent(txt_empleadoEH)
+                    .addComponent(jSeparator26)
+                    .addComponent(jSeparator27)
+                    .addComponent(jSeparator37))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE))
+                .addGap(62, 62, 62))
         );
         jp_HorayFraccionLayout.setVerticalGroup(
             jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
                         .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel36))
+                        .addGap(70, 70, 70)
+                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
-                                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
-                                        .addGap(53, 53, 53)
-                                        .addComponent(jLabel36))
-                                    .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
-                                        .addGap(61, 61, 61)
-                                        .addComponent(jLabel37)))
-                                .addGap(55, 55, 55)
                                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel38)
                                     .addComponent(jLabel41))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txt_fechaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_idEstEH, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(jSeparator23, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
-                                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel42)
-                                            .addComponent(jLabel39))
-                                        .addGap(7, 7, 7)
-                                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(cb_placaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jsp_lugarEH, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(20, 20, 20)
-                                        .addComponent(jSeparator24, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jSeparator26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(45, 45, 45)
-                                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel40)
-                                    .addComponent(jLabel43))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_fechaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_idEstEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(2, 2, 2)
+                                .addComponent(jSeparator23, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator37, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
                                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txt_horaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_empleadoEH, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
-                                .addGap(93, 93, 93)
-                                .addComponent(jLabel45)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane5)))
-                        .addGap(3, 3, 3))
+                                    .addComponent(jLabel42)
+                                    .addComponent(jLabel39))
+                                .addGap(7, 7, 7)
+                                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cb_placaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jsp_lugarEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(2, 2, 2)
+                                .addComponent(jSeparator24, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel40)
+                            .addComponent(jLabel43))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_horaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_empleadoEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
-                .addComponent(btn_ticket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(93, 93, 93)
+                        .addComponent(jLabel45)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane5)))
                 .addGap(56, 56, 56)
+                .addComponent(btn_ticket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(258, 258, 258))
+                .addGap(270, 270, 270))
         );
 
         centro.add(jp_HorayFraccion, "card6");
@@ -2921,39 +2958,50 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_salidaVehiculos.setBackground(new java.awt.Color(255, 255, 255));
         jp_salidaVehiculos.setLayout(null);
 
-        jLabel79.setText("Icon");
+        jLabel79.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/concesion.png"))); // NOI18N
         jp_salidaVehiculos.add(jLabel79);
-        jLabel79.setBounds(50, 48, 22, 16);
+        jLabel79.setBounds(60, 40, 30, 40);
 
-        jLabel80.setText("Salida vehiculos");
+        jLabel80.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
+        jLabel80.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel80.setText("Salida de vehículos");
         jp_salidaVehiculos.add(jLabel80);
-        jLabel80.setBounds(96, 48, 85, 16);
+        jLabel80.setBounds(100, 40, 160, 40);
 
+        jLabel81.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel81.setText("Placa");
         jp_salidaVehiculos.add(jLabel81);
-        jLabel81.setBounds(50, 116, 28, 16);
+        jLabel81.setBounds(50, 116, 60, 19);
 
+        jComboBox5.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.setBorder(null);
         jp_salidaVehiculos.add(jComboBox5);
-        jComboBox5.setBounds(50, 138, 248, 37);
+        jComboBox5.setBounds(50, 142, 250, 40);
 
+        jLabel85.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel85.setText("Fecha");
         jp_salidaVehiculos.add(jLabel85);
-        jLabel85.setBounds(50, 308, 30, 16);
+        jLabel85.setBounds(50, 308, 60, 19);
 
+        jLabel86.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel86.setText("Lugar");
         jp_salidaVehiculos.add(jLabel86);
-        jLabel86.setBounds(50, 393, 30, 16);
+        jLabel86.setBounds(50, 420, 60, 19);
 
+        jLabel87.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel87.setText("Costo");
         jp_salidaVehiculos.add(jLabel87);
-        jLabel87.setBounds(50, 484, 30, 16);
+        jLabel87.setBounds(50, 550, 50, 19);
 
+        panelRound2.setBackground(new java.awt.Color(102, 102, 102));
         panelRound2.setRoundBottomLeft(20);
         panelRound2.setRoundTopRight(20);
 
+        jLabel88.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel88.setForeground(new java.awt.Color(255, 255, 255));
         jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel88.setText("Buscar");
+        jLabel88.setText("BUSCAR");
         jLabel88.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
@@ -2972,42 +3020,52 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jPanel2.setLayout(null);
 
+        jLabel89.setFont(new java.awt.Font("Louis George Cafe", 1, 18)); // NOI18N
         jLabel89.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel89.setText("Calculador");
         jPanel2.add(jLabel89);
-        jLabel89.setBounds(26, 16, 467, 16);
+        jLabel89.setBounds(30, 20, 467, 22);
 
+        jLabel82.setFont(new java.awt.Font("Louis George Cafe", 0, 15)); // NOI18N
         jLabel82.setText("Hora entrada");
         jPanel2.add(jLabel82);
-        jLabel82.setBounds(46, 44, 70, 16);
+        jLabel82.setBounds(30, 67, 90, 18);
 
+        jLabel83.setFont(new java.awt.Font("Louis George Cafe", 0, 15)); // NOI18N
         jLabel83.setText("Hora salida");
         jPanel2.add(jLabel83);
-        jLabel83.setBounds(400, 50, 61, 16);
+        jLabel83.setBounds(380, 67, 100, 18);
 
+        jLabel84.setFont(new java.awt.Font("Louis George Cafe", 0, 15)); // NOI18N
+        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel84.setText("Tiempo");
+        jLabel84.setToolTipText("");
         jPanel2.add(jLabel84);
-        jLabel84.setBounds(250, 50, 41, 16);
+        jLabel84.setBounds(220, 70, 100, 20);
 
+        jTextField16.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jTextField16.setText("jTextField16");
         jPanel2.add(jTextField16);
-        jTextField16.setBounds(30, 70, 129, 34);
+        jTextField16.setBounds(30, 90, 129, 34);
 
+        jTextField17.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jTextField17.setText("jTextField17");
         jPanel2.add(jTextField17);
-        jTextField17.setBounds(380, 70, 113, 34);
+        jTextField17.setBounds(380, 90, 113, 34);
 
         jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel90.setText("mm");
         jPanel2.add(jLabel90);
-        jLabel90.setBounds(220, 70, 103, 34);
+        jLabel90.setBounds(220, 90, 103, 34);
 
-        panelRound3.setBackground(new java.awt.Color(204, 255, 204));
+        panelRound3.setBackground(new java.awt.Color(204, 239, 181));
         panelRound3.setRoundBottomLeft(40);
         panelRound3.setRoundTopRight(40);
 
+        jLabel91.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel91.setForeground(new java.awt.Color(102, 102, 102));
         jLabel91.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel91.setText("Calcular");
+        jLabel91.setText("CALCULAR");
         jLabel91.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
@@ -3022,49 +3080,77 @@ public class Menu_admin extends javax.swing.JFrame {
         );
 
         jPanel2.add(panelRound3);
-        panelRound3.setBounds(220, 140, 110, 42);
+        panelRound3.setBounds(220, 160, 110, 42);
 
         jp_salidaVehiculos.add(jPanel2);
-        jPanel2.setBounds(480, 80, 530, 210);
+        jPanel2.setBounds(480, 80, 530, 230);
 
+        jLabel92.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel92.setText("id_estacionamiento");
         jp_salidaVehiculos.add(jLabel92);
-        jLabel92.setBounds(50, 209, 103, 16);
+        jLabel92.setBounds(50, 209, 140, 19);
         jp_salidaVehiculos.add(jSeparator32);
-        jSeparator32.setBounds(50, 181, 248, 10);
+        jSeparator32.setBounds(50, 181, 240, 10);
 
-        jTextField18.setText("jTextField18");
-        jp_salidaVehiculos.add(jTextField18);
-        jTextField18.setBounds(50, 231, 248, 39);
+        txt_idEstSV.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_idEstSV.setForeground(new java.awt.Color(102, 102, 102));
+        txt_idEstSV.setText("Ingrese el ID del cajón");
+        txt_idEstSV.setBorder(null);
+        txt_idEstSV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_idEstSVMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_idEstSVMousePressed(evt);
+            }
+        });
+        jp_salidaVehiculos.add(txt_idEstSV);
+        txt_idEstSV.setBounds(50, 235, 250, 40);
         jp_salidaVehiculos.add(jSeparator33);
-        jSeparator33.setBounds(50, 276, 248, 10);
+        jSeparator33.setBounds(50, 276, 240, 10);
 
+        jTextField19.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jTextField19.setText("jTextField19");
+        jTextField19.setBorder(null);
         jp_salidaVehiculos.add(jTextField19);
-        jTextField19.setBounds(50, 330, 248, 35);
+        jTextField19.setBounds(50, 339, 250, 40);
         jp_salidaVehiculos.add(jSeparator34);
-        jSeparator34.setBounds(50, 460, 248, 10);
+        jSeparator34.setBounds(50, 500, 240, 10);
 
-        jTextField21.setText("jTextField21");
-        jp_salidaVehiculos.add(jTextField21);
-        jTextField21.setBounds(50, 518, 248, 34);
+        txt_costoSV.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_costoSV.setForeground(new java.awt.Color(102, 102, 102));
+        txt_costoSV.setText("Ingrese el costo");
+        txt_costoSV.setBorder(null);
+        txt_costoSV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_costoSVMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_costoSVMousePressed(evt);
+            }
+        });
+        jp_salidaVehiculos.add(txt_costoSV);
+        txt_costoSV.setBounds(50, 580, 240, 40);
         jp_salidaVehiculos.add(jSeparator35);
-        jSeparator35.setBounds(50, 564, 248, 10);
+        jSeparator35.setBounds(50, 620, 240, 10);
 
+        panelRound4.setBackground(new java.awt.Color(116, 9, 56));
         panelRound4.setRoundBottomLeft(40);
         panelRound4.setRoundBottomRight(40);
         panelRound4.setRoundTopLeft(40);
         panelRound4.setRoundTopRight(40);
 
+        jLabel93.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel93.setForeground(new java.awt.Color(255, 255, 255));
         jLabel93.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel93.setText("Pagar");
+        jLabel93.setText("PAGAR");
         jLabel93.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout panelRound4Layout = new javax.swing.GroupLayout(panelRound4);
         panelRound4.setLayout(panelRound4Layout);
         panelRound4Layout.setHorizontalGroup(
             panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel93, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+            .addComponent(jLabel93, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
         );
         panelRound4Layout.setVerticalGroup(
             panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3072,23 +3158,25 @@ public class Menu_admin extends javax.swing.JFrame {
         );
 
         jp_salidaVehiculos.add(panelRound4);
-        panelRound4.setBounds(50, 610, 139, 51);
+        panelRound4.setBounds(90, 720, 139, 51);
 
+        jLabel94.setFont(new java.awt.Font("Louis George Cafe", 1, 16)); // NOI18N
+        jLabel94.setForeground(new java.awt.Color(102, 102, 102));
         jLabel94.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel94.setText("Ticket");
         jp_salidaVehiculos.add(jLabel94);
-        jLabel94.setBounds(480, 310, 526, 16);
+        jLabel94.setBounds(480, 350, 526, 19);
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
         jp_salidaVehiculos.add(jScrollPane3);
-        jScrollPane3.setBounds(550, 340, 406, 310);
+        jScrollPane3.setBounds(540, 380, 406, 310);
         jp_salidaVehiculos.add(jSpinner3);
-        jSpinner3.setBounds(50, 420, 240, 30);
+        jSpinner3.setBounds(50, 460, 240, 40);
         jp_salidaVehiculos.add(jSeparator36);
-        jSeparator36.setBounds(50, 371, 248, 10);
+        jSeparator36.setBounds(50, 380, 240, 10);
 
         centro.add(jp_salidaVehiculos, "card8");
 
@@ -3262,6 +3350,25 @@ public class Menu_admin extends javax.swing.JFrame {
             txt_iduser.setText("");
             txt_iduser.setForeground(Color.black);
         }
+        
+        txt_iduser.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+
+                // Validar que solo se ingresen números
+                if (!Character.isDigit(c)) {
+                    e.consume();  // Bloquea la entrada si no es un número
+                    JOptionPane.showMessageDialog(null, "Solo se permiten números.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+
+                // Si el texto ya tiene 8 caracteres y se intenta ingresar más, se bloquea la entrada
+                if (txt_iduser.getText().length() >= 8) {
+                    e.consume();  // Bloquea la entrada de más caracteres
+                    JOptionPane.showMessageDialog(null, "Ingreso más de los caracteres esperados (8 caracteres)", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
     }//GEN-LAST:event_txt_iduserMousePressed
 
     private void txt_curpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_curpMousePressed
@@ -4009,6 +4116,17 @@ public class Menu_admin extends javax.swing.JFrame {
             txt_placa.setText("");
             txt_placa.setForeground(Color.black);
         }
+
+        txt_placa.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                // Si el texto ya tiene 9 caracteres y se intenta ingresar más, se bloquea la entrada
+                if (txt_placa.getText().length() >= 9) {
+                    e.consume();  // Bloquea la entrada de más caracteres
+                    JOptionPane.showMessageDialog(null, "Ingreso más de los caracteres esperados (9 caracteres)", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
     }//GEN-LAST:event_txt_placaMousePressed
 
     private void txt_modeloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_modeloMouseExited
@@ -4206,6 +4324,25 @@ public class Menu_admin extends javax.swing.JFrame {
             txt_idmembresiaMD.setText("");
             txt_idmembresiaMD.setForeground(Color.black);
         }
+
+        txt_idmembresiaMD.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+
+                // Validar que solo se ingresen números
+                if (!Character.isDigit(c)) {
+                    e.consume();  // Bloquea la entrada si no es un número
+                    JOptionPane.showMessageDialog(null, "Solo se permiten números.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+
+                // Si el texto ya tiene 8 caracteres y se intenta ingresar más, se bloquea la entrada
+                if (txt_idmembresiaMD.getText().length() >= 8) {
+                    e.consume();  // Bloquea la entrada de más caracteres
+                    JOptionPane.showMessageDialog(null, "Ingreso más de los caracteres esperados (8 caracteres)", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
     }//GEN-LAST:event_txt_idmembresiaMDMousePressed
 
     private void txt_costoMDMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_costoMDMouseExited
@@ -4234,6 +4371,25 @@ public class Menu_admin extends javax.swing.JFrame {
             txt_idueñoMD.setText("");
             txt_idueñoMD.setForeground(Color.black);
         }
+
+        txt_idueñoMD.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+
+                // Validar que solo se ingresen números
+                if (!Character.isDigit(c)) {
+                    e.consume();  // Bloquea la entrada si no es un número
+                    JOptionPane.showMessageDialog(null, "Solo se permiten números.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+
+                // Si el texto ya tiene 8 caracteres y se intenta ingresar más, se bloquea la entrada
+                if (txt_idueñoMD.getText().length() >= 8) {
+                    e.consume();  // Bloquea la entrada de más caracteres
+                    JOptionPane.showMessageDialog(null, "Ingreso más de los caracteres esperados (8 caracteres)", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
     }//GEN-LAST:event_txt_idueñoMDMousePressed
 
     private void txt_nombrecompletoMDMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_nombrecompletoMDMouseExited
@@ -4263,6 +4419,94 @@ public class Menu_admin extends javax.swing.JFrame {
             txt_identificacionMD.setForeground(Color.black);
         }
     }//GEN-LAST:event_txt_identificacionMDMousePressed
+
+    private void txt_idEstSVMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_idEstSVMousePressed
+        if (txt_idEstSV.getText().equals("Ingrese el ID del cajón")) {
+            txt_idEstSV.setText("");
+            txt_idEstSV.setForeground(Color.black);
+        }
+
+        txt_idEstSV.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+
+                // Validar que solo se ingresen números
+                if (!Character.isDigit(c)) {
+                    e.consume();  // Bloquea la entrada si no es un número
+                    JOptionPane.showMessageDialog(null, "Solo se permiten números.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+
+                // Si el texto ya tiene 8 caracteres y se intenta ingresar más, se bloquea la entrada
+                if (txt_idEstSV.getText().length() >= 8) {
+                    e.consume();  // Bloquea la entrada de más caracteres
+                    JOptionPane.showMessageDialog(null, "Ingreso más de los caracteres esperados (8 caracteres)", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+    }//GEN-LAST:event_txt_idEstSVMousePressed
+
+    private void txt_idEstSVMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_idEstSVMouseExited
+        if (txt_idEstSV.getText().isEmpty()) {
+            txt_idEstSV.setText("Ingrese el ID del cajón");
+            txt_idEstSV.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txt_idEstSVMouseExited
+
+    private void txt_costoSVMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_costoSVMouseExited
+        if (txt_costoSV.getText().isEmpty()) {
+            txt_costoSV.setText("Ingrese el costo");
+            txt_costoSV.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txt_costoSVMouseExited
+
+    private void txt_costoSVMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_costoSVMousePressed
+        if (txt_costoSV.getText().equals("Ingrese el costo")) {
+            txt_costoSV.setText("");
+            txt_costoSV.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txt_costoSVMousePressed
+
+    private void txt_idEstEHMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_idEstEHMouseExited
+        if (txt_idEstEH.getText().isEmpty()) {
+            txt_idEstEH.setText("Ingrese el ID del cajón");
+            txt_idEstEH.setForeground(new Color(102, 102, 102));
+        }
+    }//GEN-LAST:event_txt_idEstEHMouseExited
+
+    private void txt_idEstEHMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_idEstEHMousePressed
+        if (txt_idEstEH.getText().equals("Ingrese el ID del cajón")) {
+            txt_idEstEH.setText("");
+            txt_idEstEH.setForeground(Color.black);
+        }
+
+        txt_idEstEH.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+
+                // Validar que solo se ingresen números
+                if (!Character.isDigit(c)) {
+                    e.consume();  // Bloquea la entrada si no es un número
+                    JOptionPane.showMessageDialog(null, "Solo se permiten números.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+
+                // Si el texto ya tiene 8 caracteres y se intenta ingresar más, se bloquea la entrada
+                if (txt_idEstEH.getText().length() >= 8) {
+                    e.consume();  // Bloquea la entrada de más caracteres
+                    JOptionPane.showMessageDialog(null, "Ingreso más de los caracteres esperados (8 caracteres)", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+    }//GEN-LAST:event_txt_idEstEHMousePressed
+
+    private void btn_registrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registrarMouseEntered
+        // Comparar el texto del botón con "registrar"
+        if (!lb_registrar.getText().equals("registrar")) {
+            btn_registrar.setBackground(Color.WHITE); // Cambiar el fondo del botón a blanco
+            lb_registrar.setForeground(new Color(0, 34, 77)); // Cambiar el color de texto de la etiqueta a un color azul
+        }
+    }//GEN-LAST:event_btn_registrarMouseEntered
 
     /**
      * @param args the command line arguments
@@ -4470,6 +4714,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator34;
     private javax.swing.JSeparator jSeparator35;
     private javax.swing.JSeparator jSeparator36;
+    private javax.swing.JSeparator jSeparator37;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
@@ -4481,9 +4726,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField21;
     private javax.swing.JPanel jp1;
     private javax.swing.JPanel jp10;
     private javax.swing.JPanel jp11;
@@ -4560,6 +4803,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txt_color;
     private javax.swing.JTextField txt_costoMD;
+    private javax.swing.JTextField txt_costoSV;
     private javax.swing.JTextField txt_curp;
     private javax.swing.JTextField txt_empleadoEH;
     private javax.swing.JTextField txt_empleadoMD;
@@ -4568,6 +4812,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JTextField txt_horaEH;
     private javax.swing.JTextField txt_horaMD;
     private javax.swing.JTextField txt_idEstEH;
+    private javax.swing.JTextField txt_idEstSV;
     private javax.swing.JTextField txt_identificacionMD;
     private javax.swing.JTextField txt_idmembresiaMD;
     private javax.swing.JTextField txt_idueñoMD;
