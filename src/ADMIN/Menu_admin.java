@@ -306,12 +306,6 @@ private void iniciarActualizacionPeriodica() {
         jSeparator20 = new javax.swing.JSeparator();
         jSeparator21 = new javax.swing.JSeparator();
         jLabel46 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel99 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        panelRound7 = new Clases.PanelRound();
-        jLabel100 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtA_ticketMD = new javax.swing.JTextArea();
@@ -322,6 +316,11 @@ private void iniciarActualizacionPeriodica() {
         btn_buscarCMD = new javax.swing.JLabel();
         panelRound6 = new Clases.PanelRound();
         jLabel28 = new javax.swing.JLabel();
+        panelRound7 = new Clases.PanelRound();
+        lb_salida = new javax.swing.JLabel();
+        btn_renovar = new Clases.PanelRound();
+        lb_renovar = new javax.swing.JLabel();
+        lb_membresiaMD = new javax.swing.JLabel();
         jp_registros = new javax.swing.JPanel();
         jLabel95 = new javax.swing.JLabel();
         jLabel96 = new javax.swing.JLabel();
@@ -1892,73 +1891,6 @@ private void iniciarActualizacionPeriodica() {
         jp_membresia.add(jLabel46);
         jLabel46.setBounds(840, 90, 270, 20);
 
-        jLabel35.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel35.setText("Renovación");
-
-        jLabel99.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
-        jLabel99.setText("Fecha");
-
-        jTextField1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jTextField1.setText("jTextField1");
-
-        panelRound7.setBackground(new java.awt.Color(33, 33, 137));
-        panelRound7.setForeground(new java.awt.Color(0, 51, 102));
-        panelRound7.setRoundBottomLeft(40);
-        panelRound7.setRoundTopRight(40);
-
-        jLabel100.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        jLabel100.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel100.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel100.setText("RENOVAR");
-
-        javax.swing.GroupLayout panelRound7Layout = new javax.swing.GroupLayout(panelRound7);
-        panelRound7.setLayout(panelRound7Layout);
-        panelRound7Layout.setHorizontalGroup(
-            panelRound7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel100, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-        );
-        panelRound7Layout.setVerticalGroup(
-            panelRound7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel100, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel99)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(panelRound7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel35)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel35)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel99)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelRound7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(7, Short.MAX_VALUE))
-        );
-
-        jp_membresia.add(jPanel3);
-        jPanel3.setBounds(820, 500, 330, 120);
-
         txtA_ticketMD.setColumns(20);
         txtA_ticketMD.setRows(5);
         jScrollPane2.setViewportView(txtA_ticketMD);
@@ -2002,6 +1934,11 @@ private void iniciarActualizacionPeriodica() {
 
         jLabel101.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel101.setText("Ticket");
+        jLabel101.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel101MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRound8Layout = new javax.swing.GroupLayout(panelRound8);
         panelRound8.setLayout(panelRound8Layout);
@@ -2018,6 +1955,7 @@ private void iniciarActualizacionPeriodica() {
         panelRound8.setBounds(920, 430, 130, 50);
 
         btn_buscarCMD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar.png"))); // NOI18N
+        btn_buscarCMD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_buscarCMD.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_buscarCMDMouseClicked(evt);
@@ -2035,7 +1973,12 @@ private void iniciarActualizacionPeriodica() {
         jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("Limpiar");
+        jLabel28.setText("LIMPIAR");
+        jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel28MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRound6Layout = new javax.swing.GroupLayout(panelRound6);
         panelRound6.setLayout(panelRound6Layout);
@@ -2050,6 +1993,73 @@ private void iniciarActualizacionPeriodica() {
 
         jp_membresia.add(panelRound6);
         panelRound6.setBounds(260, 670, 160, 50);
+
+        panelRound7.setBackground(new java.awt.Color(33, 33, 137));
+        panelRound7.setForeground(new java.awt.Color(0, 51, 102));
+        panelRound7.setRoundBottomLeft(40);
+        panelRound7.setRoundTopRight(40);
+
+        lb_salida.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        lb_salida.setForeground(new java.awt.Color(255, 255, 255));
+        lb_salida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_salida.setText("SALIDA");
+        lb_salida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_salidaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelRound7Layout = new javax.swing.GroupLayout(panelRound7);
+        panelRound7.setLayout(panelRound7Layout);
+        panelRound7Layout.setHorizontalGroup(
+            panelRound7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_salida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        );
+        panelRound7Layout.setVerticalGroup(
+            panelRound7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_salida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+        );
+
+        jp_membresia.add(panelRound7);
+        panelRound7.setBounds(650, 670, 130, 47);
+
+        btn_renovar.setBackground(new java.awt.Color(33, 33, 137));
+        btn_renovar.setForeground(new java.awt.Color(0, 51, 102));
+        btn_renovar.setRoundBottomLeft(40);
+        btn_renovar.setRoundTopRight(40);
+
+        lb_renovar.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        lb_renovar.setForeground(new java.awt.Color(255, 255, 255));
+        lb_renovar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_renovar.setText("RENOVAR");
+        lb_renovar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_renovarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btn_renovarLayout = new javax.swing.GroupLayout(btn_renovar);
+        btn_renovar.setLayout(btn_renovarLayout);
+        btn_renovarLayout.setHorizontalGroup(
+            btn_renovarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_renovar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        );
+        btn_renovarLayout.setVerticalGroup(
+            btn_renovarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_renovar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+        );
+
+        jp_membresia.add(btn_renovar);
+        btn_renovar.setBounds(470, 670, 130, 47);
+
+        lb_membresiaMD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar.png"))); // NOI18N
+        lb_membresiaMD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_membresiaMDMouseClicked(evt);
+            }
+        });
+        jp_membresia.add(lb_membresiaMD);
+        lb_membresiaMD.setBounds(260, 170, 40, 40);
 
         centro.add(jp_membresia, "card4");
 
@@ -4019,9 +4029,10 @@ private void iniciarActualizacionPeriodica() {
             return;
         }
 
-        // Registrar la membresía
-        String queryRegistrarMembresia = "INSERT INTO membresia (id_membresia, Placa, hora, fecha, costo, id_espacio, id_usuario) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
+        String queryRegistrarMembresia = "INSERT INTO membresia (id_membresia, Placa, hora, fecha, costo, id_espacio, id_usuario, Id_DueñoV) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement pstRegistrarMembresia = con.prepareStatement(queryRegistrarMembresia);
+
+        // Asignar los valores
         pstRegistrarMembresia.setString(1, idMembresia);
         pstRegistrarMembresia.setString(2, placa);
         pstRegistrarMembresia.setString(3, hora);
@@ -4031,13 +4042,22 @@ private void iniciarActualizacionPeriodica() {
         pstRegistrarMembresia.setString(7, empleado);
         pstRegistrarMembresia.setString(8, idDueño);
 
+        // Ejecutar la consulta
+        int filasAfectadas = pstRegistrarMembresia.executeUpdate();
+
+        if (filasAfectadas > 0) {
+            JOptionPane.showMessageDialog(this, "Membresía registrada correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo registrar la membresía.");
+        }
+        
         // Actualizar el estado del lugar a "Ocupado"
         String queryActualizarLugar = "UPDATE espacio_lugar SET espaciodisp_ocup = 'Ocupado' WHERE id_espacio = ?";
         PreparedStatement pstActualizarLugar = con.prepareStatement(queryActualizarLugar);
         pstActualizarLugar.setInt(1, lugar);
         pstActualizarLugar.executeUpdate();
 
-        JOptionPane.showMessageDialog(this, "Membresía registrada correctamente y lugar actualizado.");
+        JOptionPane.showMessageDialog(this, "Lugar actualizado.");
     } catch (SQLException e) {
         JOptionPane.showMessageDialog(this, "Error al registrar la membresía: " + e.getMessage());
     } finally {
@@ -4244,7 +4264,7 @@ private void iniciarActualizacionPeriodica() {
 
     // -----------------------------------------------  Ticket  --------------------------------------------------------
   
-    public void datosTicket() {
+    public void datosTicketMembresia() {
     Connection con = null; // Usamos la clase conexión
     try {
         // Consulta SQL para obtener los datos del estacionamiento
@@ -4310,7 +4330,7 @@ private void iniciarActualizacionPeriodica() {
     
     
     private void lb_ticketMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_ticketMouseClicked
-            datosTicket();
+            datosTicketMembresia();
         
     }//GEN-LAST:event_lb_ticketMouseClicked
 
@@ -4655,8 +4675,367 @@ private void iniciarActualizacionPeriodica() {
     }//GEN-LAST:event_lb_dueñoMDMouseClicked
 
     private void btn_buscarCMDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_buscarCMDMouseClicked
+        // Obtener los valores ingresados en los campos de texto (por ejemplo, los de búsqueda)
+    String idDueño = txt_idueñoMD.getText();  // Campo de texto para buscar por ID
+    String nombreDueño = txt_nombrecompletoMD.getText();  // Campo de texto para buscar por nombre
+
+    if (idDueño.isEmpty() && nombreDueño.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor ingrese un ID o un Nombre para la búsqueda.");
+        return;
+    }
+
+    Connection con = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+
+    try {
+        con = conexion.getConection();  // Obtiene la conexión
+
+        String query = "SELECT Id_DueñoV, Nombre, Identificacion FROM dueño_vehiculo WHERE ";
         
+        // Condicional para construir la consulta según el campo que se ingrese
+        if (!idDueño.isEmpty()) {
+            query += "Id_DueñoV = ?";
+        } else {
+            query += "Nombre LIKE ?";
+            nombreDueño = "%" + nombreDueño + "%";  // Utilizamos LIKE para hacer coincidencias parciales
+        }
+
+        // Preparamos la consulta
+        pst = con.prepareStatement(query);
+        
+        // Establecemos los parámetros según el tipo de búsqueda
+        if (!idDueño.isEmpty()) {
+            pst.setString(1, idDueño);  // Si se ingresa un ID
+        } else {
+            pst.setString(1, nombreDueño);  // Si se ingresa un nombre
+        }
+
+        rs = pst.executeQuery();
+
+        // Verificamos si encontramos un registro
+        if (rs.next()) {
+            String encontradoId = rs.getString("Id_DueñoV");
+            String encontradoNombre = rs.getString("Nombre");
+            String encontradoIdentificacion = rs.getString("Identificacion");
+            
+            // Muestra los datos encontrados
+            // Mostrar los datos encontrados en los campos de texto
+            txt_idueñoMD.setText(encontradoId);
+            txt_nombrecompletoMD.setText(encontradoNombre);
+            txt_identificacionMD.setText(encontradoIdentificacion);
+            
+        } else {
+            // Si no se encuentra ningún registro
+            JOptionPane.showMessageDialog(this, "Persona aun no registrada.");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error en la búsqueda: " + e.getMessage());
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (pst != null) pst.close();
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     }//GEN-LAST:event_btn_buscarCMDMouseClicked
+
+    
+      // -----------------------------------------------  Ticket  --------------------------------------------------------
+  
+   public void datosTicket() {
+    Connection con = null; // Usamos la clase conexión
+    try {
+        // Consulta SQL para obtener los datos del estacionamiento
+        String queryEstacionamiento = "SELECT id_estacionamiento, Nombre_estaci, Direccion FROM estacionamiento WHERE id_estacionamiento = ?";
+        con = conexion.getConection(); // Obtener la conexión usando tu clase
+        PreparedStatement psEstacionamiento = con.prepareStatement(queryEstacionamiento);
+
+        // Fijamos un ID de estacionamiento, o lo obtenemos de otra fuente
+        int estacionamientoId = 1; // Cambia este valor según tus necesidades o toma de otro campo
+        psEstacionamiento.setInt(1, estacionamientoId); // Establecemos el ID del estacionamiento en la consulta
+
+        ResultSet rsEstacionamiento = psEstacionamiento.executeQuery();
+
+        if (rsEstacionamiento.next()) {
+            // Obtener los datos del estacionamiento desde la base de datos
+            String idEstacionamiento = rsEstacionamiento.getString("id_estacionamiento");
+            String nombre = rsEstacionamiento.getString("Nombre_estaci");
+            String direccion = rsEstacionamiento.getString("Direccion");
+
+            // Obtener los datos del vehículo a partir de la placa seleccionada
+            String placa = cb_placaMD.getSelectedItem().toString(); // Obtenemos la placa seleccionada
+            String queryVehiculo = "SELECT Tipo, Marca, Modelo, Color FROM vehiculo WHERE Placa = ?";
+            PreparedStatement psVehiculo = con.prepareStatement(queryVehiculo);
+            psVehiculo.setString(1, placa); // Pasamos el ID del vehículo (placa) a la consulta
+            ResultSet rsVehiculo = psVehiculo.executeQuery();
+
+            // Verificamos si encontramos el vehículo
+            if (rsVehiculo.next()) {
+                String tipo = rsVehiculo.getString("Tipo");
+                String marca = rsVehiculo.getString("Marca");
+                String modelo = rsVehiculo.getString("Modelo");
+                String color = rsVehiculo.getString("Color");
+
+                // Generar el contenido del ticket con formato bonito
+                StringBuilder ticketContent = new StringBuilder();
+                
+                ticketContent.append("==============================================================\n");
+                ticketContent.append("                TICKET DE ESTACIONAMIENTO                     \n");
+                ticketContent.append("==============================================================\n\n");
+                
+                ticketContent.append(String.format("%-20s: %s\n", "ID Estacionamiento", idEstacionamiento));
+                ticketContent.append(String.format("%-20s: %s\n", "Nombre", nombre));
+                ticketContent.append(String.format("%-20s: %s\n", "Dirección", direccion));
+                
+                ticketContent.append("\n--------------------------------------------------------------\n");
+                ticketContent.append("                    ESTACIONAMIENTO POR MEMBRESIA                   \n");
+                ticketContent.append("--------------------------------------------------------------\n\n");
+
+                ticketContent.append(String.format("%-20s: %s\n", "ID membresia", txt_idEstEH.getText()));
+                ticketContent.append(String.format("%-20s: %s\n", "Placa", placa));
+                ticketContent.append(String.format("%-20s: %s\n", "Hora", txt_horaEH.getText()));
+                ticketContent.append(String.format("%-20s: %s\n", "Fecha", txt_fechaEH.getText()));
+                ticketContent.append(String.format("%-20s: %d\n", "Lugar", (int) jsp_lugarMD.getValue()));
+                ticketContent.append(String.format("%-20s: %s\n", "Dueño vehiculo", txt_idueñoMD.getText()));
+                ticketContent.append(String.format("%-20s: %s\n", "Identificacion", txt_identificacionMD.getText()));
+                ticketContent.append(String.format("%-20s: %s\n", "Costo   $ ", txt_costoMD.getText()));
+                ticketContent.append(String.format("%-20s: %s\n", "Empleado", txt_empleadoMD.getText()));
+
+                // Agregamos los detalles del vehículo
+                ticketContent.append("\n--------------------------------------------------------------\n");
+                ticketContent.append("                     DETALLES DEL VEHÍCULO                     \n");
+                ticketContent.append("--------------------------------------------------------------\n\n");
+                ticketContent.append(String.format("%-20s: %s\n", "Tipo", tipo));
+                ticketContent.append(String.format("%-20s: %s\n", "Tipo", marca));
+                ticketContent.append(String.format("%-20s: %s\n", "Modelo", modelo));
+                ticketContent.append(String.format("%-20s: %s\n", "Color", color));
+                
+                ticketContent.append("\n==============================================================\n");
+                ticketContent.append("                  ¡GRACIAS POR USAR NUESTRO SERVICIO!          \n");
+                ticketContent.append("==============================================================\n");
+
+                // Mostrar el contenido del ticket en el área de texto
+                txtA_ticketMD.setText(ticketContent.toString());
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró el vehículo con esa placa.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró el estacionamiento con ese ID.");
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al obtener los datos: " + e.getMessage());
+    } finally {
+        try {
+            if (con != null) con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+}
+
+    
+    private void jLabel101MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel101MouseClicked
+        datosTicket();
+    }//GEN-LAST:event_jLabel101MouseClicked
+
+    private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
+        // Limpiar los JTextField
+    txt_idueñoMD.setText("");
+    txt_nombrecompletoMD.setText("");
+    txt_identificacionMD.setText("");
+    txt_idmembresiaMD.setText("");
+    txt_horaMD.setText("");
+    txt_fechaMD.setText("");
+    txt_costoMD.setText("");
+    txt_empleadoMD.setText("");
+    
+    // Limpiar el JComboBox (placa del vehículo)
+    cb_placaMD.setSelectedIndex(-1); // o cb_placaMD.setSelectedItem(null); si quieres establecerlo a null
+    
+    // Limpiar el JSpinner (lugar de estacionamiento)
+    jsp_lugarMD.setValue(0); // Establecer el valor predeterminado
+
+    // Limpiar el JTextArea (si es que estás mostrando un ticket)
+    txtA_ticketMD.setText("");
+    }//GEN-LAST:event_jLabel28MouseClicked
+
+    // Renovar
+    private void lb_renovarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_renovarMouseClicked
+         
+         String idMembresia = txt_idmembresiaMD.getText();
+    String placa = cb_placaMD.getSelectedItem().toString();
+    String hora = txt_horaMD.getText();
+    String fecha = txt_fechaMD.getText();
+    String costo = txt_costoMD.getText();
+    int lugar = (int) jsp_lugarMD.getValue();
+    String empleado = txt_empleadoMD.getText();
+    String idDueño = txt_idueñoMD.getText();
+
+    Connection con = null;
+
+    try {
+        con = conexion.getConection();
+
+        // Verificar si la membresía existe
+        String queryCheckMembresia = "SELECT id_espacio FROM membresia WHERE id_membresia = ?";
+        PreparedStatement pstCheckMembresia = con.prepareStatement(queryCheckMembresia);
+        pstCheckMembresia.setString(1, idMembresia);
+        ResultSet rsMembresia = pstCheckMembresia.executeQuery();
+
+        if (rsMembresia.next()) {
+            int lugarAnterior = rsMembresia.getInt("id_espacio");
+
+            // Si el lugar anterior es diferente al nuevo lugar, actualizamos ambos lugares
+            if (lugarAnterior != lugar) {
+                // Cambiar el estado del lugar anterior a "Disponible"
+                String queryDesocuparLugar = "UPDATE espacio_lugar SET espaciodisp_ocup = 'Disponible' WHERE id_espacio = ?";
+                PreparedStatement pstDesocuparLugar = con.prepareStatement(queryDesocuparLugar);
+                pstDesocuparLugar.setInt(1, lugarAnterior);
+                pstDesocuparLugar.executeUpdate();
+            }
+
+            // Actualizar la membresía
+            String queryActualizarMembresia = "UPDATE membresia SET Placa = ?, hora = ?, fecha = ?, costo = ?, id_espacio = ?, id_usuario = ?, Id_DueñoV = ? WHERE id_membresia = ?";
+            PreparedStatement pstActualizarMembresia = con.prepareStatement(queryActualizarMembresia);
+            pstActualizarMembresia.setString(1, placa);
+            pstActualizarMembresia.setString(2, hora);
+            pstActualizarMembresia.setString(3, fecha);
+            pstActualizarMembresia.setString(4, costo);
+            pstActualizarMembresia.setInt(5, lugar);
+            pstActualizarMembresia.setString(6, empleado);
+            pstActualizarMembresia.setString(7, idDueño);
+            pstActualizarMembresia.setString(8, idMembresia);
+            pstActualizarMembresia.executeUpdate();
+
+            // Actualizar el estado del nuevo lugar a "Ocupado"
+            String queryActualizarLugar = "UPDATE espacio_lugar SET espaciodisp_ocup = 'Ocupado' WHERE id_espacio = ?";
+            PreparedStatement pstActualizarLugar = con.prepareStatement(queryActualizarLugar);
+            pstActualizarLugar.setInt(1, lugar);
+            pstActualizarLugar.executeUpdate();
+
+            JOptionPane.showMessageDialog(this, "Membresía renovada correctamente y lugar actualizado.");
+        } else {
+            JOptionPane.showMessageDialog(this, "La membresía no existe.");
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error al renovar la membresía: " + e.getMessage());
+    } finally {
+        try {
+            if (con != null) {
+                con.close();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+        
+    }//GEN-LAST:event_lb_renovarMouseClicked
+
+    private void lb_salidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_salidaMouseClicked
+       
+         String idMembresia = txt_idmembresiaMD.getText();
+    Connection con = null;
+
+    try {
+        con = conexion.getConection();
+
+        // Verificar si la membresía existe
+        String queryCheckMembresia = "SELECT id_membresia, id_espacio, fecha FROM membresia WHERE id_membresia = ?";
+        PreparedStatement pstCheckMembresia = con.prepareStatement(queryCheckMembresia);
+        pstCheckMembresia.setString(1, idMembresia);
+        ResultSet rsMembresia = pstCheckMembresia.executeQuery();
+
+        if (rsMembresia.next()) {
+            // Si la membresía existe, obtener los datos necesarios
+            String idEspacio = rsMembresia.getString("id_espacio");
+            String fechaRegistro = rsMembresia.getString("fecha");
+            java.util.Date date = new java.util.Date();
+            SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+            String fechaSalida = dateFormatter.format(date); // Fecha de salida es la actual
+
+            // Registrar los datos en la tabla expira_membresia
+            String queryInsertExpiraMembresia = "INSERT INTO expira_membresia (id_renova, id_membresia, fecha_registro, id_espacio, fecha_salida) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement pstInsertExpiraMembresia = con.prepareStatement(queryInsertExpiraMembresia);
+            pstInsertExpiraMembresia.setString(1, idMembresia); // id_renova
+            pstInsertExpiraMembresia.setString(2, idMembresia); // id_membresia
+            pstInsertExpiraMembresia.setString(3, fechaRegistro); // fecha_registro
+            pstInsertExpiraMembresia.setString(4, idEspacio); // id_espacio
+            pstInsertExpiraMembresia.setString(5, fechaSalida); // fecha_salida
+            pstInsertExpiraMembresia.executeUpdate();
+
+            // Eliminar la membresía de la tabla membresia
+            String queryDeleteMembresia = "DELETE FROM membresia WHERE id_membresia = ?";
+            PreparedStatement pstDeleteMembresia = con.prepareStatement(queryDeleteMembresia);
+            pstDeleteMembresia.setString(1, idMembresia);
+            pstDeleteMembresia.executeUpdate();
+
+            // Liberar el lugar de estacionamiento (marcarlo como "Disponible")
+            String queryActualizarLugar = "UPDATE espacio_lugar SET espaciodisp_ocup = 'Disponible' WHERE id_espacio = ?";
+            PreparedStatement pstActualizarLugar = con.prepareStatement(queryActualizarLugar);
+            pstActualizarLugar.setString(1, idEspacio);
+            pstActualizarLugar.executeUpdate();
+
+            JOptionPane.showMessageDialog(this, "Membresía eliminada y lugar desocupado correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "La membresía no existe.");
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error al eliminar la membresía: " + e.getMessage());
+    } finally {
+        try {
+            if (con != null) {
+                con.close();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+        
+    }//GEN-LAST:event_lb_salidaMouseClicked
+
+    private void lb_membresiaMDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_membresiaMDMouseClicked
+         // Obtener el id de la membresía ingresada en el campo de texto
+    String idMembresia = txt_idmembresiaMD.getText();
+    
+    if (idMembresia.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor ingrese un ID de membresía.");
+        return;
+    }
+
+    Connection con = null;
+
+    try {
+        con = conexion.getConection();
+
+        // Verificar si la membresía existe en la base de datos
+        String queryCheckMembresia = "SELECT id_membresia FROM membresia WHERE id_membresia = ?";
+        PreparedStatement pstCheckMembresia = con.prepareStatement(queryCheckMembresia);
+        pstCheckMembresia.setString(1, idMembresia);
+        ResultSet rs = pstCheckMembresia.executeQuery();
+
+        if (rs.next()) {
+            // Si la membresía existe, mostrar mensaje de éxito
+            JOptionPane.showMessageDialog(this, "La membresía con ID " + idMembresia + " existe.");
+        } else {
+            // Si la membresía no existe, mostrar mensaje de error
+            JOptionPane.showMessageDialog(this, "No se encontró la membresía con ID " + idMembresia + ".");
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error al verificar la membresía: " + e.getMessage());
+    } finally {
+        try {
+            if (con != null) {
+                con.close();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+    }//GEN-LAST:event_lb_membresiaMDMouseClicked
 
     /**
      * @param args the command line arguments
@@ -4714,6 +5093,7 @@ private void iniciarActualizacionPeriodica() {
     private Clases.PanelRound btn_registrarMD;
     private Clases.PanelRound btn_registrarV;
     private Clases.PanelRound btn_registros;
+    private Clases.PanelRound btn_renovar;
     private Clases.PanelRound btn_ticket;
     private Clases.PanelRound btn_usuarios;
     private Clases.PanelRound btn_vehiculo;
@@ -4728,7 +5108,6 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -4756,7 +5135,6 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
@@ -4825,13 +5203,11 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel96;
     private javax.swing.JLabel jLabel97;
-    private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -4877,7 +5253,6 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField19;
@@ -4937,6 +5312,7 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JLabel lb_limpiarU;
     private javax.swing.JLabel lb_lugares;
     private javax.swing.JLabel lb_membresia;
+    private javax.swing.JLabel lb_membresiaMD;
     private javax.swing.JLabel lb_min;
     private javax.swing.JLabel lb_minmax;
     private javax.swing.JLabel lb_mostrarUC;
@@ -4944,7 +5320,9 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JLabel lb_registrar;
     private javax.swing.JLabel lb_registrarV;
     private javax.swing.JLabel lb_registros;
+    private javax.swing.JLabel lb_renovar;
     private javax.swing.JLabel lb_resgistrarMD;
+    private javax.swing.JLabel lb_salida;
     private javax.swing.JLabel lb_salidaVehiculos;
     private javax.swing.JLabel lb_ticket;
     private javax.swing.JLabel lb_tiempo;
