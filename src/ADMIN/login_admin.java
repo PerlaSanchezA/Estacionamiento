@@ -188,14 +188,14 @@ public class login_admin extends javax.swing.JFrame {
         );
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Logo");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logo.png"))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Soberana Sans", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Estacionamiento");
+        jLabel3.setText("ParkCar");
 
-        txt_usuario.setBackground(new java.awt.Color(255, 255, 255));
-        txt_usuario.setForeground(new java.awt.Color(0, 0, 0));
+        txt_usuario.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_usuario.setForeground(new java.awt.Color(102, 102, 102));
         txt_usuario.setText("Ingrese su nombre de usuario");
         txt_usuario.setBorder(null);
         txt_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,12 +204,11 @@ public class login_admin extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel4.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel4.setText("Usuario");
 
-        txt_pass.setBackground(new java.awt.Color(255, 255, 255));
-        txt_pass.setForeground(new java.awt.Color(0, 0, 0));
+        txt_pass.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_pass.setForeground(new java.awt.Color(102, 102, 102));
         txt_pass.setText("********");
         txt_pass.setBorder(null);
         txt_pass.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -218,8 +217,7 @@ public class login_admin extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel5.setText("Contraseña");
 
         btn_entrar.setBackground(new java.awt.Color(116, 9, 56));
@@ -267,8 +265,8 @@ public class login_admin extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
@@ -291,7 +289,7 @@ public class login_admin extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
