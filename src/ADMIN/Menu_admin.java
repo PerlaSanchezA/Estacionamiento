@@ -9,6 +9,8 @@ import java.sql.*;
 import java.awt.Color;
 import javax.swing.*;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
@@ -50,9 +52,10 @@ public class Menu_admin extends javax.swing.JFrame {
         
         mapearPaneles(); // Llenar el mapa de paneles
         actualizarColores(); // Actualizar los colores según la base de datos
+        iniciarActualizacionPeriodica();//Actualiza
         
         consultas.RellenarComboBox("estacionamiento", "id_estacionamiento",CB_estacionamiento);
-         consultas.RellenarComboBox("vehiculo", "Placa",cb_placaMD);
+         consultas.RellenarComboBox("vehiculo", "Placa",cb_placaMD); 
          
         tiempo(); //Lama el metodo para mostrarlo
         
@@ -61,6 +64,8 @@ public class Menu_admin extends javax.swing.JFrame {
     // Metodo para obener nombre de usuario 
     public void setNombreUsuario(String nombreUsuario) {
         lb_nombreUsuario.setText("Bienvenido, " + nombreUsuario);
+        txt_empleadoMD.setText(nombreUsuario);
+        txt_empleadoEH.setText(nombreUsuario);
     }
     
     // Metodo para obtener la hora y fecha actual
@@ -71,12 +76,18 @@ public class Menu_admin extends javax.swing.JFrame {
             SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
             String formattedDate = dateFormatter.format(date);
             lb_fecha.setText(formattedDate);
-            txt_fechaMD.setText(formattedDate);
+              SimpleDateFormat dateFormatter1= new SimpleDateFormat("yyyy-MM-dd");
+            String formattedDate1 = dateFormatter1.format(date);
+            txt_fechaMD.setText(formattedDate1);
+            txt_fechaEH.setText(formattedDate1);
 
             SimpleDateFormat timeFormatter = new SimpleDateFormat("hh:mm:ss a");
             String formattedTime = timeFormatter.format(date);
             lb_tiempo.setText(formattedTime);
-            txt_horaMD.setText(formattedTime);
+            SimpleDateFormat timeFormatter1 = new SimpleDateFormat("hh:mm:ss");
+            String formattedTime1 = timeFormatter1.format(date);
+            txt_horaMD.setText(formattedTime1);
+            txt_horaEH.setText(formattedTime1);
 
             
         });
@@ -120,47 +131,40 @@ public class Menu_admin extends javax.swing.JFrame {
         // Continúa agregando todos los paneles...
     }
     
-        private void actualizarColores() {
-    Connection con = null;
-    PreparedStatement ps = null;
-    ResultSet rs = null;
+     private void actualizarColores() {
+    try (Connection con = conexion.getConection();
+         PreparedStatement ps = con.prepareStatement("SELECT id_espacio, espaciodisp_ocup FROM espacio_lugar WHERE id_estacionamiento = 1");
+         ResultSet rs = ps.executeQuery()) {
 
-    try {
-        con = conexion.getConection(); // Llama a tu clase conexión
-        if (con != null) {
-            // Usa comillas adecuadas para nombres de columnas
-            String query = "SELECT id_espacio, `Espacio(L/O)` FROM espacio_lugar WHERE id_estacionamiento = 1";
-            ps = con.prepareStatement(query);
-            rs = ps.executeQuery();
+        while (rs.next()) {
+            int idEspacio = rs.getInt("id_espacio");
+            String estado = rs.getString("espaciodisp_ocup").trim();
 
-            while (rs.next()) {
-                int idEspacio = rs.getInt("id_espacio");
-                String estado = rs.getString("Espacio(L/O)").trim();
-
-                // Cambiar el color según el estado
-                JPanel panel = panelMap.get(idEspacio);
-                if (panel != null) {
-                    if (estado.equalsIgnoreCase("Disponible")) {
-                        panel.setBackground(Color.GREEN);
-                    } else if (estado.equalsIgnoreCase("Ocupado")) {
-                        panel.setBackground(Color.RED);
-                    }
-                }
+            // Cambiar el color del panel correspondiente
+            JPanel panel = panelMap.get(idEspacio);
+            if (panel != null) {
+                // Usamos Color.GREEN para Disponible, Color.RED para Ocupado
+                panel.setBackground(estado.equalsIgnoreCase("Disponible") ? Color.GREEN : Color.RED);
             }
         }
     } catch (SQLException e) {
         e.printStackTrace();
-    } finally {
-        try {
-            if (rs != null) rs.close();
-            if (ps != null) ps.close();
-            if (con != null) con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }
 
+private void iniciarActualizacionPeriodica() {
+    // Creamos un Timer que se ejecute cada 5 segundos (5000 milisegundos)
+    Timer timer = new Timer(5000, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Llamamos a la función para actualizar los colores cada vez que el timer se active
+            actualizarColores();
+        }
+    });
+
+    // Inicia el timer
+    timer.start();
+}
 
 
 
@@ -236,6 +240,10 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         btn_actualizarU = new Clases.PanelRound();
         lb_actualizar = new javax.swing.JLabel();
+        lb_mostrarUC = new javax.swing.JLabel();
+        lb_buscar = new javax.swing.JLabel();
+        btn_limpiarU = new Clases.PanelRound();
+        lb_limpiarU = new javax.swing.JLabel();
         jp_vehiculo = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         txt_placa = new javax.swing.JTextField();
@@ -297,17 +305,21 @@ public class Menu_admin extends javax.swing.JFrame {
         jSeparator19 = new javax.swing.JSeparator();
         jSeparator20 = new javax.swing.JSeparator();
         jSeparator21 = new javax.swing.JSeparator();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtA_ticketMD = new javax.swing.JTextArea();
         jLabel46 = new javax.swing.JLabel();
-        panelRound6 = new Clases.PanelRound();
-        jLabel28 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jLabel99 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         panelRound7 = new Clases.PanelRound();
         jLabel100 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtA_ticketMD = new javax.swing.JTextArea();
+        panelRound5 = new Clases.PanelRound();
+        lb_dueñoMD = new javax.swing.JLabel();
+        panelRound8 = new Clases.PanelRound();
+        jLabel101 = new javax.swing.JLabel();
+        jLabel102 = new javax.swing.JLabel();
         jp_registros = new javax.swing.JPanel();
         jLabel95 = new javax.swing.JLabel();
         jLabel96 = new javax.swing.JLabel();
@@ -613,7 +625,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(lb_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(116, 116, 116)
                 .addComponent(lb_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 292, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
                 .addComponent(btn_min, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btn_minmax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -956,7 +968,7 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
 
         getContentPane().add(IZQ2, java.awt.BorderLayout.LINE_START);
@@ -977,14 +989,14 @@ public class Menu_admin extends javax.swing.JFrame {
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(184, 184, 184)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
         jp_principalLayout.setVerticalGroup(
             jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(199, 199, 199)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
 
         centro.add(jp_principal, "card2");
@@ -1123,9 +1135,8 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_registrarLayout.setHorizontalGroup(
             btn_registrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_registrarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lb_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lb_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         btn_registrarLayout.setVerticalGroup(
             btn_registrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1201,14 +1212,52 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_actualizarU.setLayout(btn_actualizarULayout);
         btn_actualizarULayout.setHorizontalGroup(
             btn_actualizarULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_actualizarULayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lb_actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(lb_actualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
         );
         btn_actualizarULayout.setVerticalGroup(
             btn_actualizarULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lb_actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+        );
+
+        lb_mostrarUC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/ojo.png"))); // NOI18N
+        lb_mostrarUC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_mostrarUCMouseClicked(evt);
+            }
+        });
+
+        lb_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar.png"))); // NOI18N
+        lb_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_buscarMouseClicked(evt);
+            }
+        });
+
+        btn_limpiarU.setBackground(new java.awt.Color(116, 9, 56));
+        btn_limpiarU.setRoundBottomLeft(40);
+        btn_limpiarU.setRoundBottomRight(40);
+        btn_limpiarU.setRoundTopLeft(40);
+        btn_limpiarU.setRoundTopRight(40);
+
+        lb_limpiarU.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lb_limpiarU.setForeground(new java.awt.Color(255, 255, 255));
+        lb_limpiarU.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_limpiarU.setText("Limpiar");
+        lb_limpiarU.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_limpiarUMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btn_limpiarULayout = new javax.swing.GroupLayout(btn_limpiarU);
+        btn_limpiarU.setLayout(btn_limpiarULayout);
+        btn_limpiarULayout.setHorizontalGroup(
+            btn_limpiarULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_limpiarU, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+        );
+        btn_limpiarULayout.setVerticalGroup(
+            btn_limpiarULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_limpiarU, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jp_usuariosLayout = new javax.swing.GroupLayout(jp_usuarios);
@@ -1216,9 +1265,9 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_usuariosLayout.setHorizontalGroup(
             jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_usuariosLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1235,13 +1284,16 @@ public class Menu_admin extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addGroup(jp_usuariosLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(txt_iduser, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txt_iduser, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lb_buscar))))
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
-                        .addGap(74, 74, 74)
                         .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(btn_actualizarU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(241, 241, 241)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_actualizarU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(btn_limpiarU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(71, 71, 71)
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
                         .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1249,16 +1301,19 @@ public class Menu_admin extends javax.swing.JFrame {
                                 .addComponent(lb_estac)
                                 .addComponent(CB_estacionamiento, 0, 339, Short.MAX_VALUE)
                                 .addComponent(jSeparator8))
-                            .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel20)
-                                .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                                .addComponent(txt_curp)
-                                .addComponent(jLabel19)
-                                .addComponent(jSeparator3)
-                                .addComponent(jSeparator5)
-                                .addComponent(jSeparator7)
-                                .addComponent(cmbRol1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap(156, Short.MAX_VALUE))
+                            .addGroup(jp_usuariosLayout.createSequentialGroup()
+                                .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel20)
+                                    .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                                    .addComponent(txt_curp)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jSeparator3)
+                                    .addComponent(jSeparator5)
+                                    .addComponent(jSeparator7)
+                                    .addComponent(cmbRol1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lb_mostrarUC)))
+                        .addContainerGap(195, Short.MAX_VALUE))
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -1275,21 +1330,28 @@ public class Menu_admin extends javax.swing.JFrame {
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_iduser, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_curp, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_iduser, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_curp, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lb_buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(2, 2, 2)
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_usuariosLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jp_usuariosLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(lb_mostrarUC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(2, 2, 2)
                 .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1315,19 +1377,23 @@ public class Menu_admin extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jp_usuariosLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
+                        .addGap(49, 49, 49)
                         .addGroup(jp_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_actualizarU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(292, 292, 292))
+                            .addComponent(btn_limpiarU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(343, 343, 343))
         );
 
         centro.add(jp_usuarios, "card3");
 
         jp_vehiculo.setBackground(new java.awt.Color(255, 255, 255));
+        jp_vehiculo.setLayout(null);
 
         jLabel21.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel21.setText("Placa");
+        jp_vehiculo.add(jLabel21);
+        jLabel21.setBounds(135, 172, 38, 19);
 
         txt_placa.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txt_placa.setForeground(new java.awt.Color(102, 102, 102));
@@ -1346,25 +1412,45 @@ public class Menu_admin extends javax.swing.JFrame {
                 txt_placaActionPerformed(evt);
             }
         });
+        jp_vehiculo.add(txt_placa);
+        txt_placa.setBounds(135, 203, 323, 44);
 
         jLabel22.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel22.setText("Tipo");
+        jp_vehiculo.add(jLabel22);
+        jLabel22.setBounds(135, 299, 82, 19);
+        jp_vehiculo.add(jSeparator10);
+        jSeparator10.setBounds(135, 249, 323, 10);
+        jp_vehiculo.add(jSeparator11);
+        jSeparator11.setBounds(135, 376, 323, 10);
 
         jLabel23.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel23.setText("Marca");
+        jp_vehiculo.add(jLabel23);
+        jLabel23.setBounds(135, 426, 46, 19);
+        jp_vehiculo.add(jSeparator12);
+        jSeparator12.setBounds(135, 513, 323, 10);
 
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/agregar-vehiculo.png"))); // NOI18N
+        jp_vehiculo.add(jLabel31);
+        jLabel31.setBounds(54, 70, 32, 32);
 
         jLabel32.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(102, 102, 102));
         jLabel32.setText("Registro de vehículos");
+        jp_vehiculo.add(jLabel32);
+        jLabel32.setBounds(98, 70, 191, 31);
 
         cb_marca.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         cb_marca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Nissan", "Ford", "Yamaha", "Chevrolet", "Mercedes-Benz" }));
         cb_marca.setBorder(null);
+        jp_vehiculo.add(cb_marca);
+        cb_marca.setBounds(135, 463, 323, 44);
 
         jLabel33.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel33.setText("Modelo");
+        jp_vehiculo.add(jLabel33);
+        jLabel33.setBounds(702, 172, 117, 19);
 
         txt_color.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txt_color.setForeground(new java.awt.Color(102, 102, 102));
@@ -1383,9 +1469,15 @@ public class Menu_admin extends javax.swing.JFrame {
                 txt_colorActionPerformed(evt);
             }
         });
+        jp_vehiculo.add(txt_color);
+        txt_color.setBounds(708, 330, 323, 44);
 
         jLabel34.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel34.setText("Color");
+        jp_vehiculo.add(jLabel34);
+        jLabel34.setBounds(703, 299, 88, 19);
+        jp_vehiculo.add(jSeparator22);
+        jSeparator22.setBounds(708, 376, 323, 10);
 
         btn_registrarV.setBackground(new java.awt.Color(116, 9, 56));
         btn_registrarV.setRoundBottomLeft(40);
@@ -1415,12 +1507,15 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_registrarV.setLayout(btn_registrarVLayout);
         btn_registrarVLayout.setHorizontalGroup(
             btn_registrarVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_registrarV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+            .addComponent(lb_registrarV, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
         );
         btn_registrarVLayout.setVerticalGroup(
             btn_registrarVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lb_registrarV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
         );
+
+        jp_vehiculo.add(btn_registrarV);
+        btn_registrarV.setBounds(120, 590, 140, 47);
 
         txt_modelo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txt_modelo.setForeground(new java.awt.Color(102, 102, 102));
@@ -1439,10 +1534,16 @@ public class Menu_admin extends javax.swing.JFrame {
                 txt_modeloActionPerformed(evt);
             }
         });
+        jp_vehiculo.add(txt_modelo);
+        txt_modelo.setBounds(702, 203, 323, 44);
+        jp_vehiculo.add(jSeparator13);
+        jSeparator13.setBounds(702, 249, 323, 10);
 
         cb_tipo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         cb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sedán", "Furgoneta", "Motocicleta", "Pick-up" }));
         cb_tipo.setBorder(null);
+        jp_vehiculo.add(cb_tipo);
+        cb_tipo.setBounds(135, 330, 323, 44);
 
         btn_actualizarV.setBackground(new java.awt.Color(116, 9, 56));
         btn_actualizarV.setRoundBottomLeft(40);
@@ -1471,12 +1572,15 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_actualizarV.setLayout(btn_actualizarVLayout);
         btn_actualizarVLayout.setHorizontalGroup(
             btn_actualizarVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_actualizarV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+            .addComponent(lb_actualizarV, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
         );
         btn_actualizarVLayout.setVerticalGroup(
             btn_actualizarVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lb_actualizarV, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
         );
+
+        jp_vehiculo.add(btn_actualizarV);
+        btn_actualizarV.setBounds(310, 590, 140, 47);
 
         btn_limpiar.setBackground(new java.awt.Color(102, 102, 102));
         btn_limpiar.setRoundBottomLeft(40);
@@ -1509,6 +1613,9 @@ public class Menu_admin extends javax.swing.JFrame {
             .addComponent(lb_limpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
+        jp_vehiculo.add(btn_limpiar);
+        btn_limpiar.setBounds(805, 463, 142, 40);
+
         lb_buscarV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar.png"))); // NOI18N
         lb_buscarV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lb_buscarV.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1519,116 +1626,8 @@ public class Menu_admin extends javax.swing.JFrame {
                 lb_buscarVMousePressed(evt);
             }
         });
-
-        javax.swing.GroupLayout jp_vehiculoLayout = new javax.swing.GroupLayout(jp_vehiculo);
-        jp_vehiculo.setLayout(jp_vehiculoLayout);
-        jp_vehiculoLayout.setHorizontalGroup(
-            jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cb_tipo, 0, 323, Short.MAX_VALUE)
-                            .addComponent(jSeparator11))
-                        .addGap(250, 250, 250)
-                        .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_color, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel21)
-                                    .addComponent(txt_placa, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lb_buscarV)
-                                .addGap(200, 200, 200)
-                                .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_modelo, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
-                                    .addComponent(jSeparator13)
-                                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                                .addGap(245, 245, 245)
-                                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel31)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                                .addComponent(btn_registrarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(100, 100, 100)
-                                .addComponent(btn_actualizarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel32)))
-                    .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel23)
-                            .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                                .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cb_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(347, 347, 347)
-                                .addComponent(btn_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(162, Short.MAX_VALUE))
-        );
-        jp_vehiculoLayout.setVerticalGroup(
-            jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                        .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lb_buscarV, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_placa, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(2, 2, 2)
-                .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel34))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                        .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                        .addComponent(txt_color, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40)
-                .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jp_vehiculoLayout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addGap(18, 18, 18)
-                        .addGroup(jp_vehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
-                        .addComponent(btn_registrarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn_actualizarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
+        jp_vehiculo.add(lb_buscarV);
+        lb_buscarV.setBounds(470, 203, 32, 44);
 
         centro.add(jp_vehiculo, "card9");
 
@@ -1777,12 +1776,11 @@ public class Menu_admin extends javax.swing.JFrame {
         jSeparator18.setBounds(510, 90, 16, 520);
 
         jLabel26.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
-        jLabel26.setText("Atiende");
+        jLabel26.setText("Atiende ID");
         jp_membresia.add(jLabel26);
         jLabel26.setBounds(39, 540, 100, 19);
 
         txt_empleadoMD.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        txt_empleadoMD.setText("jTextField8");
         jp_membresia.add(txt_empleadoMD);
         txt_empleadoMD.setBounds(39, 568, 440, 37);
 
@@ -1887,42 +1885,12 @@ public class Menu_admin extends javax.swing.JFrame {
         jp_membresia.add(jSeparator21);
         jSeparator21.setBounds(550, 403, 212, 10);
 
-        txtA_ticketMD.setColumns(20);
-        txtA_ticketMD.setRows(5);
-        jScrollPane2.setViewportView(txtA_ticketMD);
-
-        jp_membresia.add(jScrollPane2);
-        jScrollPane2.setBounds(850, 160, 270, 330);
-
         jLabel46.setFont(new java.awt.Font("Nirmala UI", 1, 16)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(102, 102, 102));
         jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel46.setText("Ticket");
         jp_membresia.add(jLabel46);
-        jLabel46.setBounds(850, 120, 270, 20);
-
-        panelRound6.setBackground(new java.awt.Color(102, 102, 102));
-        panelRound6.setRoundBottomLeft(40);
-        panelRound6.setRoundTopRight(40);
-
-        jLabel28.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("BUSCAR PLACA");
-
-        javax.swing.GroupLayout panelRound6Layout = new javax.swing.GroupLayout(panelRound6);
-        panelRound6.setLayout(panelRound6Layout);
-        panelRound6Layout.setHorizontalGroup(
-            panelRound6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-        );
-        panelRound6Layout.setVerticalGroup(
-            panelRound6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        jp_membresia.add(panelRound6);
-        panelRound6.setBounds(320, 340, 140, 40);
+        jLabel46.setBounds(840, 70, 270, 20);
 
         jLabel35.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(102, 102, 102));
@@ -1985,11 +1953,71 @@ public class Menu_admin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(panelRound7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         jp_membresia.add(jPanel3);
-        jPanel3.setBounds(540, 550, 330, 120);
+        jPanel3.setBounds(820, 500, 330, 120);
+
+        txtA_ticketMD.setColumns(20);
+        txtA_ticketMD.setRows(5);
+        jScrollPane2.setViewportView(txtA_ticketMD);
+
+        jScrollPane1.setViewportView(jScrollPane2);
+
+        jp_membresia.add(jScrollPane1);
+        jScrollPane1.setBounds(840, 130, 300, 280);
+
+        panelRound5.setRoundBottomLeft(40);
+        panelRound5.setRoundBottomRight(40);
+        panelRound5.setRoundTopLeft(40);
+        panelRound5.setRoundTopRight(40);
+
+        lb_dueñoMD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_dueñoMD.setText("Registrar dueño");
+        lb_dueñoMD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_dueñoMDMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelRound5Layout = new javax.swing.GroupLayout(panelRound5);
+        panelRound5.setLayout(panelRound5Layout);
+        panelRound5Layout.setHorizontalGroup(
+            panelRound5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_dueñoMD, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+        );
+        panelRound5Layout.setVerticalGroup(
+            panelRound5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_dueñoMD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jp_membresia.add(panelRound5);
+        panelRound5.setBounds(580, 450, 150, 50);
+
+        panelRound8.setRoundBottomLeft(40);
+        panelRound8.setRoundTopRight(40);
+
+        jLabel101.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel101.setText("Ticket");
+
+        javax.swing.GroupLayout panelRound8Layout = new javax.swing.GroupLayout(panelRound8);
+        panelRound8.setLayout(panelRound8Layout);
+        panelRound8Layout.setHorizontalGroup(
+            panelRound8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel101, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        );
+        panelRound8Layout.setVerticalGroup(
+            panelRound8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel101, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jp_membresia.add(panelRound8);
+        panelRound8.setBounds(920, 430, 130, 50);
+
+        jLabel102.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar.png"))); // NOI18N
+        jp_membresia.add(jLabel102);
+        jLabel102.setBounds(770, 170, 40, 40);
 
         centro.add(jp_membresia, "card4");
 
@@ -2068,14 +2096,14 @@ public class Menu_admin extends javax.swing.JFrame {
                             .addComponent(cb_tablas, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(61, 61, 61)
                         .addComponent(btn_consultarR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         jp_registrosLayout.setVerticalGroup(
             jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_registrosLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel95)
+                .addGroup(jp_registrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel95, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel96, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(70, 70, 70)
                 .addComponent(jLabel97)
@@ -2085,7 +2113,7 @@ public class Menu_admin extends javax.swing.JFrame {
                     .addComponent(btn_consultarR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
 
         centro.add(jp_registros, "card5");
@@ -2291,7 +2319,7 @@ public class Menu_admin extends javax.swing.JFrame {
                                 .addGap(2, 2, 2)
                                 .addComponent(jSeparator23, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator37, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                         .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
                                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -3925,104 +3953,70 @@ public class Menu_admin extends javax.swing.JFrame {
        
 
 
-    // --------------------------- Membresia y dueño vehiculo--------------------------------------------
+    // --------------------------- Membresia --------------------------------------------
     private void lb_resgistrarMDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_resgistrarMDMouseClicked
         
-        String iddueño = txt_idueñoMD.getText();
-        String nombrecompleto = txt_nombrecompletoMD.getText();
-        String credencial = txt_identificacionMD.getText();
-
-        String idmembresia = txt_idmembresiaMD.getText();
+        String idMembresia = txt_idmembresiaMD.getText();
         String placa = cb_placaMD.getSelectedItem().toString();
         String hora = txt_horaMD.getText();
         String fecha = txt_fechaMD.getText();
         String costo = txt_costoMD.getText();
         int lugar = (int) jsp_lugarMD.getValue();
         String empleado = txt_empleadoMD.getText();
+        String idDueño = txt_idueñoMD.getText();
 
-        // Establecer la conexión
-        Connection con = conexion.getConection();
-        if (con != null) {
-            try {
-                // Verificar si el lugar está ocupado
-                String consultaLugar = "SELECT Espacio(L/O) FROM espacio_lugar WHERE id_espacio = ? AND id_estacionamiento = ?";
-                PreparedStatement psConsulta = con.prepareStatement(consultaLugar);
-                psConsulta.setInt(1, lugar);
-                psConsulta.setString(2, "ParkCar"); // Ajusta según sea necesario
+    Connection con = null;
 
-                ResultSet rs = psConsulta.executeQuery();
+    try {
+        con = conexion.getConection();
 
-                if (rs.next()) {
-                    String estadoLugar = rs.getString("Disponible");
-                    if (estadoLugar.equalsIgnoreCase("Ocupado")) {
-                        JOptionPane.showMessageDialog(null, "El lugar seleccionado está ocupado.");
-                        return; // Detener el proceso si el lugar está ocupado
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "El lugar seleccionado no existe.");
-                    return; // Detener el proceso si no existe el lugar
-                }
+        // Verificar si el lugar de estacionamiento está disponible
+        String queryCheckLugar = "SELECT espaciodisp_ocup FROM espacio_lugar WHERE id_espacio = ?";
+        PreparedStatement pstCheckLugar = con.prepareStatement(queryCheckLugar);
+        pstCheckLugar.setInt(1, lugar);
+        ResultSet rs = pstCheckLugar.executeQuery();
 
-                // Crear la consulta SQL para insertar los datos
-                String sqlDueño = "INSERT INTO dueño_vehiculo (Id_DueñoV, Nombre, Identificacion) VALUES (?, ?, ?)";
-                String sqlMembresia = "INSERT INTO vehiculo (id_membresia, Placa, hora, fecha, costo, id_espacio, id_usuario, id_DueñoV) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-                // Preparar las sentencias SQL
-                PreparedStatement psDueño = con.prepareStatement(sqlDueño);
-                psDueño.setString(1, iddueño);
-                psDueño.setString(2, nombrecompleto);
-                psDueño.setString(3, credencial);
-
-                PreparedStatement psMembresia = con.prepareStatement(sqlMembresia);
-                psMembresia.setString(1, idmembresia);
-                psMembresia.setString(2, placa);
-                psMembresia.setString(3, hora);
-                psMembresia.setString(4, fecha);
-                psMembresia.setString(5, costo);
-                psMembresia.setInt(6, lugar);
-                psMembresia.setString(7, empleado);
-                psMembresia.setString(8, iddueño);
-
-                // Ejecutar las consultas de inserción
-                int rowsDueño = psDueño.executeUpdate();
-                int rowsMembresia = psMembresia.executeUpdate();
-
-                if (rowsDueño > 0 && rowsMembresia > 0) {
-                    // Actualizar el estado del lugar a "Ocupado"
-                    String actualizarLugar = "UPDATE espacio_lugar SET Espacio(L/O) = 'Ocupado' WHERE id_espacio = ? AND id_estacionamiento = ?";
-                    PreparedStatement psActualizarLugar = con.prepareStatement(actualizarLugar);
-                    psActualizarLugar.setInt(1, lugar);
-                    psActualizarLugar.setString(2, "ParkCar");
-                    psActualizarLugar.executeUpdate();
-
-                    JOptionPane.showMessageDialog(null, "Dueño y membresía registrados exitosamente.");
-
-                    // Limpiar los campos
-                    txt_idueñoMD.setText("");
-                    txt_nombrecompletoMD.setText("");
-                    txt_identificacionMD.setText("");
-                    txt_idmembresiaMD.setText("");
-                    cb_placaMD.setSelectedIndex(0);
-                    
-                    txt_costoMD.setText("");
-                    jsp_lugarMD.setValue(0);
-                    txt_empleadoMD.setText("");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al registrar dueño y membresía.");
-                }
-
-                // Cerrar la conexión
-                psDueño.close();
-                psMembresia.close();
-                con.close();
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos: " + e.getMessage());
+        if (rs.next()) {
+            String estado = rs.getString("espaciodisp_ocup");
+            if ("Ocupado".equalsIgnoreCase(estado)) {
+                JOptionPane.showMessageDialog(this, "El lugar de estacionamiento ya está ocupado. Seleccione otro lugar.");
+                return;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No se pudo establecer conexión con la base de datos.");
+            JOptionPane.showMessageDialog(this, "El lugar de estacionamiento no existe.");
+            return;
         }
+
+        // Registrar la membresía
+        String queryRegistrarMembresia = "INSERT INTO membresia (id_membresia, Placa, hora, fecha, costo, id_espacio, id_usuario) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
+        PreparedStatement pstRegistrarMembresia = con.prepareStatement(queryRegistrarMembresia);
+        pstRegistrarMembresia.setString(1, idMembresia);
+        pstRegistrarMembresia.setString(2, placa);
+        pstRegistrarMembresia.setString(3, hora);
+        pstRegistrarMembresia.setString(4, fecha);
+        pstRegistrarMembresia.setString(5, costo);
+        pstRegistrarMembresia.setInt(6, lugar);
+        pstRegistrarMembresia.setString(7, empleado);
+        pstRegistrarMembresia.setString(8, idDueño);
+
+        // Actualizar el estado del lugar a "Ocupado"
+        String queryActualizarLugar = "UPDATE espacio_lugar SET espaciodisp_ocup = 'Ocupado' WHERE id_espacio = ?";
+        PreparedStatement pstActualizarLugar = con.prepareStatement(queryActualizarLugar);
+        pstActualizarLugar.setInt(1, lugar);
+        pstActualizarLugar.executeUpdate();
+
+        JOptionPane.showMessageDialog(this, "Membresía registrada correctamente y lugar actualizado.");
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error al registrar la membresía: " + e.getMessage());
+    } finally {
+        try {
+            if (con != null) {
+                con.close();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
         
     }//GEN-LAST:event_lb_resgistrarMDMouseClicked
 
@@ -4508,6 +4502,126 @@ public class Menu_admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_registrarMouseEntered
 
+    
+    private boolean isPasswordVisible = false;
+    private void lb_mostrarUCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_mostrarUCMouseClicked
+         // Alterna entre mostrar y ocultar la contraseña
+    if (isPasswordVisible) {
+        // Si la contraseña es visible, la ocultamos
+        txtContraseña.setEchoChar('*');  // Vuelve a poner el asterisco para ocultar los caracteres
+        lb_mostrarUC.setText("Mostrar"); // Cambia el texto del botón para indicar la acción
+    } else {
+        // Si la contraseña está oculta, la mostramos
+        txtContraseña.setEchoChar((char) 0); // Muestra los caracteres de la contraseña
+        lb_mostrarUC.setText("Ocultar"); // Cambia el texto del botón para indicar la acción
+    }
+    
+    // Cambia el estado de la contraseña
+    isPasswordVisible = !isPasswordVisible; 
+    
+    }//GEN-LAST:event_lb_mostrarUCMouseClicked
+
+    private void lb_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_buscarMouseClicked
+        String usuario = txt_iduser.getText(); // txt_placa es el JTextField donde el usuario ingresa la placa
+
+        // Establecer la conexión
+        Connection con = conexion.getConection();
+        if (con != null) {
+            try {
+                // Crear la consulta SQL para buscar los datos
+                String sql = "SELECT id_usuario , Nombre, Telefono, Rango,  Curp, Contraseña, id_estacionamiento FROM usuario WHERE id_usuario = ?";
+
+                // Preparar la sentencia SQL
+                PreparedStatement ps = con.prepareStatement(sql);
+                ps.setString(1, usuario);
+
+                // Ejecutar la consulta
+                ResultSet rs = ps.executeQuery();
+
+                // Verificar si se encontró un resultado
+                if (rs.next()) {
+                    // Rellenar los campos del formulario con los datos obtenidos
+                    txt_iduser.setText(rs.getString("id_usuario"));
+                    txt_nombre.setText(rs.getString("Nombre"));
+                    txt_telefono.setText(rs.getString("Telefono"));
+                    cmbRol1.setSelectedItem(rs.getString("Rango")); // jComboBox
+                    txt_curp.setText(rs.getString("Curp"));
+                    String password = rs.getString("Contraseña"); // Aquí obtenemos la contraseña como String
+                    txtContraseña.setText(password);
+                    
+                    
+
+                    JOptionPane.showMessageDialog(null, "Datos encontrados.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se encontraron datos de id usuario ingresado.");
+                }
+
+                // Cerrar ResultSet y PreparedStatement
+                rs.close();
+                ps.close();
+                con.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se pudo establecer conexión con la base de datos.");
+        }
+    }//GEN-LAST:event_lb_buscarMouseClicked
+
+    private void lb_limpiarUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_limpiarUMouseClicked
+        // Limpiar los campos de texto y restablecer los controles
+                   txt_iduser.setText("");
+                    txt_nombre.setText("");
+                    txt_telefono.setText("");
+                    txt_curp.setText("");
+                    txtContraseña.setText("");
+                    cmbRol1.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado
+                    CB_estacionamiento.setSelectedIndex(0); // Restablecer JComboBox al valor predeterminado 
+    }//GEN-LAST:event_lb_limpiarUMouseClicked
+
+    private void lb_dueñoMDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_dueñoMDMouseClicked
+                                                
+        String idDueño = txt_idueñoMD.getText();
+        String nombreCompleto = txt_nombrecompletoMD.getText();
+        String credencial = txt_identificacionMD.getText();
+
+        // Verificar que los campos no estén vacíos
+        if (idDueño.isEmpty() || nombreCompleto.isEmpty() || credencial.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos antes de registrar al dueño.");
+            return;
+        }
+
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = conexion.getConection();
+
+            String queryRegistrarDueño = "INSERT INTO dueño_vehiculo (Id_DueñoV, Nombre, Identificacion) VALUES (?, ?, ?)";
+            ps = con.prepareStatement(queryRegistrarDueño);
+            ps.setString(1, idDueño);
+            ps.setString(2, nombreCompleto);
+            ps.setString(3, credencial);
+
+            int rowsInserted = ps.executeUpdate();
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(this, "Dueño registrado correctamente.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al registrar el dueño: " + e.getMessage());
+        } finally {
+            try {
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Error al cerrar la conexión: " + e.getMessage());
+            }
+        }
+
+    }//GEN-LAST:event_lb_dueñoMDMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -4556,6 +4670,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private Clases.PanelRound btn_consultarR;
     private javax.swing.JPanel btn_exit;
     private Clases.PanelRound btn_limpiar;
+    private Clases.PanelRound btn_limpiarU;
     private javax.swing.JPanel btn_min;
     private javax.swing.JPanel btn_minmax;
     private Clases.PanelRound btn_registrar;
@@ -4577,6 +4692,8 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel102;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -4595,7 +4712,6 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -4680,6 +4796,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -4771,17 +4888,21 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel lb_HorayFraccion;
     private javax.swing.JLabel lb_actualizar;
     private javax.swing.JLabel lb_actualizarV;
+    private javax.swing.JLabel lb_buscar;
     private javax.swing.JLabel lb_buscarV;
     private javax.swing.JLabel lb_cerrarsesion;
     private javax.swing.JLabel lb_consultarR;
+    private javax.swing.JLabel lb_dueñoMD;
     private javax.swing.JLabel lb_estac;
     private javax.swing.JLabel lb_exit;
     private javax.swing.JLabel lb_fecha;
     private javax.swing.JLabel lb_limpiar;
+    private javax.swing.JLabel lb_limpiarU;
     private javax.swing.JLabel lb_lugares;
     private javax.swing.JLabel lb_membresia;
     private javax.swing.JLabel lb_min;
     private javax.swing.JLabel lb_minmax;
+    private javax.swing.JLabel lb_mostrarUC;
     private javax.swing.JLabel lb_nombreUsuario;
     private javax.swing.JLabel lb_registrar;
     private javax.swing.JLabel lb_registrarV;
@@ -4796,8 +4917,9 @@ public class Menu_admin extends javax.swing.JFrame {
     private Clases.PanelRound panelRound2;
     private Clases.PanelRound panelRound3;
     private Clases.PanelRound panelRound4;
-    private Clases.PanelRound panelRound6;
+    private Clases.PanelRound panelRound5;
     private Clases.PanelRound panelRound7;
+    private Clases.PanelRound panelRound8;
     private javax.swing.JTextArea txtA_ticketEH;
     private javax.swing.JTextArea txtA_ticketMD;
     private javax.swing.JPasswordField txtContraseña;
