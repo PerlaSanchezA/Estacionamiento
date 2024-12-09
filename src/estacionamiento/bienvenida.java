@@ -7,10 +7,12 @@ package estacionamiento;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.awt.RenderingHints;
+import javax.swing.JComponent;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
@@ -25,24 +27,26 @@ public class bienvenida extends javax.swing.JFrame {
      */
     public bienvenida() {
         initComponents();
-        
+
         //Metodos para la barra de progreso
         personalizarInterfaz();
         iniciarCarga();
-        
-         // Centrar la ventana en la pantalla
+
+        // Centrar la ventana en la pantalla
         setLocationRelativeTo(null);
-        
+
     }
 
-    //Metodo para personalizar la barra de progreso
-    private void personalizarInterfaz() {
+// Método para personalizar la barra de progreso
+private void personalizarInterfaz() {
     // Configurar barra de progreso
     barraprogreso.setStringPainted(true);
     barraprogreso.setFont(new Font("Segoe UI", Font.BOLD, 16)); // Fuente moderna
-    barraprogreso.setForeground(new Color(151, 254, 237)); // Verde suave  rgb(151, 254, 237)
-    barraprogreso.setBackground(new Color(11, 102, 106)); // Fondo de barra oscuro rgb(11, 102, 106)
-
+    barraprogreso.setForeground(new Color(151, 254, 237)); // Verde suave
+    barraprogreso.setBackground(new Color(11, 102, 106)); // Fondo oscuro
+    
+    barraprogreso.setIndeterminate(false);
+    
     // Cambiar bordes con un Border redondeado
     barraprogreso.setBorder(new javax.swing.border.AbstractBorder() {
         @Override
@@ -64,24 +68,73 @@ public class bienvenida extends javax.swing.JFrame {
         }
     });
 
-    // Centrar la barra de progreso en el JFrame
-    int x = (getWidth() - barraprogreso.getWidth()) / 2;
-    int y = (getHeight() - barraprogreso.getHeight()) / 2;
-    barraprogreso.setLocation(x, y);
+    // Usar BasicProgressBarUI para personalizar la barra de progreso
+    barraprogreso.setUI(new javax.swing.plaf.basic.BasicProgressBarUI() {
+        @Override
+        protected void paintDeterminate(Graphics g, JComponent c) {
+            Graphics2D g2 = (Graphics2D) g;
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-    // Animación de "Cargando..." para jLabel1
-    jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 16));
-    jLabel1.setForeground(new Color(15, 16, 53)); // Color del texto 
-    jLabel1.setHorizontalAlignment(SwingConstants.CENTER); // Asegura que el texto esté centrado
+            int width = c.getWidth();
+            int height = c.getHeight();
+            int arcSize = height; // Usamos la altura para el radio de las esquinas
 
-    // Timer para animar el texto de "Cargando..."
-    new Timer(500, e -> {
-        String text = jLabel1.getText();
-        jLabel1.setText(text.equals("Cargando...") ? "Cargando" : text + ".");
-    }).start();
-}
+            // Fondo de la barra redondeada (verde oscuro)
+            g2.setColor(new Color(11, 102, 106)); // Fondo oscuro
+            g2.fillRoundRect(0, 0, width, height, arcSize, arcSize); // Fondo con bordes redondeados
 
-    
+            // Dibujar progreso redondeado
+            int progressWidth = (int) (barraprogreso.getPercentComplete() * width);
+            if (progressWidth > 0) {
+                g2.setColor(new Color(151, 254, 237)); // Color del progreso
+                g2.fillRoundRect(0, 0, progressWidth, height, arcSize, arcSize); // Progreso con bordes redondeados
+            }
+
+            // Dibujar texto del porcentaje
+            String progressText = barraprogreso.getString();
+            if (barraprogreso.isStringPainted() && progressText != null) {
+                g2.setFont(barraprogreso.getFont());
+
+                // Cambiar color del texto según el progreso
+                if (barraprogreso.getPercentComplete() < 0.45) {
+                    g2.setColor(Color.WHITE); // Blanco antes del 45%
+                } else {
+                    g2.setColor(new Color(0, 51, 102)); // Gris oscuro desde el 45%
+                }
+
+                FontMetrics fm = g2.getFontMetrics();
+                int stringWidth = fm.stringWidth(progressText);
+                int stringHeight = fm.getAscent();
+                int textX = (width - stringWidth) / 2;
+                int textY = (height + stringHeight) / 2 - 2;
+                g2.drawString(progressText, textX, textY); // Dibujar el texto
+            }
+        }
+
+        @Override
+        protected void paintIndeterminate(Graphics g, JComponent c) {
+            // Modo indeterminado: personalizar si es necesario
+            paintDeterminate(g, c);
+        }
+    });
+
+        // Centrar la barra de progreso en el JFrame
+        int x = (getWidth() - barraprogreso.getWidth()) / 2;
+        int y = (getHeight() - barraprogreso.getHeight()) / 2;
+        barraprogreso.setLocation(x, y);
+
+        // Animación de "Cargando..." para jLabel1
+        jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel1.setForeground(new Color(15, 16, 53)); // Color del texto 
+        jLabel1.setHorizontalAlignment(SwingConstants.CENTER); // Asegura que el texto esté centrado
+
+        // Timer para animar el texto de "Cargando..."
+        new Timer(500, e -> {
+            String text = jLabel1.getText();
+            jLabel1.setText(text.equals("Cargando...") ? "Cargando" : text + ".");
+        }).start();
+    }
+
     //Configura la barra de progreso para que funcione
     private void iniciarCarga() {
         new Thread(() -> {
@@ -101,9 +154,6 @@ public class bienvenida extends javax.swing.JFrame {
         dispose(); // Cierra esta ventana
         new ADMIN.login_admin().setVisible(true); // Abre el Dashboard
     }
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,8 +177,8 @@ public class bienvenida extends javax.swing.JFrame {
         lb_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/GIFcarro (1).gif"))); // NOI18N
 
         barraprogreso.setForeground(new java.awt.Color(0, 0, 0));
+        barraprogreso.setBorder(null);
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cargando...");
 

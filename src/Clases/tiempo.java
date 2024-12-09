@@ -13,16 +13,17 @@ import java.time.format.DateTimeFormatter;
  * @author Vanessa
  */
 public class tiempo {
+
     // Obtener la fecha actual
-        LocalDate fechaActual = LocalDate.now();
+    LocalDate fechaActual = LocalDate.now();
 
-        // Obtener la hora actual
-        LocalTime horaActual = LocalTime.now();
+    // Obtener la hora actual
+    LocalTime horaActual = LocalTime.now();
 
-        // Formatear la fecha y la hora por separado
-        DateTimeFormatter formatterFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HH:mm:ss");
-        
-         public String fechaFormateada = fechaActual.format(formatterFecha);
-        public String horaFormateada = horaActual.format(formatterHora);
+    // Formatear la fecha y la hora por separado
+    DateTimeFormatter formatterFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+    public String fechaFormateada = fechaActual.format(formatterFecha);
+    public String horaFormateada = horaActual.format(formatterHora);
 }

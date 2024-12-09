@@ -14,9 +14,8 @@ public class Estacionamiento {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         // Iniciar la interfaz de bienvenida
+        // Iniciar la interfaz de bienvenida
         bienvenida bienvenida = new bienvenida();
         bienvenida.setVisible(true);
     }
-    
 }

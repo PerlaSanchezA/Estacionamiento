@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ADMIN;
+package Empleado;
 
 import Clases.conexion;
 import java.sql.*;
@@ -52,8 +52,6 @@ public class login_admin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txt_pass = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
-        btn_entrar = new Clases.PanelRound();
-        lb_entrar = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
 
@@ -218,43 +216,6 @@ public class login_admin extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel5.setText("Contraseña");
 
-        btn_entrar.setBackground(new java.awt.Color(116, 9, 56));
-        btn_entrar.setRoundBottomLeft(30);
-        btn_entrar.setRoundBottomRight(30);
-        btn_entrar.setRoundTopLeft(30);
-        btn_entrar.setRoundTopRight(30);
-
-        lb_entrar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lb_entrar.setForeground(new java.awt.Color(255, 255, 255));
-        lb_entrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_entrar.setText("ENTRAR");
-        lb_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lb_entrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lb_entrarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lb_entrarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lb_entrarMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btn_entrarLayout = new javax.swing.GroupLayout(btn_entrar);
-        btn_entrar.setLayout(btn_entrarLayout);
-        btn_entrarLayout.setHorizontalGroup(
-            btn_entrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_entrarLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lb_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-        btn_entrarLayout.setVerticalGroup(
-            btn_entrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_entrar, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -273,7 +234,6 @@ public class login_admin extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txt_pass)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
-                            .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator1)
                             .addComponent(jSeparator2)))
                     .addComponent(jp_header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -300,9 +260,7 @@ public class login_admin extends javax.swing.JFrame {
                 .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(42, 129, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -376,75 +334,6 @@ public class login_admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_passMousePressed
 
-    // ---------------------------------------------------- Configura el boton entrar --------------------------------------------------------
-    private void lb_entrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_entrarMouseEntered
-        btn_entrar.setBackground(new Color(175, 23, 64)); //parecido a rojo bajito rgb(175, 23, 64)
-        lb_entrar.setForeground(Color.white);
-    }//GEN-LAST:event_lb_entrarMouseEntered
-
-    private void lb_entrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_entrarMouseExited
-        btn_entrar.setBackground(new Color(116, 9, 56)); //parecido a rojo bajito rgb(116, 9, 56)
-        lb_entrar.setForeground(Color.white);
-    }//GEN-LAST:event_lb_entrarMouseExited
-
-// AQUI IRA LA LOGICA DE SQL
-    private void lb_entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_entrarMouseClicked
-        // Capturar los datos del formulario de login
-        String id_usuario = txt_usuario.getText();  // txtIdUsuario es el JTextField para el id_usuario
-        String contraseña = new String(txt_pass.getPassword()); // txtContraseña es el JPasswordField para la contraseña
-
-        // Establecer la conexión utilizando la clase 'conexion'
-        Connection con = conexion.getConection();
-        if (con != null) {
-            try {
-                // Consulta SQL para verificar el usuario y la contraseña
-                String sql = "SELECT * FROM usuario WHERE id_usuario = ? AND Contraseña = ? AND Rango = 'administrador'";
-
-                // Preparar la sentencia SQL
-                PreparedStatement ps = con.prepareStatement(sql);
-                ps.setString(1, id_usuario);
-                ps.setString(2, contraseña);  // Aquí deberías hacer la verificación de la contraseña (encriptada o no)
-
-                // Ejecutar la consulta
-                ResultSet rs = ps.executeQuery();
-
-                // Verificar si se encontró el usuario con el rol de 'administrador'
-                if (rs.next()) {
-
-                    // Obtener el nombre del usuario
-                    String nombreUsuario = rs.getString("Nombre");
-
-                    // El usuario existe y es un administrador
-                    JOptionPane.showMessageDialog(null, "Bienvenido, Administrador.");
-
-                    // Redirigir al menú de administrador
-                    Menu_admin menuAdmin = new Menu_admin();  // Asegúrate de que 'Menu_admin' sea tu clase principal de administrador
-                    menuAdmin.setNombreUsuario(nombreUsuario); //Pasa el nombre de usuario
-                    menuAdmin.setVisible(true);
-
-                    // Cerrar el formulario de login
-                    this.dispose();  // Esto cierra la ventana actual (formulario de login)
-                } else {
-                    // Usuario no encontrado o no es administrador
-                    JOptionPane.showMessageDialog(null, "Credenciales incorrectas o no tienes acceso de administrador.");
-                }
-
-                // Cerrar recursos
-                rs.close();
-                ps.close();
-                con.close();
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos: " + e.getMessage());
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "No se pudo establecer conexión con la base de datos.");
-        }
-
-
-    }//GEN-LAST:event_lb_entrarMouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -483,7 +372,6 @@ public class login_admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btn_admin;
     private javax.swing.JPanel btn_empleado;
-    private Clases.PanelRound btn_entrar;
     private javax.swing.JPanel btn_exit;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -496,7 +384,6 @@ public class login_admin extends javax.swing.JFrame {
     private javax.swing.JPanel jp_header;
     private javax.swing.JLabel lb_admin;
     private javax.swing.JLabel lb_empleado;
-    private javax.swing.JLabel lb_entrar;
     private javax.swing.JLabel lb_exit;
     private javax.swing.JPasswordField txt_pass;
     private javax.swing.JTextField txt_usuario;
