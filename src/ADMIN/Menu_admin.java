@@ -319,7 +319,9 @@ private void iniciarActualizacionPeriodica() {
         lb_dueñoMD = new javax.swing.JLabel();
         panelRound8 = new Clases.PanelRound();
         jLabel101 = new javax.swing.JLabel();
-        jLabel102 = new javax.swing.JLabel();
+        btn_buscarCMD = new javax.swing.JLabel();
+        panelRound6 = new Clases.PanelRound();
+        jLabel28 = new javax.swing.JLabel();
         jp_registros = new javax.swing.JPanel();
         jLabel95 = new javax.swing.JLabel();
         jLabel96 = new javax.swing.JLabel();
@@ -1705,7 +1707,6 @@ private void iniciarActualizacionPeriodica() {
         jSeparator14.setBounds(320, 310, 144, 22);
 
         txt_horaMD.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        txt_horaMD.setText("jTextField5");
         txt_horaMD.setBorder(null);
         txt_horaMD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1723,7 +1724,6 @@ private void iniciarActualizacionPeriodica() {
         jLabel18.setBounds(39, 338, 80, 19);
 
         txt_fechaMD.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        txt_fechaMD.setText("jTextField6");
         txt_fechaMD.setBorder(null);
         txt_fechaMD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1890,7 +1890,7 @@ private void iniciarActualizacionPeriodica() {
         jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel46.setText("Ticket");
         jp_membresia.add(jLabel46);
-        jLabel46.setBounds(840, 70, 270, 20);
+        jLabel46.setBounds(840, 90, 270, 20);
 
         jLabel35.setFont(new java.awt.Font("Creato Display", 1, 18)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(102, 102, 102));
@@ -1968,11 +1968,13 @@ private void iniciarActualizacionPeriodica() {
         jp_membresia.add(jScrollPane1);
         jScrollPane1.setBounds(840, 130, 300, 280);
 
+        panelRound5.setBackground(new java.awt.Color(116, 9, 56));
         panelRound5.setRoundBottomLeft(40);
         panelRound5.setRoundBottomRight(40);
         panelRound5.setRoundTopLeft(40);
         panelRound5.setRoundTopRight(40);
 
+        lb_dueñoMD.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lb_dueñoMD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_dueñoMD.setText("Registrar dueño");
         lb_dueñoMD.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2015,9 +2017,39 @@ private void iniciarActualizacionPeriodica() {
         jp_membresia.add(panelRound8);
         panelRound8.setBounds(920, 430, 130, 50);
 
-        jLabel102.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar.png"))); // NOI18N
-        jp_membresia.add(jLabel102);
-        jLabel102.setBounds(770, 170, 40, 40);
+        btn_buscarCMD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar.png"))); // NOI18N
+        btn_buscarCMD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_buscarCMDMouseClicked(evt);
+            }
+        });
+        jp_membresia.add(btn_buscarCMD);
+        btn_buscarCMD.setBounds(770, 170, 40, 40);
+
+        panelRound6.setBackground(new java.awt.Color(116, 9, 56));
+        panelRound6.setRoundBottomLeft(40);
+        panelRound6.setRoundBottomRight(40);
+        panelRound6.setRoundTopLeft(40);
+        panelRound6.setRoundTopRight(40);
+
+        jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("Limpiar");
+
+        javax.swing.GroupLayout panelRound6Layout = new javax.swing.GroupLayout(panelRound6);
+        panelRound6.setLayout(panelRound6Layout);
+        panelRound6Layout.setHorizontalGroup(
+            panelRound6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+        );
+        panelRound6Layout.setVerticalGroup(
+            panelRound6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jp_membresia.add(panelRound6);
+        panelRound6.setBounds(260, 670, 160, 50);
 
         centro.add(jp_membresia, "card4");
 
@@ -4622,6 +4654,10 @@ private void iniciarActualizacionPeriodica() {
 
     }//GEN-LAST:event_lb_dueñoMDMouseClicked
 
+    private void btn_buscarCMDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_buscarCMDMouseClicked
+        
+    }//GEN-LAST:event_btn_buscarCMDMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -4666,6 +4702,7 @@ private void iniciarActualizacionPeriodica() {
     private Clases.PanelRound btn_SalVehiculos;
     private Clases.PanelRound btn_actualizarU;
     private Clases.PanelRound btn_actualizarV;
+    private javax.swing.JLabel btn_buscarCMD;
     private Clases.PanelRound btn_cerrarsesion;
     private Clases.PanelRound btn_consultarR;
     private javax.swing.JPanel btn_exit;
@@ -4693,7 +4730,6 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
-    private javax.swing.JLabel jLabel102;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -4712,6 +4748,7 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -4918,6 +4955,7 @@ private void iniciarActualizacionPeriodica() {
     private Clases.PanelRound panelRound3;
     private Clases.PanelRound panelRound4;
     private Clases.PanelRound panelRound5;
+    private Clases.PanelRound panelRound6;
     private Clases.PanelRound panelRound7;
     private Clases.PanelRound panelRound8;
     private javax.swing.JTextArea txtA_ticketEH;
