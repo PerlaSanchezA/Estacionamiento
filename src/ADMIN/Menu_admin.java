@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,30 +73,31 @@ public class Menu_admin extends javax.swing.JFrame {
     }
     
     // Metodo para obtener la hora y fecha actual
-    public void tiempo(){
-          Timer timer = new Timer(1000, e -> {
-            java.util.Date date = new java.util.Date();
+    public void tiempo() {
+    Timer timer = new Timer(1000, e -> {
+        java.util.Date date = new java.util.Date();
 
-            SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
-            String formattedDate = dateFormatter.format(date);
-            lb_fecha.setText(formattedDate);
-              SimpleDateFormat dateFormatter1= new SimpleDateFormat("yyyy-MM-dd");
-            String formattedDate1 = dateFormatter1.format(date);
-            txt_fechaMD.setText(formattedDate1);
-            txt_fechaEH.setText(formattedDate1);
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
+        String formattedDate = dateFormatter.format(date);
+        lb_fecha.setText(formattedDate);
 
-            SimpleDateFormat timeFormatter = new SimpleDateFormat("hh:mm:ss a");
-            String formattedTime = timeFormatter.format(date);
-            lb_tiempo.setText(formattedTime);
-            SimpleDateFormat timeFormatter1 = new SimpleDateFormat("hh:mm:ss");
-            String formattedTime1 = timeFormatter1.format(date);
-            txt_horaMD.setText(formattedTime1);
-            txt_horaEH.setText(formattedTime1);
+        SimpleDateFormat dateFormatter1 = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate1 = dateFormatter1.format(date);
+        txt_fechaMD.setText(formattedDate1);
+        txt_fechaEH.setText(formattedDate1);
+        txt_fechaSV.setText(formattedDate1);
 
-            
-        });
-        timer.start();
-     }
+        // Cambia el formato de hora a 24 horas
+        SimpleDateFormat timeFormatter = new SimpleDateFormat("HH:mm:ss");
+        String formattedTime = timeFormatter.format(date);
+        lb_tiempo.setText(formattedTime);
+        txt_horaMD.setText(formattedTime);
+        txt_horaEH.setText(formattedTime);
+        txt_HorasalidaSV.setText(formattedTime);
+    });
+    timer.start();
+}
+
     
     //lugares del estacionamiento
     
@@ -438,32 +440,34 @@ private void iniciarActualizacionPeriodica() {
         jLabel86 = new javax.swing.JLabel();
         jLabel87 = new javax.swing.JLabel();
         panelRound2 = new Clases.PanelRound();
-        jLabel88 = new javax.swing.JLabel();
+        lb_buscarSV = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel89 = new javax.swing.JLabel();
         jLabel82 = new javax.swing.JLabel();
         jLabel83 = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jLabel90 = new javax.swing.JLabel();
+        txt_horaEntradaSV = new javax.swing.JTextField();
+        txt_HorasalidaSV = new javax.swing.JTextField();
+        lb_tiempoSV = new javax.swing.JLabel();
         panelRound3 = new Clases.PanelRound();
-        jLabel91 = new javax.swing.JLabel();
+        lb_calcularTiemCost = new javax.swing.JLabel();
         jLabel92 = new javax.swing.JLabel();
         jSeparator32 = new javax.swing.JSeparator();
         txt_idEstSV = new javax.swing.JTextField();
         jSeparator33 = new javax.swing.JSeparator();
-        jTextField19 = new javax.swing.JTextField();
+        txt_fechaSV = new javax.swing.JTextField();
         jSeparator34 = new javax.swing.JSeparator();
         txt_costoSV = new javax.swing.JTextField();
         jSeparator35 = new javax.swing.JSeparator();
         panelRound4 = new Clases.PanelRound();
-        jLabel93 = new javax.swing.JLabel();
+        lb_pagarSV = new javax.swing.JLabel();
         jLabel94 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jSpinner3 = new javax.swing.JSpinner();
+        txtA_ticketSV = new javax.swing.JTextArea();
+        jsp_lugarSV = new javax.swing.JSpinner();
         jSeparator36 = new javax.swing.JSeparator();
+        btn_ticketSV = new Clases.PanelRound();
+        lb_ticketSV = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -3026,37 +3030,42 @@ private void iniciarActualizacionPeriodica() {
         jLabel85.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel85.setText("Fecha");
         jp_salidaVehiculos.add(jLabel85);
-        jLabel85.setBounds(50, 308, 60, 19);
+        jLabel85.setBounds(50, 290, 60, 19);
 
         jLabel86.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel86.setText("Lugar");
         jp_salidaVehiculos.add(jLabel86);
-        jLabel86.setBounds(50, 420, 60, 19);
+        jLabel86.setBounds(50, 380, 60, 19);
 
         jLabel87.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel87.setText("Costo");
         jp_salidaVehiculos.add(jLabel87);
-        jLabel87.setBounds(50, 550, 50, 19);
+        jLabel87.setBounds(50, 480, 50, 19);
 
         panelRound2.setBackground(new java.awt.Color(102, 102, 102));
         panelRound2.setRoundBottomLeft(20);
         panelRound2.setRoundTopRight(20);
 
-        jLabel88.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel88.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel88.setText("BUSCAR");
-        jLabel88.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lb_buscarSV.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lb_buscarSV.setForeground(new java.awt.Color(255, 255, 255));
+        lb_buscarSV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_buscarSV.setText("BUSCAR");
+        lb_buscarSV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lb_buscarSV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_buscarSVMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
         panelRound2Layout.setHorizontalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel88, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+            .addComponent(lb_buscarSV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
         );
         panelRound2Layout.setVerticalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel88, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+            .addComponent(lb_buscarSV, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
         );
 
         jp_salidaVehiculos.add(panelRound2);
@@ -3087,40 +3096,43 @@ private void iniciarActualizacionPeriodica() {
         jPanel2.add(jLabel84);
         jLabel84.setBounds(220, 70, 100, 20);
 
-        jTextField16.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jTextField16.setText("jTextField16");
-        jPanel2.add(jTextField16);
-        jTextField16.setBounds(30, 90, 129, 34);
+        txt_horaEntradaSV.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jPanel2.add(txt_horaEntradaSV);
+        txt_horaEntradaSV.setBounds(30, 90, 129, 34);
 
-        jTextField17.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jTextField17.setText("jTextField17");
-        jPanel2.add(jTextField17);
-        jTextField17.setBounds(380, 90, 113, 34);
+        txt_HorasalidaSV.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jPanel2.add(txt_HorasalidaSV);
+        txt_HorasalidaSV.setBounds(380, 90, 113, 34);
 
-        jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel90.setText("mm");
-        jPanel2.add(jLabel90);
-        jLabel90.setBounds(220, 90, 103, 34);
+        lb_tiempoSV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_tiempoSV.setText("mm");
+        jPanel2.add(lb_tiempoSV);
+        lb_tiempoSV.setBounds(220, 90, 103, 34);
 
         panelRound3.setBackground(new java.awt.Color(204, 239, 181));
         panelRound3.setRoundBottomLeft(40);
         panelRound3.setRoundTopRight(40);
 
-        jLabel91.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel91.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel91.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel91.setText("CALCULAR");
-        jLabel91.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lb_calcularTiemCost.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lb_calcularTiemCost.setForeground(new java.awt.Color(102, 102, 102));
+        lb_calcularTiemCost.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_calcularTiemCost.setText("CALCULAR");
+        lb_calcularTiemCost.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lb_calcularTiemCost.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_calcularTiemCostMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
         panelRound3.setLayout(panelRound3Layout);
         panelRound3Layout.setHorizontalGroup(
             panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel91, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+            .addComponent(lb_calcularTiemCost, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
         );
         panelRound3Layout.setVerticalGroup(
             panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel91, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+            .addComponent(lb_calcularTiemCost, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         jPanel2.add(panelRound3);
@@ -3132,7 +3144,7 @@ private void iniciarActualizacionPeriodica() {
         jLabel92.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel92.setText("id_estacionamiento");
         jp_salidaVehiculos.add(jLabel92);
-        jLabel92.setBounds(50, 209, 140, 19);
+        jLabel92.setBounds(50, 200, 140, 19);
         jp_salidaVehiculos.add(jSeparator32);
         jSeparator32.setBounds(50, 181, 240, 10);
 
@@ -3149,17 +3161,17 @@ private void iniciarActualizacionPeriodica() {
             }
         });
         jp_salidaVehiculos.add(txt_idEstSV);
-        txt_idEstSV.setBounds(50, 235, 250, 40);
+        txt_idEstSV.setBounds(50, 220, 250, 40);
         jp_salidaVehiculos.add(jSeparator33);
-        jSeparator33.setBounds(50, 276, 240, 10);
+        jSeparator33.setBounds(50, 260, 250, 10);
 
-        jTextField19.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jTextField19.setText("jTextField19");
-        jTextField19.setBorder(null);
-        jp_salidaVehiculos.add(jTextField19);
-        jTextField19.setBounds(50, 339, 250, 40);
+        txt_fechaSV.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_fechaSV.setText("jTextField19");
+        txt_fechaSV.setBorder(null);
+        jp_salidaVehiculos.add(txt_fechaSV);
+        txt_fechaSV.setBounds(50, 310, 250, 40);
         jp_salidaVehiculos.add(jSeparator34);
-        jSeparator34.setBounds(50, 500, 240, 10);
+        jSeparator34.setBounds(50, 450, 240, 10);
 
         txt_costoSV.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txt_costoSV.setForeground(new java.awt.Color(102, 102, 102));
@@ -3174,9 +3186,9 @@ private void iniciarActualizacionPeriodica() {
             }
         });
         jp_salidaVehiculos.add(txt_costoSV);
-        txt_costoSV.setBounds(50, 580, 240, 40);
+        txt_costoSV.setBounds(50, 510, 240, 40);
         jp_salidaVehiculos.add(jSeparator35);
-        jSeparator35.setBounds(50, 620, 240, 10);
+        jSeparator35.setBounds(50, 560, 240, 10);
 
         panelRound4.setBackground(new java.awt.Color(116, 9, 56));
         panelRound4.setRoundBottomLeft(40);
@@ -3184,43 +3196,76 @@ private void iniciarActualizacionPeriodica() {
         panelRound4.setRoundTopLeft(40);
         panelRound4.setRoundTopRight(40);
 
-        jLabel93.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel93.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel93.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel93.setText("PAGAR");
-        jLabel93.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lb_pagarSV.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lb_pagarSV.setForeground(new java.awt.Color(255, 255, 255));
+        lb_pagarSV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_pagarSV.setText("PAGAR");
+        lb_pagarSV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lb_pagarSV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_pagarSVMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRound4Layout = new javax.swing.GroupLayout(panelRound4);
         panelRound4.setLayout(panelRound4Layout);
         panelRound4Layout.setHorizontalGroup(
             panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel93, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+            .addComponent(lb_pagarSV, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
         );
         panelRound4Layout.setVerticalGroup(
             panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel93, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+            .addComponent(lb_pagarSV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
         jp_salidaVehiculos.add(panelRound4);
-        panelRound4.setBounds(90, 720, 139, 51);
+        panelRound4.setBounds(90, 590, 139, 51);
 
         jLabel94.setFont(new java.awt.Font("Louis George Cafe", 1, 16)); // NOI18N
         jLabel94.setForeground(new java.awt.Color(102, 102, 102));
         jLabel94.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel94.setText("Ticket");
         jp_salidaVehiculos.add(jLabel94);
-        jLabel94.setBounds(480, 350, 526, 19);
+        jLabel94.setBounds(450, 350, 526, 19);
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        txtA_ticketSV.setColumns(20);
+        txtA_ticketSV.setRows(5);
+        jScrollPane3.setViewportView(txtA_ticketSV);
 
         jp_salidaVehiculos.add(jScrollPane3);
-        jScrollPane3.setBounds(540, 380, 406, 310);
-        jp_salidaVehiculos.add(jSpinner3);
-        jSpinner3.setBounds(50, 460, 240, 40);
+        jScrollPane3.setBounds(540, 380, 360, 310);
+        jp_salidaVehiculos.add(jsp_lugarSV);
+        jsp_lugarSV.setBounds(50, 410, 240, 40);
         jp_salidaVehiculos.add(jSeparator36);
-        jSeparator36.setBounds(50, 380, 240, 10);
+        jSeparator36.setBounds(50, 350, 250, 10);
+
+        btn_ticketSV.setBackground(new java.awt.Color(116, 9, 56));
+        btn_ticketSV.setRoundBottomLeft(40);
+        btn_ticketSV.setRoundBottomRight(40);
+        btn_ticketSV.setRoundTopLeft(40);
+        btn_ticketSV.setRoundTopRight(40);
+
+        lb_ticketSV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_ticketSV.setText("Ticket");
+        lb_ticketSV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_ticketSVMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btn_ticketSVLayout = new javax.swing.GroupLayout(btn_ticketSV);
+        btn_ticketSV.setLayout(btn_ticketSVLayout);
+        btn_ticketSVLayout.setHorizontalGroup(
+            btn_ticketSVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_ticketSV, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+        );
+        btn_ticketSVLayout.setVerticalGroup(
+            btn_ticketSVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lb_ticketSV, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jp_salidaVehiculos.add(btn_ticketSV);
+        btn_ticketSV.setBounds(400, 480, 110, 40);
 
         centro.add(jp_salidaVehiculos, "card8");
 
@@ -5038,6 +5083,242 @@ private void iniciarActualizacionPeriodica() {
     }
     }//GEN-LAST:event_lb_membresiaMDMouseClicked
 
+    private void lb_calcularTiemCostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_calcularTiemCostMouseClicked
+       
+      String horaEntrada = txt_horaEntradaSV.getText(); // Hora de entrada
+    double costoPorHora = 15.0; // Costo por hora
+    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm"); // Formato para horas
+
+    try {
+        // Obtener la hora de salida como hora actual
+        java.util.Date salida = new java.util.Date();
+        String horaSalida = sdf.format(salida); // Formato para la hora actual
+
+        // Mostrar la hora de salida en el JTextField (si tienes uno para mostrarla)
+        txt_HorasalidaSV.setText(horaSalida); 
+
+        // Convertir las horas de entrada y salida a objetos Date
+        java.util.Date entrada = sdf.parse(horaEntrada); 
+        java.util.Date salidaParsed = sdf.parse(horaSalida); 
+
+        // Calcular la diferencia en milisegundos
+        long diferenciaMilisegundos = salidaParsed.getTime() - entrada.getTime();
+
+        // Asegurarse de que la salida sea posterior a la entrada
+        if (diferenciaMilisegundos < 0) {
+            JOptionPane.showMessageDialog(this, "La hora de entrada debe ser anterior a la hora actual.");
+            return;
+        }
+
+        // Convertir la diferencia a minutos totales
+        long minutosTotales = diferenciaMilisegundos / (1000 * 60);
+
+        // Calcular las horas completas y los minutos restantes
+        long horasCompletas = minutosTotales / 60;
+        long minutosRestantes = minutosTotales % 60;
+
+        // Calcular el costo (una fracción de hora cuenta como una hora completa)
+        double costoTotal = (horasCompletas + (minutosRestantes > 0 ? 1 : 0)) * costoPorHora;
+
+        // Mostrar el tiempo total en el JLabel y el costo en el JTextField
+        String tiempoTotal = String.format("%02d horas y %02d minutos", horasCompletas, minutosRestantes);
+        lb_tiempoSV.setText(tiempoTotal); // Actualiza el JLabel con el tiempo total
+        txt_costoSV.setText(String.format("$%.2f", costoTotal)); // Actualiza el JTextField con el costo total
+
+    } catch (ParseException e) {
+        JOptionPane.showMessageDialog(this, "Formato de hora incorrecto. Use el formato HH:mm (por ejemplo, 14:30).");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al calcular el tiempo y costo: " + e.getMessage());
+    }
+
+    }//GEN-LAST:event_lb_calcularTiemCostMouseClicked
+
+    private void lb_buscarSVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_buscarSVMouseClicked
+       
+     String placa = cb_placaSV.getSelectedItem().toString();
+    
+    Connection con = null; // Crear conexión
+    try {
+        con = conexion.getConection(); // Obtener la conexión desde tu clase de conexión
+
+        // Consulta SQL para obtener los datos de la tabla h_estacionamiento basados en la placa
+        String query = "SELECT id_HEstacionamiento, Hora, Id_Espacio FROM h_estacionamiento WHERE Placa = ?";
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setString(1, placa); // Establecer el valor de la placa en la consulta
+        
+        ResultSet rs = pst.executeQuery(); // Ejecutar la consulta
+        
+        // Verificar si se encuentran resultados
+        if (rs.next()) {
+            // Obtener los datos de la consulta
+            String idHEstacionamiento = rs.getString("id_HEstacionamiento");
+            String horaEntrada = rs.getString("Hora");
+            int idEspacio = rs.getInt("id_Espacio"); // Obtener el id_Espacio como entero
+            
+            // Mostrar los datos en los TextFields
+            txt_idEstSV.setText(idHEstacionamiento);
+            txt_horaEntradaSV.setText(horaEntrada);
+            
+            // Establecer el valor del JSpinner con el id_Espacio
+            jsp_lugarSV.setValue(idEspacio); // Usar el tipo correcto para JSpinner (int)
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontraron datos para la placa seleccionada.");
+        }
+        
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error al buscar los datos: " + e.getMessage());
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage());
+    } finally {
+        try {
+            if (con != null) {
+                con.close(); // Cerrar la conexión
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+    }//GEN-LAST:event_lb_buscarSVMouseClicked
+
+     // -----------------------------------------------  Ticket  --------------------------------------------------------
+  
+    public void datosTicketsalidaVehiculos() {
+    Connection con = null; // Usamos la clase conexión
+    try {
+        // Consulta SQL para obtener los datos del estacionamiento
+        String query = "SELECT id_estacionamiento, Nombre_estaci, Direccion FROM estacionamiento WHERE id_estacionamiento = ?";
+        con = conexion.getConection(); // Obtener la conexión usando tu clase
+        PreparedStatement ps = con.prepareStatement(query);
+
+        // Fijamos un ID de estacionamiento, o lo obtenemos de otra fuente
+        int estacionamientoId = 1; // Cambia este valor según tus necesidades o toma de otro campo
+        ps.setInt(1, estacionamientoId); // Establecemos el ID del estacionamiento en la consulta
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            // Obtener los datos del estacionamiento desde la base de datos
+            String idEstacionamiento = rs.getString("id_estacionamiento");
+            String nombre = rs.getString("Nombre_estaci");
+            String direccion = rs.getString("Direccion");
+
+            // Generar el contenido del ticket con formato bonito
+            StringBuilder ticketContent = new StringBuilder();
+            
+            ticketContent.append("==============================================================\n");
+            ticketContent.append("                TICKET DE ESTACIONAMIENTO                     \n");
+            ticketContent.append("==============================================================\n\n");
+            
+            ticketContent.append(String.format("%-20s: %s\n", "ID Estacionamiento", idEstacionamiento));
+            ticketContent.append(String.format("%-20s: %s\n", "Nombre", nombre));
+            ticketContent.append(String.format("%-20s: %s\n", "Dirección", direccion));
+            
+            ticketContent.append("\n--------------------------------------------------------------\n");
+            ticketContent.append("                    ESTACIONAMIENTO SALIDA                   \n");
+            ticketContent.append("--------------------------------------------------------------\n\n");
+
+            ticketContent.append(String.format("%-20s: %s\n", "ID", cb_placaEH.getSelectedItem().toString()));
+            ticketContent.append(String.format("%-20s: %s\n", "Hora entrada", txt_horaEntradaSV.getText()));
+             ticketContent.append(String.format("%-20s: %s\n", "Hora salida", txt_HorasalidaSV.getText()));
+              ticketContent.append(String.format("%-20s: %s\n", "Tiempo", lb_tiempoSV.getText()));
+            ticketContent.append(String.format("%-20s: %s\n", "Fecha", txt_fechaEH.getText()));
+            ticketContent.append(String.format("%-20s: %d\n", "Lugar", (int) jsp_lugarSV.getValue()));
+            ticketContent.append(String.format("%-20s: %s\n", "Costo", txt_costoSV.getText()));
+
+            ticketContent.append("\n==============================================================\n");
+            ticketContent.append("                  ¡GRACIAS POR USAR NUESTRO SERVICIO!          \n");
+            ticketContent.append("==============================================================\n");
+
+            // Mostrar el contenido del ticket en el área de texto
+            txtA_ticketSV.setText(ticketContent.toString());
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró el estacionamiento con ese ID.");
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al obtener los datos: " + e.getMessage());
+    } finally {
+        try {
+            if (con != null) con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+}
+    
+    private void lb_ticketSVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_ticketSVMouseClicked
+        datosTicketsalidaVehiculos();
+    }//GEN-LAST:event_lb_ticketSVMouseClicked
+
+    private void lb_pagarSVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_pagarSVMouseClicked
+     // Obtener los datos desde la UI
+    String placa = cb_placaSV.getSelectedItem().toString();
+    String idHestacionamiento = txt_idEstSV.getText();
+    String horaEntrada = txt_horaEntradaSV.getText();
+    String horaSalida = txt_HorasalidaSV.getText();
+    String tiempoTotal = lb_tiempoSV.getText();  // Tiempo total que ya se muestra en el JLabel
+    String fecha = txt_fechaSV.getText();
+    String costoTotalStr = txt_costoSV.getText(); // El costo total calculado que se muestra en el JTextField
+    int lugar = (int) jsp_lugarSV.getValue(); // El lugar de estacionamiento desde el JSpinner
+
+    // Extraer el valor de costo total
+    double costoTotal = Double.parseDouble(costoTotalStr.replace("$", "").trim()); // Eliminar el signo '$' y convertir a double
+
+    Connection con = null;
+    try {
+        con = conexion.getConection(); // Conexión a la base de datos
+
+        // Registrar la salida del vehículo en la tabla salida_vehiculo
+        String queryInsertarSalida = "INSERT INTO salida_vehiculo (id_HEstacionamiento, Hora_entrada, Hora_salida, Tiempo, Fecha, id_Espacio, Costo) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement pstInsertarSalida = con.prepareStatement(queryInsertarSalida);
+        
+        // Obtener la hora de salida como la hora actual
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        java.util.Date salida = new java.util.Date();
+        String horaSalidaActual = sdf.format(salida); // La hora actual de salida
+
+        // Establecer los parámetros para el INSERT
+        pstInsertarSalida.setString(1, idHestacionamiento); // id_HEstacionamiento
+        pstInsertarSalida.setString(2, horaEntrada); // Hora de entrada
+        pstInsertarSalida.setString(3, horaSalidaActual); // Hora de salida
+        pstInsertarSalida.setString(4, tiempoTotal); // Tiempo total
+        pstInsertarSalida.setString(5, fecha); // Fecha
+        pstInsertarSalida.setInt(6, lugar); // id_Espacio
+        pstInsertarSalida.setDouble(7, costoTotal); // Costo total
+        
+        pstInsertarSalida.executeUpdate(); // Insertar en salida_vehiculo
+        
+        // Eliminar el vehículo de la tabla h_estacionamiento
+        String queryEliminarEstacionamiento = "DELETE FROM h_estacionamiento WHERE Placa = ?";
+        PreparedStatement pstEliminarEstacionamiento = con.prepareStatement(queryEliminarEstacionamiento);
+        pstEliminarEstacionamiento.setString(1, placa);
+        pstEliminarEstacionamiento.executeUpdate(); // Eliminar el vehículo
+        
+        // Desocupar el lugar de estacionamiento en la tabla espacio_lugar
+        String queryDesocuparLugar = "UPDATE espacio_lugar SET espaciodisp_ocup = 'Disponible' WHERE id_espacio = ?";
+        PreparedStatement pstDesocuparLugar = con.prepareStatement(queryDesocuparLugar);
+        pstDesocuparLugar.setInt(1, lugar);
+        pstDesocuparLugar.executeUpdate(); // Desocupar el lugar
+        
+        // Mostrar mensaje de éxito
+        JOptionPane.showMessageDialog(this, "Pago realizado con éxito. El vehículo ha sido registrado en la salida y el lugar ha sido desocupado.");
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error al procesar el pago: " + e.getMessage());
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage());
+    } finally {
+        try {
+            if (con != null) {
+                con.close(); // Cerrar la conexión
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+    }//GEN-LAST:event_lb_pagarSVMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -5096,6 +5377,7 @@ private void iniciarActualizacionPeriodica() {
     private Clases.PanelRound btn_registros;
     private Clases.PanelRound btn_renovar;
     private Clases.PanelRound btn_ticket;
+    private Clases.PanelRound btn_ticketSV;
     private Clases.PanelRound btn_usuarios;
     private Clases.PanelRound btn_vehiculo;
     private javax.swing.JComboBox<String> cb_marca;
@@ -5191,13 +5473,9 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
-    private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabel90;
-    private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
-    private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel96;
@@ -5249,11 +5527,6 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JPanel jp1;
     private javax.swing.JPanel jp10;
     private javax.swing.JPanel jp11;
@@ -5294,12 +5567,15 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JPanel jp_vehiculo;
     private javax.swing.JSpinner jsp_lugarEH;
     private javax.swing.JSpinner jsp_lugarMD;
+    private javax.swing.JSpinner jsp_lugarSV;
     private javax.swing.JTable jtb_registros;
     private javax.swing.JLabel lb_HorayFraccion;
     private javax.swing.JLabel lb_actualizar;
     private javax.swing.JLabel lb_actualizarV;
     private javax.swing.JLabel lb_buscar;
+    private javax.swing.JLabel lb_buscarSV;
     private javax.swing.JLabel lb_buscarV;
+    private javax.swing.JLabel lb_calcularTiemCost;
     private javax.swing.JLabel lb_cerrarsesion;
     private javax.swing.JLabel lb_consultarR;
     private javax.swing.JLabel lb_dueñoMD;
@@ -5315,6 +5591,7 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JLabel lb_minmax;
     private javax.swing.JLabel lb_mostrarUC;
     private javax.swing.JLabel lb_nombreUsuario;
+    private javax.swing.JLabel lb_pagarSV;
     private javax.swing.JLabel lb_registrar;
     private javax.swing.JLabel lb_registrarEH;
     private javax.swing.JLabel lb_registrarV;
@@ -5324,7 +5601,9 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JLabel lb_salida;
     private javax.swing.JLabel lb_salidaVehiculos;
     private javax.swing.JLabel lb_ticket;
+    private javax.swing.JLabel lb_ticketSV;
     private javax.swing.JLabel lb_tiempo;
+    private javax.swing.JLabel lb_tiempoSV;
     private javax.swing.JLabel lb_usuarios;
     private javax.swing.JLabel lb_vehiculo;
     private Clases.PanelRound panelRound1;
@@ -5337,7 +5616,9 @@ private void iniciarActualizacionPeriodica() {
     private Clases.PanelRound panelRound8;
     private javax.swing.JTextArea txtA_ticketEH;
     private javax.swing.JTextArea txtA_ticketMD;
+    private javax.swing.JTextArea txtA_ticketSV;
     private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JTextField txt_HorasalidaSV;
     private javax.swing.JTextField txt_color;
     private javax.swing.JTextField txt_costoMD;
     private javax.swing.JTextField txt_costoSV;
@@ -5346,7 +5627,9 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JTextField txt_empleadoMD;
     private javax.swing.JTextField txt_fechaEH;
     private javax.swing.JTextField txt_fechaMD;
+    private javax.swing.JTextField txt_fechaSV;
     private javax.swing.JTextField txt_horaEH;
+    private javax.swing.JTextField txt_horaEntradaSV;
     private javax.swing.JTextField txt_horaMD;
     private javax.swing.JTextField txt_idEstSV;
     private javax.swing.JTextField txt_identificacionMD;
