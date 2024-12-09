@@ -858,7 +858,7 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_cerrarsesion.setLayout(btn_cerrarsesionLayout);
         btn_cerrarsesionLayout.setHorizontalGroup(
             btn_cerrarsesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_cerrarsesion, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+            .addComponent(lb_cerrarsesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
         );
         btn_cerrarsesionLayout.setVerticalGroup(
             btn_cerrarsesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -954,9 +954,9 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addComponent(btn_Lugares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(57, 57, 57)
                 .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
 
         getContentPane().add(IZQ2, java.awt.BorderLayout.LINE_START);
