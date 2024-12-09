@@ -54,8 +54,11 @@ public class Menu_admin extends javax.swing.JFrame {
         actualizarColores(); // Actualizar los colores según la base de datos
         iniciarActualizacionPeriodica();//Actualiza
         
-        consultas.RellenarComboBox("estacionamiento", "id_estacionamiento",CB_estacionamiento);
+         consultas.RellenarComboBox("estacionamiento", "id_estacionamiento",CB_estacionamiento);
          consultas.RellenarComboBox("vehiculo", "Placa",cb_placaMD); 
+         consultas.RellenarComboBox("vehiculo", "Placa",cb_placaEH); 
+         consultas.RellenarComboBox("vehiculo", "Placa",cb_placaSV); 
+         
          
         tiempo(); //Lama el metodo para mostrarlo
         
@@ -333,12 +336,9 @@ private void iniciarActualizacionPeriodica() {
         jp_HorayFraccion = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        txt_idEstEH = new javax.swing.JTextField();
         jSeparator23 = new javax.swing.JSeparator();
         jLabel39 = new javax.swing.JLabel();
         cb_placaEH = new javax.swing.JComboBox<>();
-        jSeparator24 = new javax.swing.JSeparator();
         jLabel40 = new javax.swing.JLabel();
         txt_horaEH = new javax.swing.JTextField();
         jSeparator25 = new javax.swing.JSeparator();
@@ -351,7 +351,7 @@ private void iniciarActualizacionPeriodica() {
         jSeparator26 = new javax.swing.JSeparator();
         jSeparator27 = new javax.swing.JSeparator();
         panelRound1 = new Clases.PanelRound();
-        jLabel44 = new javax.swing.JLabel();
+        lb_registrarEH = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtA_ticketEH = new javax.swing.JTextArea();
@@ -433,7 +433,7 @@ private void iniciarActualizacionPeriodica() {
         jLabel79 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
         jLabel81 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        cb_placaSV = new javax.swing.JComboBox<>();
         jLabel85 = new javax.swing.JLabel();
         jLabel86 = new javax.swing.JLabel();
         jLabel87 = new javax.swing.JLabel();
@@ -871,13 +871,14 @@ private void iniciarActualizacionPeriodica() {
         btn_cerrarsesion.setLayout(btn_cerrarsesionLayout);
         btn_cerrarsesionLayout.setHorizontalGroup(
             btn_cerrarsesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_cerrarsesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+            .addComponent(lb_cerrarsesion, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
         );
         btn_cerrarsesionLayout.setVerticalGroup(
             btn_cerrarsesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lb_cerrarsesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logo.png"))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Louis George Cafe", 1, 18)); // NOI18N
@@ -922,10 +923,6 @@ private void iniciarActualizacionPeriodica() {
         IZQ2Layout.setHorizontalGroup(
             IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IZQ2Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(IZQ2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_vehiculo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -939,9 +936,11 @@ private void iniciarActualizacionPeriodica() {
                                 .addComponent(btn_HorayFracc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btn_Lugares, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)))
+                            .addGroup(IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, IZQ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         IZQ2Layout.setVerticalGroup(
@@ -967,9 +966,9 @@ private void iniciarActualizacionPeriodica() {
                 .addComponent(btn_Lugares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(18, 18, 18)
                 .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(279, Short.MAX_VALUE))
+                .addContainerGap(510, Short.MAX_VALUE))
         );
 
         getContentPane().add(IZQ2, java.awt.BorderLayout.LINE_START);
@@ -997,7 +996,7 @@ private void iniciarActualizacionPeriodica() {
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(199, 199, 199)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(451, Short.MAX_VALUE))
         );
 
         centro.add(jp_principal, "card2");
@@ -2155,7 +2154,7 @@ private void iniciarActualizacionPeriodica() {
                     .addComponent(btn_consultarR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addContainerGap(460, Short.MAX_VALUE))
         );
 
         centro.add(jp_registros, "card5");
@@ -2168,27 +2167,10 @@ private void iniciarActualizacionPeriodica() {
         jLabel37.setForeground(new java.awt.Color(102, 102, 102));
         jLabel37.setText("Estacionamiento x hora");
 
-        jLabel38.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
-        jLabel38.setText("id_estacionamiento");
-
-        txt_idEstEH.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        txt_idEstEH.setForeground(new java.awt.Color(102, 102, 102));
-        txt_idEstEH.setText("Ingrese el ID del cajón");
-        txt_idEstEH.setBorder(null);
-        txt_idEstEH.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                txt_idEstEHMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txt_idEstEHMousePressed(evt);
-            }
-        });
-
         jLabel39.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel39.setText("Placa");
 
         cb_placaEH.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        cb_placaEH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cb_placaEH.setBorder(null);
 
         jLabel40.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
@@ -2212,7 +2194,7 @@ private void iniciarActualizacionPeriodica() {
         jsp_lugarEH.setModel(new javax.swing.SpinnerNumberModel(0, 0, 30, 1));
 
         jLabel43.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
-        jLabel43.setText("Empleado");
+        jLabel43.setText("Empleado ID");
 
         txt_empleadoEH.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txt_empleadoEH.setText("jTextField15");
@@ -2229,15 +2211,15 @@ private void iniciarActualizacionPeriodica() {
         panelRound1.setRoundTopLeft(40);
         panelRound1.setRoundTopRight(40);
 
-        jLabel44.setBackground(new java.awt.Color(116, 9, 56));
-        jLabel44.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel44.setText("REGISTRAR");
-        jLabel44.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel44.addMouseListener(new java.awt.event.MouseAdapter() {
+        lb_registrarEH.setBackground(new java.awt.Color(116, 9, 56));
+        lb_registrarEH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lb_registrarEH.setForeground(new java.awt.Color(255, 255, 255));
+        lb_registrarEH.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_registrarEH.setText("REGISTRAR");
+        lb_registrarEH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lb_registrarEH.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel44MouseClicked(evt);
+                lb_registrarEHMouseClicked(evt);
             }
         });
 
@@ -2245,11 +2227,11 @@ private void iniciarActualizacionPeriodica() {
         panelRound1.setLayout(panelRound1Layout);
         panelRound1Layout.setHorizontalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel44, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+            .addComponent(lb_registrarEH, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+            .addComponent(lb_registrarEH, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
         jLabel45.setFont(new java.awt.Font("Louis George Cafe", 1, 16)); // NOI18N
@@ -2295,33 +2277,27 @@ private void iniciarActualizacionPeriodica() {
         jp_HorayFraccionLayout.setHorizontalGroup(
             jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(56, 56, 56)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_ticket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(131, 131, 131))
+                .addGap(163, 163, 163))
             .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel40)
-                                .addComponent(jLabel39)
-                                .addComponent(jLabel38))))
+                        .addGap(76, 76, 76)
+                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel40)
+                            .addComponent(jLabel39)
+                            .addComponent(cb_placaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator23, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_horaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jLabel36)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_horaEH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cb_placaEH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_idEstEH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel37)))
                 .addGap(90, 90, 90)
                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel41)
@@ -2333,11 +2309,11 @@ private void iniciarActualizacionPeriodica() {
                     .addComponent(jSeparator26)
                     .addComponent(jSeparator27)
                     .addComponent(jSeparator37))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE))
-                .addGap(62, 62, 62))
+                .addGap(88, 88, 88))
         );
         jp_HorayFraccionLayout.setVerticalGroup(
             jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2352,50 +2328,49 @@ private void iniciarActualizacionPeriodica() {
                         .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
                                 .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel38)
-                                    .addComponent(jLabel41))
+                                    .addComponent(jLabel41)
+                                    .addComponent(jLabel39))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txt_fechaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_idEstEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(2, 2, 2)
+                                    .addComponent(cb_placaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator23, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator37, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
-                                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel42)
-                                    .addComponent(jLabel39))
-                                .addGap(7, 7, 7)
-                                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(cb_placaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jsp_lugarEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(2, 2, 2)
-                                .addComponent(jSeparator24, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jSeparator26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel43))
+                                .addComponent(jLabel42)
+                                .addGap(8, 8, 8)
+                                .addComponent(jsp_lugarEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HorayFraccionLayout.createSequentialGroup()
+                                .addComponent(jLabel40)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSeparator26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_horaEH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel43)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_horaEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_empleadoEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_empleadoEH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
-                        .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addComponent(jLabel45)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane5)))
-                .addGap(56, 56, 56)
-                .addComponent(btn_ticket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(270, 270, 270))
+                .addGroup(jp_HorayFraccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_HorayFraccionLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btn_ticket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(621, 621, 621))
         );
 
         centro.add(jp_HorayFraccion, "card6");
@@ -3043,11 +3018,10 @@ private void iniciarActualizacionPeriodica() {
         jp_salidaVehiculos.add(jLabel81);
         jLabel81.setBounds(50, 116, 60, 19);
 
-        jComboBox5.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox5.setBorder(null);
-        jp_salidaVehiculos.add(jComboBox5);
-        jComboBox5.setBounds(50, 142, 250, 40);
+        cb_placaSV.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        cb_placaSV.setBorder(null);
+        jp_salidaVehiculos.add(cb_placaSV);
+        cb_placaSV.setBounds(50, 142, 250, 40);
 
         jLabel85.setFont(new java.awt.Font("Louis George Cafe", 0, 16)); // NOI18N
         jLabel85.setText("Fecha");
@@ -4299,11 +4273,10 @@ private void iniciarActualizacionPeriodica() {
             ticketContent.append("                    ESTACIONAMIENTO POR HORA                   \n");
             ticketContent.append("--------------------------------------------------------------\n\n");
 
-            ticketContent.append(String.format("%-20s: %s\n", "ID Vehículo", txt_idEstEH.getText()));
             ticketContent.append(String.format("%-20s: %s\n", "Placa", cb_placaEH.getSelectedItem().toString()));
             ticketContent.append(String.format("%-20s: %s\n", "Hora", txt_horaEH.getText()));
             ticketContent.append(String.format("%-20s: %s\n", "Fecha", txt_fechaEH.getText()));
-            ticketContent.append(String.format("%-20s: %d\n", "Lugar", (int) jsp_lugarMD.getValue()));
+            ticketContent.append(String.format("%-20s: %d\n", "Lugar", (int) jsp_lugarEH.getValue()));
             ticketContent.append(String.format("%-20s: %s\n", "Empleado", txt_empleadoEH.getText()));
 
             ticketContent.append("\n==============================================================\n");
@@ -4334,13 +4307,74 @@ private void iniciarActualizacionPeriodica() {
         
     }//GEN-LAST:event_lb_ticketMouseClicked
 
-    private void jLabel44MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel44MouseClicked
+    private void lb_registrarEHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_registrarEHMouseClicked
          
+        String placa = cb_placaEH.getSelectedItem().toString();
+    String hora = txt_horaEH.getText();
+    String fecha = txt_fechaEH.getText();
+    int lugar = (int) jsp_lugarEH.getValue();
+    String empleado = txt_empleadoEH.getText();
+
+    Connection con = null;
+
+    try {
+        con = conexion.getConection();
+
+        // Verificar si el lugar de estacionamiento está disponible
+        String queryCheckLugar = "SELECT espaciodisp_ocup FROM espacio_lugar WHERE id_espacio = ?";
+        PreparedStatement pstCheckLugar = con.prepareStatement(queryCheckLugar);
+        pstCheckLugar.setInt(1, lugar);
+        ResultSet rs = pstCheckLugar.executeQuery();
+
+        if (rs.next()) {
+            String estado = rs.getString("espaciodisp_ocup");
+            if ("Ocupado".equalsIgnoreCase(estado)) {
+                JOptionPane.showMessageDialog(this, "El lugar de estacionamiento ya está ocupado. Seleccione otro lugar.");
+                return;
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "El lugar de estacionamiento no existe.");
+            return;
+        }
+
+        // Registrar el estacionamiento en la tabla h_estacionamiento
+        String queryRegistrarEstacionamiento = "INSERT INTO h_estacionamiento (Placa, Hora, Fecha, Id_Espacio, id_usuario) VALUES (?, ?, ?, ?, ?)";
+        PreparedStatement pstRegistrarEstacionamiento = con.prepareStatement(queryRegistrarEstacionamiento);
+        pstRegistrarEstacionamiento.setString(1, placa);
+        pstRegistrarEstacionamiento.setString(2, hora);
+        pstRegistrarEstacionamiento.setString(3, fecha);
+        pstRegistrarEstacionamiento.setInt(4, lugar);
+        pstRegistrarEstacionamiento.setString(5, empleado);
+        pstRegistrarEstacionamiento.executeUpdate();
+
+        // Actualizar el estado del lugar a "Ocupado"
+        String queryActualizarLugar = "UPDATE espacio_lugar SET espaciodisp_ocup = 'Ocupado' WHERE id_espacio = ?";
+        PreparedStatement pstActualizarLugar = con.prepareStatement(queryActualizarLugar);
+        pstActualizarLugar.setInt(1, lugar);
+        pstActualizarLugar.executeUpdate();
+
+        // Generar el ticket
+        datosTicketMembresia(); // Llama al método para generar el ticket
+
+        // Imprimir el ticket
+        txtA_ticketEH.print(); 
+
+        JOptionPane.showMessageDialog(this, "Registro de estacionamiento completado y ticket impreso.");
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error al registrar el estacionamiento: " + e.getMessage());
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al imprimir el ticket: " + e.getMessage());
+    } finally {
         try {
-            txtA_ticketEH.print();
-            } catch (Exception e) {
-         }
-    }//GEN-LAST:event_jLabel44MouseClicked
+            if (con != null) {
+                con.close();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+        
+    }//GEN-LAST:event_lb_registrarEHMouseClicked
 
     private void txt_horaMDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_horaMDActionPerformed
         // TODO add your handling code here:
@@ -4512,39 +4546,6 @@ private void iniciarActualizacionPeriodica() {
             txt_costoSV.setForeground(Color.black);
         }
     }//GEN-LAST:event_txt_costoSVMousePressed
-
-    private void txt_idEstEHMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_idEstEHMouseExited
-        if (txt_idEstEH.getText().isEmpty()) {
-            txt_idEstEH.setText("Ingrese el ID del cajón");
-            txt_idEstEH.setForeground(new Color(102, 102, 102));
-        }
-    }//GEN-LAST:event_txt_idEstEHMouseExited
-
-    private void txt_idEstEHMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_idEstEHMousePressed
-        if (txt_idEstEH.getText().equals("Ingrese el ID del cajón")) {
-            txt_idEstEH.setText("");
-            txt_idEstEH.setForeground(Color.black);
-        }
-
-        txt_idEstEH.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-
-                // Validar que solo se ingresen números
-                if (!Character.isDigit(c)) {
-                    e.consume();  // Bloquea la entrada si no es un número
-                    JOptionPane.showMessageDialog(null, "Solo se permiten números.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                }
-
-                // Si el texto ya tiene 8 caracteres y se intenta ingresar más, se bloquea la entrada
-                if (txt_idEstEH.getText().length() >= 8) {
-                    e.consume();  // Bloquea la entrada de más caracteres
-                    JOptionPane.showMessageDialog(null, "Ingreso más de los caracteres esperados (8 caracteres)", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                }
-            }
-        });
-    }//GEN-LAST:event_txt_idEstEHMousePressed
 
     private void btn_registrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registrarMouseEntered
         // Comparar el texto del botón con "registrar"
@@ -4795,7 +4796,7 @@ private void iniciarActualizacionPeriodica() {
                 ticketContent.append("                    ESTACIONAMIENTO POR MEMBRESIA                   \n");
                 ticketContent.append("--------------------------------------------------------------\n\n");
 
-                ticketContent.append(String.format("%-20s: %s\n", "ID membresia", txt_idEstEH.getText()));
+                ticketContent.append(String.format("%-20s: %s\n", "ID membresia", txt_idmembresiaMD.getText()));
                 ticketContent.append(String.format("%-20s: %s\n", "Placa", placa));
                 ticketContent.append(String.format("%-20s: %s\n", "Hora", txt_horaEH.getText()));
                 ticketContent.append(String.format("%-20s: %s\n", "Fecha", txt_fechaEH.getText()));
@@ -5100,12 +5101,12 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JComboBox<String> cb_marca;
     private javax.swing.JComboBox<String> cb_placaEH;
     private javax.swing.JComboBox<String> cb_placaMD;
+    private javax.swing.JComboBox<String> cb_placaSV;
     private javax.swing.JComboBox<String> cb_tablas;
     private javax.swing.JComboBox<String> cb_tipo;
     private javax.swing.JPanel centro;
     private javax.swing.JComboBox<String> cmbRol1;
     private javax.swing.JPanel header;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel101;
@@ -5137,14 +5138,12 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
@@ -5230,7 +5229,6 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JSeparator jSeparator21;
     private javax.swing.JSeparator jSeparator22;
     private javax.swing.JSeparator jSeparator23;
-    private javax.swing.JSeparator jSeparator24;
     private javax.swing.JSeparator jSeparator25;
     private javax.swing.JSeparator jSeparator26;
     private javax.swing.JSeparator jSeparator27;
@@ -5318,6 +5316,7 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JLabel lb_mostrarUC;
     private javax.swing.JLabel lb_nombreUsuario;
     private javax.swing.JLabel lb_registrar;
+    private javax.swing.JLabel lb_registrarEH;
     private javax.swing.JLabel lb_registrarV;
     private javax.swing.JLabel lb_registros;
     private javax.swing.JLabel lb_renovar;
@@ -5349,7 +5348,6 @@ private void iniciarActualizacionPeriodica() {
     private javax.swing.JTextField txt_fechaMD;
     private javax.swing.JTextField txt_horaEH;
     private javax.swing.JTextField txt_horaMD;
-    private javax.swing.JTextField txt_idEstEH;
     private javax.swing.JTextField txt_idEstSV;
     private javax.swing.JTextField txt_identificacionMD;
     private javax.swing.JTextField txt_idmembresiaMD;
