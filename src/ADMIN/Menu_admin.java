@@ -860,16 +860,27 @@ private void iniciarActualizacionPeriodica() {
             .addComponent(lb_salidaVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
-        btn_cerrarsesion.setBackground(new java.awt.Color(175, 23, 64));
+        btn_cerrarsesion.setBackground(new java.awt.Color(160, 21, 62));
         btn_cerrarsesion.setRoundBottomLeft(37);
         btn_cerrarsesion.setRoundBottomRight(37);
         btn_cerrarsesion.setRoundTopLeft(37);
         btn_cerrarsesion.setRoundTopRight(37);
 
-        lb_cerrarsesion.setFont(new java.awt.Font("Altone Trial", 0, 14)); // NOI18N
+        lb_cerrarsesion.setFont(new java.awt.Font("Altone Trial", 1, 14)); // NOI18N
         lb_cerrarsesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_cerrarsesion.setText("Cerrar sesión");
         lb_cerrarsesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lb_cerrarsesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_cerrarsesionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_cerrarsesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_cerrarsesionMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_cerrarsesionLayout = new javax.swing.GroupLayout(btn_cerrarsesion);
         btn_cerrarsesion.setLayout(btn_cerrarsesionLayout);
@@ -972,7 +983,7 @@ private void iniciarActualizacionPeriodica() {
                 .addComponent(btn_SalVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_cerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(510, Short.MAX_VALUE))
+                .addContainerGap(514, Short.MAX_VALUE))
         );
 
         getContentPane().add(IZQ2, java.awt.BorderLayout.LINE_START);
@@ -1000,7 +1011,7 @@ private void iniciarActualizacionPeriodica() {
             .addGroup(jp_principalLayout.createSequentialGroup()
                 .addGap(199, 199, 199)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(451, Short.MAX_VALUE))
+                .addContainerGap(455, Short.MAX_VALUE))
         );
 
         centro.add(jp_principal, "card2");
@@ -2158,7 +2169,7 @@ private void iniciarActualizacionPeriodica() {
                     .addComponent(btn_consultarR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(460, Short.MAX_VALUE))
+                .addContainerGap(464, Short.MAX_VALUE))
         );
 
         centro.add(jp_registros, "card5");
@@ -5318,6 +5329,40 @@ private void iniciarActualizacionPeriodica() {
         }
     }
     }//GEN-LAST:event_lb_pagarSVMouseClicked
+
+    private void lb_cerrarsesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_cerrarsesionMouseClicked
+         // Mostrar un mensaje de confirmación antes de cerrar la sesión
+    int opcion = JOptionPane.showConfirmDialog(this, 
+                                               "¿Seguro deseas salir de la sesión?", 
+                                               "Confirmar salida", 
+                                               JOptionPane.YES_NO_OPTION, 
+                                               JOptionPane.QUESTION_MESSAGE);
+
+    if (opcion == JOptionPane.YES_OPTION) {
+        // Aquí puedes colocar el código para regresar a la pantalla de login
+        // Por ejemplo, si estás usando un JFrame para la pantalla de login:
+
+        // Cerrar la ventana actual (donde está la sesión activa)
+        this.dispose();  // Cierra la ventana actual
+
+        // Crear una nueva instancia del JFrame del login
+        login_admin loginFrame = new login_admin();  // Sustituye "LoginFrame" por el nombre de tu clase de login
+        loginFrame.setVisible(true);  // Muestra el JFrame del login
+    } else {
+        // Si el usuario selecciona "No", no hacer nada
+        return;
+    }
+    }//GEN-LAST:event_lb_cerrarsesionMouseClicked
+
+    private void lb_cerrarsesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_cerrarsesionMouseEntered
+         btn_cerrarsesion.setBackground(new Color(255, 32, 78)); //rgb(255, 32, 78)
+            lb_cerrarsesion.setForeground(Color.WHITE);
+    }//GEN-LAST:event_lb_cerrarsesionMouseEntered
+
+    private void lb_cerrarsesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_cerrarsesionMouseExited
+        btn_cerrarsesion.setBackground(new Color(160, 21, 62)); //rgb(160, 21, 62)
+            lb_cerrarsesion.setForeground(new Color(187, 187, 187)); 
+    }//GEN-LAST:event_lb_cerrarsesionMouseExited
 
     /**
      * @param args the command line arguments
